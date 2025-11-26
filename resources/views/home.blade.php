@@ -47,7 +47,9 @@
                 </svg>
             </button>
         </div>
-        <section class="py-12 bg-white">
+        <section class="py-12 bg-white transition-all duration-2000 ease-out" x-data="{ shown: false }"
+            x-intersect.threshold.0.3="shown = true"
+            :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'">
             <div class="max-w-7xl mx-auto px-6 lg:px-8">
                 <div class="text-center mb-16">
                     <div class="flex items-center justify-center gap-4 mb-4">
@@ -228,7 +230,9 @@
                 </div>
             </div>
         </section>
-        <section class="py-24 bg-white" x-data="{ activeTab: 'visi' }">
+        <section class="py-24 bg-white transition-all duration-1000 ease-out" x-data="{ activeTab: 'visi', shown: false }"
+            x-intersect.threshold.0.2="shown = true"
+            :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'">
             <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
                 <div class="flex justify-center mb-12 border-b border-gray-200">
@@ -327,7 +331,9 @@
 
             </div>
         </section>
-        <section class="py-16 bg-white">
+        <section class="py-16 bg-white transition-all duration-1000 ease-out" x-data="{ shown: false }"
+            x-intersect.threshold.0.1="shown = true"
+            :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'">
             <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
                 <div class="text-center mb-16">

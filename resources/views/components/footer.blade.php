@@ -1,4 +1,4 @@
-<footer class="bg-brand-navy text-white pt-16 pb-8 relative overflow-hidden">
+<footer class="bg-brand-navy text-white pt-16 pb-8 relative overflow-hidden ">
 
     <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
         <svg class="absolute -right-20 -bottom-20 w-96 h-96 text-white" fill="currentColor" viewBox="0 0 200 200">
