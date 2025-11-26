@@ -5,7 +5,7 @@
             <div class="flex items-center gap-3">
                 <img class="h-10 w-auto" src="assets/img/Logo-09.png" alt="Logo Indoteknik">
                 <span class="text-white font-bold text-xl tracking-wide hidden sm:block">
-                    INDOTEKNIK
+                    INDO<span class="text-brand-orange">TEKNIK</span>
                 </span>
             </div>
 
