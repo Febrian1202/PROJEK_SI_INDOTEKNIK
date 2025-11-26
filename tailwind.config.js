@@ -7,7 +7,12 @@ export default {
     ],
     theme: {
         extend: {
+            fontFamily: {
+                // Ubah 'Inter' menjadi 'Poppins'
+                sans: ['Poppins', 'sans-serif'], 
+            },
             colors: {
+                
                 // Menambahkan warna kustom dari logo
                 brand: {
                     navy: '#041E37',   // Biru Gelap (Teks PT)
