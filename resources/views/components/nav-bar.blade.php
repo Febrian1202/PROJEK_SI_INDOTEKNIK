@@ -1,6 +1,6 @@
 <nav id="main-nav" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b border-transparent">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="flex h-20 items-center justify-between">
+        <div class="flex h-16 items-center justify-between">
             
             <div class="flex items-center gap-3">
                 <img class="h-10 w-auto" src="assets/img/Logo-09.png" alt="Logo Indoteknik">
