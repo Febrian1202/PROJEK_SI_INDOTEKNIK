@@ -10,19 +10,23 @@
             </div>
 
             <div class="hidden md:block">
-                <div class="ml-10 flex items-baseline space-x-4">
-                    <a href="#" class="bg-brand-blue text-white rounded-md px-3 py-2 text-sm font-medium">
+                <div class="ml-10 flex items-baseline space-x-8">
+                    <a href="#" class="relative group text-white font-bold text-base px-1 py-2">
                         Beranda
+                        <span class="absolute bottom-0 left-0 w-full h-0.5 bg-brand-orange rounded-full"></span>
                     </a>
 
-                    <a href="#" class="text-gray-300 hover:bg-brand-orange hover:text-white rounded-md px-3 py-2 text-sm font-medium transition duration-300">
+                    <a href="#" class="relative group text-gray-300 hover:text-white font-medium text-base px-1 py-2 transition-colors duration-300">
                         Tentang Kami
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-orange transition-all duration-300 ease-out group-hover:w-full rounded-full"></span>
                     </a>
-                    <a href="#" class="text-gray-300 hover:bg-brand-orange hover:text-white rounded-md px-3 py-2 text-sm font-medium transition duration-300">
+                    <a href="#" class="relative group text-gray-300 hover:text-white font-medium text-base px-1 py-2 transition-colors duration-300">
                         Layanan
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-orange transition-all duration-300 ease-out group-hover:w-full rounded-full"></span>
                     </a>
-                    <a href="#" class="text-gray-300 hover:bg-brand-orange hover:text-white rounded-md px-3 py-2 text-sm font-medium transition duration-300">
+                    <a href="#" class="relative group text-gray-300 hover:text-white font-medium text-base px-1 py-2 transition-colors duration-300">
                         Kontak
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-orange transition-all duration-300 ease-out group-hover:w-full rounded-full"></span>
                     </a>
                 </div>
             </div>

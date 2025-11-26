@@ -44,7 +44,7 @@
                 </svg>
             </button>
         </div>
-        <section class="py-24 bg-white">
+        <section class="py-12 bg-white">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="text-center mb-16">
                 <div class="flex items-center justify-center gap-4 mb-4">
@@ -62,7 +62,7 @@
                 <div class="group bg-white p-8 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100 hover:-translate-y-2 transition-all duration-300 hover:shadow-xl hover:border-brand-blue/20">
                     <div class="mb-6 inline-block p-4 bg-brand-gray rounded-xl text-brand-navy group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300">
                         <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="xM19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                         </svg>
                     </div>
                     <h3 class="text-xl font-bold text-brand-navy mb-3 group-hover:text-brand-blue transition-colors">Layanan Konstruksi Umum</h3>
@@ -170,7 +170,7 @@
             </div>
         </div>
     </section>
-    <section class="py-24 bg-gray-50" x-data="{ activeTab: 'visi' }">
+    <section class="py-24 bg-white" x-data="{ activeTab: 'visi' }">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             
             <div class="flex justify-center mb-12 border-b border-gray-200">
