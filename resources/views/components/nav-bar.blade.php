@@ -32,7 +32,7 @@
             </div>
 
             <div class="hidden md:block">
-                <a href="#" class="bg-brand-orange hover:bg-orange-600 text-white font-bold py-2 px-6 rounded-full shadow-lg transition transform hover:scale-105">
+                <a href="/login" class="bg-brand-orange hover:bg-orange-600 text-white font-bold py-2 px-6 rounded-full shadow-lg transition transform hover:scale-105">
                     Login
                 </a>
             </div>
