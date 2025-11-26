@@ -4,7 +4,7 @@
         <div class="relative w-full h-screen">
 
             <div class="absolute inset-0 bg-cover bg-center"
-                style="background-image: url('{{ asset('assets/hero-bg.jpg') }}');">
+                style="background-image: url('assets/img/pexels-yury-kim-181374-585419.jpg')">
             </div>
 
             <div class="absolute inset-0 bg-black/60"></div>
