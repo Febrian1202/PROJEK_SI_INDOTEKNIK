@@ -8,8 +8,10 @@ class HomeController extends Controller
 {
     //
     public function index()
-    {
-        // Logika dari route tadi dipindah ke sini
-        return view('home', ['title' => 'Home']);
-    }
+{
+    // Mengirim variabel $title ke view 'home'
+    return view('home', [
+        'title' => 'Beranda - PT. Indoteknik Prima Mekongga'
+    ]);
+}
 }

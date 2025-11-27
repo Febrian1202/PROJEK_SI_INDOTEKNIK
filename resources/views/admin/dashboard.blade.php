@@ -1,4 +1,5 @@
 <x-admin-layout>
+    <x-slot:title>{{ $title }}</x-slot:title>
     
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex items-center justify-between">

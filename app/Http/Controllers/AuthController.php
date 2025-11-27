@@ -13,13 +13,17 @@ class AuthController extends Controller
     // Menampilkan Halaman Login
     public function showLogin()
     {
-        return view('auth.login');
+        return view('auth.login', [
+            'title' => 'Login'
+        ]);
     }
 
     // Menampilkan Halaman Register
     public function showRegister()
     {
-        return view('auth.register');
+        return view('auth.register', [
+            'title'=> 'Register'
+        ]);
     }
 
     public function processLogin(Request $request)

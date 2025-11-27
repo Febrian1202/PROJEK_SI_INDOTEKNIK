@@ -1,4 +1,5 @@
 <x-layout>
+    <x-slot:title>{{ $title }}</x-slot:title>
 <body class="font-sans antialiased bg-gray-50">
 
     <div class="min-h-screen flex flex-col items-center justify-center p-6 relative overflow-hidden">

@@ -9,6 +9,8 @@ class DirekturController extends Controller
     //
     public function index()
     {
-        return view('direktur.dashboard');
+        return view('direktur.dashboard', [
+            'title'=> 'Dashboard Direktur',
+        ]);
     }
 }
