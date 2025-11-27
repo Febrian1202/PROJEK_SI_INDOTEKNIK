@@ -1,5 +1,3 @@
-
-
 <nav id="main-nav" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b border-transparent"
     x-data="{ mobileMenuOpen: false, scrolled: false }" @scroll.window="scrolled = (window.scrollY > 50)"
     :class="scrolled ? 'bg-brand-navy shadow-lg border-brand-blue/20 py-2' : 'bg-transparent py-4'">
@@ -96,7 +94,7 @@
                                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-brand-gray hover:text-brand-blue transition-colors">
                                 Dashboard
                             </a>
-                            <a href="#"
+                            <a href="{{ route('profil.index') }}"
                                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-brand-gray hover:text-brand-blue transition-colors">
                                 Profil Saya
                             </a>

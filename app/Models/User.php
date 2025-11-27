@@ -45,4 +45,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    // Relasi: User (Kandidat) punya satu Profil
+    public function kandidatProfil()
+    {
+        return $this->hasOne(KandidatProfil::class, 'user_id');
+    }
 }

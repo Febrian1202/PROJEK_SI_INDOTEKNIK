@@ -6,8 +6,11 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DirekturController;
+use App\Http\Controllers\Admin\SiteController;
+use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\PosisiController;
+use App\Http\Controllers\Admin\DokumenController;
 use App\Http\Controllers\Admin\LamaranController; // <--- Tambahkan \Admin
 
 // 1. Route Halaman Utama (Landing Page)
@@ -32,6 +35,15 @@ Route::controller(AuthController::class)->group(function () {
     
 });
 
+// Route untuk Kandidat / User Umum
+Route::middleware(['auth'])->group(function () {
+    
+    // Halaman Profil Saya
+    Route::get('/profil', [ProfilController::class, 'index'])->name('profil.index');
+    Route::put('/profil', [ProfilController::class, 'update'])->name('profil.update');
+
+});
+
 // --- GROUP ROUTE ADMIN ---
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
@@ -45,6 +57,12 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     
     // Route Manajemen User
     Route::resource('users', UserController::class);
+
+    // Route Master Dokumen
+    Route::resource('dokumen', DokumenController::class);
+
+    // Route Master Site
+    Route::resource('sites', SiteController::class);
 });
 
 // --- GROUP ROUTE DIREKTUR ---
