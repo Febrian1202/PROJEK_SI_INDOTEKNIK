@@ -12,12 +12,12 @@
             
             <div class="mb-6">
                 <label class="block text-sm font-semibold text-gray-700 mb-2">Nama Posisi / Jabatan</label>
-                <input type="text" name="nama_posisi" class="w-full rounded-lg border-gray-300 focus:ring-brand-blue focus:border-brand-blue" placeholder="Contoh: Site Manager" required>
+                <input type="text" name="nama_posisi" class="w-full pl-2 bg-gray-50 shadow-md rounded-md border-gray-300 focus:ring-brand-orange focus:border-brand-orange" placeholder="Contoh: Site Manager" required>
             </div>
 
             <div class="mb-6">
                 <label class="block text-sm font-semibold text-gray-700 mb-2">Deskripsi Pekerjaan</label>
-                <textarea name="deskripsi" rows="4" class="w-full rounded-lg border-gray-300 focus:ring-brand-blue focus:border-brand-blue" placeholder="Jelaskan tanggung jawab dan kualifikasi..."></textarea>
+                <textarea name="deskripsi" rows="4" class="w-full pl-2 bg-gray-50 shadow-md rounded-md border-gray-300 focus:ring-brand-orange focus:border-brand-orange" placeholder="Jelaskan tanggung jawab dan kualifikasi..."></textarea>
             </div>
 
             <div class="mb-8">

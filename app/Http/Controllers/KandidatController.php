@@ -6,6 +6,7 @@ use App\Models\Posisi;
 use App\Models\Lamaran;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class KandidatController extends Controller
 {
@@ -137,5 +138,33 @@ class KandidatController extends Controller
         }
 
         return redirect()->route('kandidat.riwayat')->with('success', 'Lamaran berhasil dikirim! Pantau statusnya di sini.');
+    }
+
+    // 8. BATALKAN LAMARAN
+    public function destroyLamaran($id)
+    {
+        $user = Auth::user();
+        
+        // Cari lamaran milik user ini
+        $lamaran = Lamaran::where('kandidat_id', $user->kandidatProfil->id)
+                          ->findOrFail($id);
+
+        // Validasi: Hanya boleh batal jika status masih 'Baru'
+        if ($lamaran->status !== 'Baru') {
+            return back()->with('error', 'Lamaran yang sudah diproses tidak bisa dibatalkan.');
+        }
+
+        // 1. Hapus File Fisik di Storage
+        foreach ($lamaran->berkas as $berkas) {
+            if (Storage::disk('public')->exists($berkas->path_file)) {
+                Storage::disk('public')->delete($berkas->path_file);
+            }
+            // Hapus record berkas di database (otomatis terhapus via cascade on delete, tapi manual lebih aman untuk file fisik)
+        }
+
+        // 2. Hapus Data Lamaran
+        $lamaran->delete();
+
+        return back()->with('success', 'Lamaran berhasil dibatalkan. Silakan melamar posisi lain.');
     }
 }

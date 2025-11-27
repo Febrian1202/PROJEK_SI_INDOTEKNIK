@@ -62,6 +62,9 @@ Route::middleware(['auth'])->group(function () {
     // Tambahkan 2 Route ini:
     Route::get('/lowongan-kerja/{id}', [KandidatController::class, 'showLowongan'])->name('kandidat.lowongan.show');
     Route::post('/lowongan-kerja/{id}/apply', [KandidatController::class, 'storeLamaran'])->name('kandidat.lowongan.store');
+
+    // Route Batalkan Lamaran
+    Route::delete('/riwayat-lamaran/{id}', [KandidatController::class, 'destroyLamaran'])->name('kandidat.lamaran.destroy');
 });
 
 // --- GROUP ROUTE ADMIN ---
