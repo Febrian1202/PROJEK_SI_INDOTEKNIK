@@ -15,11 +15,10 @@ use App\Http\Controllers\Admin\DokumenController;
 use App\Http\Controllers\Admin\KaryawanController;
 use App\Http\Controllers\Admin\LamaranController; // <--- Tambahkan \Admin
 
-// 1. Route Halaman Utama (Landing Page)
+// Route Halaman Utama (Landing Page)
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-// 2. Route Autentikasi (Guest Only)
-// Grup ini agar rapi & mudah dikelola
+// Route Autentikasi (Guest Only)
 Route::controller(AuthController::class)->group(function () {
     
     // Halaman Login
@@ -71,8 +70,7 @@ Route::middleware(['auth'])->group(function () {
 // --- GROUP ROUTE ADMIN ---
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
-    // Nanti tambah route lain di sini:
-    // Route::resource('lowongan', LowonganController::class);
+    
     // Resource Route untuk CRUD Posisi (Otomatis buat route index, create, store, edit, update, destroy)
     Route::resource('posisi', PosisiController::class);
 
@@ -95,6 +93,4 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 // --- GROUP ROUTE DIREKTUR ---
 Route::middleware(['auth'])->prefix('direktur')->name('direktur.')->group(function () {
     Route::get('/dashboard', [DirekturController::class, 'index'])->name('dashboard');
-    // Nanti tambah route lain di sini:
-    // Route::get('/laporan', [DirekturController::class, 'laporan']);
 });

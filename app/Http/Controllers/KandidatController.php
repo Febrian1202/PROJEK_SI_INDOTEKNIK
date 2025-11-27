@@ -61,9 +61,8 @@ class KandidatController extends Controller
         return view('kandidat.riwayat', compact('lamaran'));
     }
 
-    // ... method lowongan() yang lama ...
 
-    // 6. DETAIL LOWONGAN & FORM LAMAR
+    // DETAIL LOWONGAN & FORM LAMAR
     public function showLowongan($id)
     {
         // Ambil posisi beserta syarat dokumennya
@@ -78,19 +77,19 @@ class KandidatController extends Controller
         return view('kandidat.lowongan.show', compact('posisi', 'sudahLamar'));
     }
 
-    // 7. PROSES LAMAR (UPLOAD BERKAS)
+    // PROSES LAMAR (UPLOAD BERKAS)
     public function storeLamaran(Request $request, $id)
     {
         $user = Auth::user();
         
-        // 1. Validasi Profil
+        // Validasi Profil
         if (!$user->kandidatProfil) {
             return redirect()->route('profil.index')->with('error', 'Lengkapi profil dulu sebelum melamar!');
         }
 
         $posisi = Posisi::with('syaratDokumen')->findOrFail($id);
 
-        // 2. Validasi Input Dokumen Dinamis
+        // Validasi Input Dokumen Dinamis
         $rules = [];
         foreach ($posisi->syaratDokumen as $syarat) {
             if ($syarat->pivot->is_mandatory) {
@@ -106,7 +105,7 @@ class KandidatController extends Controller
             'max' => 'Ukuran maksimal 2MB.'
         ]);
 
-        // 3. Simpan Data Lamaran Utama
+        // Simpan Data Lamaran Utama
         $lamaran = Lamaran::create([
             'kandidat_id' => $user->kandidatProfil->id,
             'posisi_id' => $posisi->id,
@@ -114,7 +113,7 @@ class KandidatController extends Controller
             'status' => 'Baru',
         ]);
 
-        // 4. Loop & Upload Setiap Berkas
+        // Loop & Upload Setiap Berkas
         foreach ($posisi->syaratDokumen as $syarat) {
             $inputName = 'berkas_' . $syarat->id;
             
@@ -140,7 +139,7 @@ class KandidatController extends Controller
         return redirect()->route('kandidat.riwayat')->with('success', 'Lamaran berhasil dikirim! Pantau statusnya di sini.');
     }
 
-    // 8. BATALKAN LAMARAN
+    // BATALKAN LAMARAN
     public function destroyLamaran($id)
     {
         $user = Auth::user();
@@ -154,7 +153,7 @@ class KandidatController extends Controller
             return back()->with('error', 'Lamaran yang sudah diproses tidak bisa dibatalkan.');
         }
 
-        // 1. Hapus File Fisik di Storage
+        // Hapus File Fisik di Storage
         foreach ($lamaran->berkas as $berkas) {
             if (Storage::disk('public')->exists($berkas->path_file)) {
                 Storage::disk('public')->delete($berkas->path_file);
@@ -162,7 +161,7 @@ class KandidatController extends Controller
             // Hapus record berkas di database (otomatis terhapus via cascade on delete, tapi manual lebih aman untuk file fisik)
         }
 
-        // 2. Hapus Data Lamaran
+        // Hapus Data Lamaran
         $lamaran->delete();
 
         return back()->with('success', 'Lamaran berhasil dibatalkan. Silakan melamar posisi lain.');

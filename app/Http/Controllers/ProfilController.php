@@ -9,7 +9,7 @@ use App\Models\KandidatProfil;
 
 class ProfilController extends Controller
 {
-    // 1. TAMPILKAN FORM PROFIL
+    // TAMPILKAN FORM PROFIL
     public function index()
     {
         $user = Auth::user();
@@ -20,7 +20,7 @@ class ProfilController extends Controller
         return view('kandidat.profil', compact('user', 'profil'));
     }
 
-    // 2. SIMPAN / UPDATE PROFIL
+    // SIMPAN / UPDATE PROFIL
     public function update(Request $request)
     {
         $user = Auth::user();
@@ -44,12 +44,12 @@ class ProfilController extends Controller
             'no_ktp.digits' => 'NIK harus 16 digit.',
         ]);
 
-        // 1. Update Nama di Tabel Users (Akun)
+        // Update Nama di Tabel Users (Akun)
         $user->update([
             'name' => $request->name
         ]);
 
-        // 2. Update atau Buat Baru di Tabel KandidatProfil
+        // Update atau Buat Baru di Tabel KandidatProfil
         // updateOrCreate: Cek apakah user_id ini sudah punya profil?
         // Kalau ada -> Update. Kalau belum -> Create.
         KandidatProfil::updateOrCreate(

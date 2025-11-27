@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class KaryawanController extends Controller
 {
-    // 1. DAFTAR KARYAWAN
+    // DAFTAR KARYAWAN
     public function index(Request $request)
     {
         $query = Karyawan::with(['kandidat', 'site', 'lamaran.posisi']);
@@ -38,7 +38,7 @@ class KaryawanController extends Controller
         return view('admin.karyawan.index', compact('karyawan', 'sites'));
     }
 
-    // 2. FORM EDIT KARYAWAN
+    // FORM EDIT KARYAWAN
     public function edit($id)
     {
         $karyawan = Karyawan::with(['kandidat', 'lamaran.posisi'])->findOrFail($id);
@@ -47,7 +47,7 @@ class KaryawanController extends Controller
         return view('admin.karyawan.edit', compact('karyawan', 'sites'));
     }
 
-    // 3. UPDATE DATA KARYAWAN
+    // UPDATE DATA KARYAWAN
     public function update(Request $request, $id)
     {
         $karyawan = Karyawan::findOrFail($id);
@@ -69,7 +69,7 @@ class KaryawanController extends Controller
         return redirect()->route('admin.karyawan.index')->with('success', 'Data karyawan berhasil diperbarui!');
     }
 
-    // 4. HAPUS KARYAWAN (TERMINATE)
+    // HAPUS KARYAWAN (TERMINATE)
     public function destroy($id)
     {
         $karyawan = Karyawan::findOrFail($id);

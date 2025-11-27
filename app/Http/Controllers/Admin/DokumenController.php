@@ -8,20 +8,20 @@ use Illuminate\Http\Request;
 
 class DokumenController extends Controller
 {
-    // 1. INDEX (Daftar Dokumen)
+    // INDEX (Daftar Dokumen)
     public function index()
     {
         $dokumen = MasterDokumen::latest()->paginate(10);
         return view('admin.dokumen.index', compact('dokumen'));
     }
 
-    // 2. CREATE (Form Tambah)
+    // CREATE (Form Tambah)
     public function create()
     {
         return view('admin.dokumen.create');
     }
 
-    // 3. STORE (Simpan Data)
+    // STORE (Simpan Data)
     public function store(Request $request)
     {
         $request->validate([
@@ -39,14 +39,14 @@ class DokumenController extends Controller
         return redirect()->route('admin.dokumen.index')->with('success', 'Dokumen berhasil ditambahkan!');
     }
 
-    // 4. EDIT (Form Edit)
+    // EDIT (Form Edit)
     public function edit($id)
     {
         $dokumen = MasterDokumen::findOrFail($id);
         return view('admin.dokumen.edit', compact('dokumen'));
     }
 
-    // 5. UPDATE (Simpan Perubahan)
+    // UPDATE (Simpan Perubahan)
     public function update(Request $request, $id)
     {
         $dokumen = MasterDokumen::findOrFail($id);
@@ -64,7 +64,7 @@ class DokumenController extends Controller
         return redirect()->route('admin.dokumen.index')->with('success', 'Dokumen berhasil diperbarui!');
     }
 
-    // 6. DESTROY (Hapus Data)
+    // DESTROY (Hapus Data)
     public function destroy($id)
     {
         $dokumen = MasterDokumen::findOrFail($id);

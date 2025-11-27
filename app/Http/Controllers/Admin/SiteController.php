@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class SiteController extends Controller
 {
-    // 1. INDEX
+    // INDEX
     public function index()
     {
         // Kita tampilkan jumlah karyawan di setiap site juga (biar informatif)
@@ -16,13 +16,13 @@ class SiteController extends Controller
         return view('admin.sites.index', compact('sites'));
     }
 
-    // 2. CREATE
+    // CREATE
     public function create()
     {
         return view('admin.sites.create');
     }
 
-    // 3. STORE
+    // STORE
     public function store(Request $request)
     {
         $request->validate([
@@ -38,13 +38,13 @@ class SiteController extends Controller
         return redirect()->route('admin.sites.index')->with('success', 'Site baru berhasil ditambahkan!');
     }
 
-    // 4. EDIT
+    // EDIT
     public function edit(Site $site)
     {
         return view('admin.sites.edit', compact('site'));
     }
 
-    // 5. UPDATE
+    // UPDATE
     public function update(Request $request, Site $site)
     {
         $request->validate([
@@ -60,7 +60,7 @@ class SiteController extends Controller
         return redirect()->route('admin.sites.index')->with('success', 'Data site diperbarui!');
     }
 
-    // 6. DESTROY
+    // DESTROY
     public function destroy(Site $site)
     {
         // Cek apakah ada karyawan di site ini? Kalau ada, jangan dihapus sembarangan.

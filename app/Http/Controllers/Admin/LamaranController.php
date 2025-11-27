@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\DB;
 
 class LamaranController extends Controller
 {
-    // 1. DAFTAR PELAMAR
+    // DAFTAR PELAMAR
     public function index(Request $request)
     {
         // Query dasar dengan relasi
@@ -30,7 +30,7 @@ class LamaranController extends Controller
         return view('admin.lamaran.index', compact('lamaran'));
     }
 
-    // 2. DETAIL PELAMAR (Lihat Berkas & Profil)
+    // DETAIL PELAMAR (Lihat Berkas & Profil)
     public function show($id)
     {
         // Ambil lamaran beserta berkas dan jenis dokumennya
@@ -42,7 +42,7 @@ class LamaranController extends Controller
         return view('admin.lamaran.show', compact('lamaran', 'sites'));
     }
 
-    // 3. PROSES UPDATE STATUS (Terima/Tolak)
+    // PROSES UPDATE STATUS (Terima/Tolak)
     public function update(Request $request, $id)
     {
         $lamaran = Lamaran::findOrFail($id);
@@ -56,13 +56,13 @@ class LamaranController extends Controller
         ]);
 
         DB::transaction(function () use ($request, $lamaran) {
-            // 1. Update Status Lamaran
+            // Update Status Lamaran
             $lamaran->update([
                 'status' => $request->status,
                 'catatan_hr' => $request->catatan_hr,
             ]);
 
-            // 2. Logika Jika DITERIMA -> Masuk ke Tabel Karyawan
+            // Logika Jika DITERIMA -> Masuk ke Tabel Karyawan
             if ($request->status == 'Diterima') {
                 
                 // Cek apakah sudah ada di tabel karyawan (biar ga duplikat)

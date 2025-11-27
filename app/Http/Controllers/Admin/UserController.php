@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    // 1. DAFTAR USER
+    // DAFTAR USER
     public function index(Request $request)
     {
         $query = User::latest();
@@ -35,13 +35,13 @@ class UserController extends Controller
         return view('admin.users.index', compact('users'));
     }
 
-    // 2. FORM TAMBAH
+    // FORM TAMBAH
     public function create()
     {
         return view('admin.users.create');
     }
 
-    // 3. PROSES SIMPAN
+    // PROSES SIMPAN
     public function store(Request $request)
     {
         $request->validate([
@@ -61,13 +61,13 @@ class UserController extends Controller
         return redirect()->route('admin.users.index')->with('success', 'User berhasil ditambahkan!');
     }
 
-    // 4. FORM EDIT
+    // FORM EDIT
     public function edit(User $user)
     {
         return view('admin.users.edit', compact('user'));
     }
 
-    // 5. PROSES UPDATE
+    // PROSES UPDATE
     public function update(Request $request, User $user)
     {
         $request->validate([
@@ -94,7 +94,7 @@ class UserController extends Controller
         return redirect()->route('admin.users.index')->with('success', 'Data user diperbarui!');
     }
 
-    // 6. HAPUS USER
+    // HAPUS USER
     public function destroy(User $user)
     {
         // Mencegah admin menghapus dirinya sendiri

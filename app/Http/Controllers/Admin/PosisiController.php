@@ -9,8 +9,7 @@ use App\Http\Controllers\Controller;
 
 class PosisiController extends Controller
 {
-    //
-    // 1. TAMPILKAN DAFTAR LOWONGAN
+    // TAMPILKAN DAFTAR LOWONGAN
     public function index()
     {
         $title = 'CRUD Data Posisi';
@@ -18,7 +17,7 @@ class PosisiController extends Controller
         return view('admin.posisi.index', compact('posisi', 'title'));
     }
 
-    // 2. FORM TAMBAH LOWONGAN
+    // FORM TAMBAH LOWONGAN
     public function create()
     {
         // Kita butuh daftar dokumen untuk dipilih sebagai syarat
@@ -26,7 +25,7 @@ class PosisiController extends Controller
         return view('admin.posisi.create', compact('dokumen'));
     }
 
-    // 3. PROSES SIMPAN DATA BARU
+    // PROSES SIMPAN DATA BARU
     public function store(Request $request)
     {
         $request->validate([
@@ -55,7 +54,7 @@ class PosisiController extends Controller
         return redirect()->route('admin.posisi.index')->with('success', 'Lowongan berhasil ditambahkan!');
     }
 
-    // 4. FORM EDIT
+    // FORM EDIT
     public function edit(Posisi $posisi)
     {
         $dokumen = MasterDokumen::all();
@@ -65,7 +64,7 @@ class PosisiController extends Controller
         return view('admin.posisi.edit', compact('posisi', 'dokumen', 'selectedDokumen'));
     }
 
-    // 5. PROSES UPDATE
+    // PROSES UPDATE
     public function update(Request $request, Posisi $posisi)
     {
         $request->validate([
@@ -94,7 +93,7 @@ class PosisiController extends Controller
         return redirect()->route('admin.posisi.index')->with('success', 'Lowongan berhasil diperbarui!');
     }
 
-    // 6. HAPUS DATA
+    // HAPUS DATA
     public function destroy(Posisi $posisi)
     {
         $posisi->syaratDokumen()->detach(); // Hapus relasi dulu
