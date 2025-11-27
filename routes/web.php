@@ -5,9 +5,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\Admin\LamaranController; // <--- Tambahkan \Admin
 use App\Http\Controllers\DirekturController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\PosisiController;
+use App\Http\Controllers\Admin\LamaranController; // <--- Tambahkan \Admin
 
 // 1. Route Halaman Utama (Landing Page)
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -41,6 +42,9 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 
     // Route Manajemen Pelamar (Kita pakai 'only' karena tidak butuh create/store dari sisi admin)
     Route::resource('lamaran', LamaranController::class)->only(['index', 'show', 'update']);
+    
+    // Route Manajemen User
+    Route::resource('users', UserController::class);
 });
 
 // --- GROUP ROUTE DIREKTUR ---
