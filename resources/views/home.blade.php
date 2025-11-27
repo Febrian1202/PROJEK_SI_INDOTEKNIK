@@ -14,9 +14,9 @@
 
             <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
 
-                <h1 class="text-4xl md:text-6xl font-bold text-brand-blue uppercase tracking-tight mb-4">
-                    INDO<span class="text-brand-orange">TEKNIK</span>
-                </h1>
+                <img src="{{ asset('assets/img/Logo-white v3.png') }}" 
+                    alt="Logo Indoteknik" 
+                    class="h-auto w-4/5 md:w-1/2 max-w-3xl mb-6 mx-auto drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)] brightness-110">
 
                 <div class="w-16 h-1 bg-brand-blue mb-6"></div>
 

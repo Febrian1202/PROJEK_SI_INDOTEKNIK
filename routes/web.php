@@ -21,5 +21,18 @@ Route::controller(AuthController::class)->group(function () {
     Route::get('/register', 'showRegister')->name('register');
     // Proses Register (POST)
     Route::post('/register', 'processRegister')->name('register.process');
+
+    // Logout (Tambahkan ini)
+    Route::post('/logout', 'logout')->name('logout');
     
 });
+
+// Halaman Dashboard Admin
+Route::get('/admin/dashboard', function () {
+    return "<h1>Halo Admin! Ini Halaman Dashboard Anda.</h1>";
+})->middleware(['auth'])->name('admin.dashboard');
+
+// Halaman Dashboard Direktur
+Route::get('/direktur/dashboard', function () {
+    return "<h1>Selamat Datang Pak Direktur.</h1>";
+})->middleware(['auth'])->name('direktur.dashboard');
