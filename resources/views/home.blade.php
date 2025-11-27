@@ -1,4 +1,4 @@
-<x-layout :title="$title">
+<x-layout>
     <x-slot:title>{{ $title }}</x-slot:title>
 
     <body class="font-sans antialiased">

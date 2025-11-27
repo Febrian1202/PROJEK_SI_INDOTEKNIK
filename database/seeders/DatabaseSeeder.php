@@ -15,6 +15,15 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
+        // --- TAMBAHAN: SEEDING SITES ---
+        // Kita buat data site yang fix (bukan random) agar sesuai kenyataan
+        $sites = [
+            ['nama_site' => 'Site Pomalaa', 'lokasi_fisik' => 'Kab. Kolaka'],
+            ['nama_site' => 'Site Morosi', 'lokasi_fisik' => 'Kab. Konawe'],
+            ['nama_site' => 'Site Mandiodo', 'lokasi_fisik' => 'Kab. Konawe Utara'],
+            ['nama_site' => 'Head Office', 'lokasi_fisik' => 'Kota Kendari'],
+        ];
+        
         // 1. Buat Akun Internal (Admin & Direktur)
         User::factory()->create([
             'name' => 'Admin HRD',
@@ -98,7 +107,7 @@ class DatabaseSeeder extends Seeder
                 Karyawan::factory()->create([
                     'kandidat_id' => $profil->id,
                     'lamaran_id' => $lamaran->id,
-                    'site_penempatan' => 'Site Pomalaa',
+                    'site_id' => \App\Models\Site::inRandomOrder()->first()->id, // <--- PILIH SITE ACAK
                 ]);
             }
         }

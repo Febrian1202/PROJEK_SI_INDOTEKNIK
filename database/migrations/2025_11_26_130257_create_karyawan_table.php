@@ -16,7 +16,8 @@ return new class extends Migration
             $table->foreignId('kandidat_id')->constrained('kandidat_profil')->onDelete('cascade');
             $table->foreignId('lamaran_id')->constrained('lamaran')->onDelete('cascade');
             $table->string('nik_karyawan')->unique(); // Digenerate setelah diterima
-            $table->string('site_penempatan'); // Inputan admin
+            // Cara Baru (Relasi ke tabel sites)
+            $table->foreignId('site_id')->constrained('sites')->onDelete('restrict');   
             $table->date('tgl_bergabung');
             $table->string('status_karyawan'); // Kontrak/Tetap
             $table->timestamps();
