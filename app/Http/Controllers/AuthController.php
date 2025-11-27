@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    //
     // Menampilkan Halaman Login
     public function showLogin()
     {
@@ -28,19 +27,19 @@ class AuthController extends Controller
 
     public function processLogin(Request $request)
     {
-        // 1. Validasi Input
+        // Validasi Input
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
 
-        // 2. Cek Kredensial (Email & Password) ke Database
+        // Cek Kredensial (Email & Password) ke Database
         if (Auth::attempt($credentials)) {
 
             // Jika Berhasil, Regenerasi Session (Untuk Keamanan)
             $request->session()->regenerate();
 
-            // 3. Cek Role User & Redirect
+            // Cek Role User & Redirect
             $user = Auth::user();
 
             if ($user->role === 'admin') {
@@ -55,7 +54,7 @@ class AuthController extends Controller
             return redirect()->route('kandidat.dashboard');
         }
 
-        // 4. Jika Gagal Login
+        // Jika Gagal Login
         return back()->withErrors([
             'email' => 'Email atau password salah.',
         ])->onlyInput('email');
@@ -64,37 +63,37 @@ class AuthController extends Controller
     // PROSES LOGOUT
     public function logout(Request $request)
     {
-        // 1. Hapus sesi autentikasi pengguna saat ini
+        // Hapus sesi autentikasi pengguna saat ini
         Auth::logout();
 
-        // 2. Invalidate session (menghapus data sesi server)
+        // Invalidate session (menghapus data sesi server)
         $request->session()->invalidate();
 
-        // 3. Regenerate CSRF token (untuk mencegah serangan CSRF pada sesi berikutnya)
+        // Regenerate CSRF token (untuk mencegah serangan CSRF pada sesi berikutnya)
         $request->session()->regenerateToken();
 
-        // 4. Redirect kembali ke halaman utama (atau halaman login)
+        // Redirect kembali ke halaman utama (atau halaman login)
         return redirect('/');
     }
 
-    // --- LOGIKA REGISTER ---
+    // LOGIKA REGISTER
     public function processRegister(Request $request)
     {
-        // 1. Validasi Input
+        // Validasi Input
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'], // Email tidak boleh kembar
             'password' => ['required', 'string', 'min:8', 'confirmed'], // 'confirmed' akan mengecek input 'password_confirmation'
             'terms' => ['required'], // Checkbox syarat wajib dicentang
         ], [
-            // Custom Pesan Error (Opsional, biar bahasa Indonesia)
+            // Pesan Error
             'email.unique' => 'Email ini sudah terdaftar, silakan login.',
             'password.confirmed' => 'Konfirmasi password tidak cocok.',
             'password.min' => 'Password minimal 8 karakter.',
             'terms.required' => 'Anda harus menyetujui Syarat & Ketentuan.',
         ]);
 
-        // 2. Simpan User ke Database
+        // Simpan User ke Database
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -102,13 +101,13 @@ class AuthController extends Controller
             'role' => 'kandidat', // Default Role untuk pendaftar umum
         ]);
 
-        // 3. Otomatis Login setelah daftar
+        // Otomatis Login setelah daftar
         Auth::login($user);
 
-        // 4. Regenerasi session (standar keamanan)
+        // Regenerasi session (standar keamanan)
         $request->session()->regenerate();
 
-        // 5. Redirect ke Home
+        // Redirect ke Home
         return redirect()->route('home')->with('success', 'Registrasi berhasil! Selamat datang.');
     }
 }

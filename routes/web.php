@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\SiteController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\PosisiController;
 use App\Http\Controllers\Admin\DokumenController;
+use App\Http\Controllers\Admin\KaryawanController;
 use App\Http\Controllers\Admin\LamaranController; // <--- Tambahkan \Admin
 
 // 1. Route Halaman Utama (Landing Page)
@@ -86,6 +87,9 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 
     // Route Master Site
     Route::resource('sites', SiteController::class);
+
+    // Route Manajemen Karyawan
+    Route::resource('karyawan', KaryawanController::class)->except(['create', 'store']);
 });
 
 // --- GROUP ROUTE DIREKTUR ---

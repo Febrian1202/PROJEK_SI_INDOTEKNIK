@@ -14,7 +14,7 @@ class Karyawan extends Model
 
     protected $fillable = [
         'kandidat_id', 'lamaran_id', 'nik_karyawan', 
-        'site_penempatan', 'tgl_bergabung', 'status_karyawan'
+        'site_id', 'tgl_bergabung', 'status_karyawan'
     ];
 
     public function kandidat()

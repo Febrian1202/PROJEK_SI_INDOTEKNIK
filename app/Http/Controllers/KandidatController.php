@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 
 class KandidatController extends Controller
 {
-    // 1. DASHBOARD UTAMA (Menu Grid)
+    // DASHBOARD UTAMA (Menu Grid)
     public function dashboard()
     {
         $user = Auth::user();
@@ -23,19 +23,19 @@ class KandidatController extends Controller
         return view('kandidat.dashboard', compact('totalLamaran', 'lamaranAktif'));
     }
 
-    // 2. HALAMAN PANDUAN (Cara Melamar)
+    // HALAMAN PANDUAN (Cara Melamar)
     public function panduan()
     {
         return view('kandidat.panduan');
     }
 
-    // 3. HALAMAN SYARAT & KETENTUAN
+    // HALAMAN SYARAT & KETENTUAN
     public function syarat()
     {
         return view('kandidat.syarat');
     }
 
-    // 4. DAFTAR LOWONGAN (Untuk Menu 'Lowongan Pekerjaan')
+    // DAFTAR LOWONGAN (Untuk Menu 'Lowongan Pekerjaan')
     public function lowongan()
     {
         // Ambil lowongan yang aktif saja
