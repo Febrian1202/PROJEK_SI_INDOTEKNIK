@@ -1,33 +1,105 @@
-<x-layout>
+<x-admin-layout>
+    
+    <div class="mb-8 flex justify-between items-center">
+        <div>
+            <h1 class="text-2xl font-bold text-brand-navy">Executive Overview</h1>
+            <p class="text-gray-500 text-sm">Laporan kinerja rekrutmen bulan ini.</p>
+        </div>
+        <button class="bg-brand-navy text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-brand-blue transition">
+            <svg class="w-4 h-4 inline mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+            Unduh Laporan PDF
+        </button>
+    </div>
 
-    <div class="pt-24 pb-12 min-h-screen bg-gray-50">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            
-            <div class="mb-8 flex justify-between items-end">
-                <div>
-                    <h1 class="text-3xl font-bold text-brand-navy">Executive Dashboard</h1>
-                    <p class="text-gray-500">Ringkasan Kinerja Perekrutan PT. Indoteknik</p>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                <div class="bg-brand-navy text-white p-8 rounded-2xl shadow-lg relative overflow-hidden">
-                    <div class="relative z-10">
-                        <div class="text-brand-orange text-sm font-bold uppercase tracking-widest mb-2">Total Karyawan Baru</div>
-                        <div class="text-5xl font-bold">12</div>
-                        <div class="mt-4 text-sm text-gray-300">Bulan Ini</div>
-                    </div>
-                    <svg class="absolute -bottom-4 -right-4 w-32 h-32 text-white/10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.31-8.86c-1.77-.45-2.34-.94-2.34-1.67 0-.84.79-1.43 2.1-1.43 1.38 0 1.9.66 1.94 1.64h1.71c-.05-1.34-.87-2.57-2.49-2.97V5H10.9v1.69c-1.51.32-2.72 1.3-2.72 2.81 0 1.79 1.49 2.69 3.66 3.21 1.95.46 2.34 1.15 2.34 1.87 0 .53-.39 1.39-2.1 1.39-1.6 0-2.23-.72-2.32-1.64H8.04c.1 1.7 1.36 2.66 2.86 2.97V19h2.34v-1.67c1.52-.29 2.72-1.16 2.73-2.77-.01-2.2-1.9-2.96-3.66-3.42z"/></svg>
-                </div>
-
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex items-center justify-center">
-                    <div class="text-center">
-                        <p class="text-gray-500 mb-2">Approval Pending</p>
-                        <p class="text-4xl font-bold text-brand-navy">0</p>
-                        <p class="text-xs text-gray-400 mt-2">Semua berkas telah ditinjau</p>
-                    </div>
-                </div>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+        <div class="bg-gradient-to-br from-brand-navy to-brand-blue p-6 rounded-xl shadow-lg text-white">
+            <p class="text-white/70 text-sm font-medium">Karyawan Diterima</p>
+            <h3 class="text-4xl font-bold mt-2">12</h3>
+            <div class="mt-4 flex items-center text-xs text-green-300">
+                <svg class="w-3 h-3 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                +2 dari bulan lalu
             </div>
         </div>
+
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <p class="text-gray-500 text-sm font-medium">Menunggu Persetujuan</p>
+            <h3 class="text-4xl font-bold text-brand-orange mt-2">3</h3>
+            <p class="text-xs text-gray-400 mt-2">Berkas kandidat tahap akhir</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <p class="text-gray-500 text-sm font-medium">Total Pelamar</p>
+            <h3 class="text-4xl font-bold text-brand-navy mt-2">1,240</h3>
+            <p class="text-xs text-gray-400 mt-2">Database talenta</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <p class="text-gray-500 text-sm font-medium">Posisi Terbuka</p>
+            <h3 class="text-4xl font-bold text-gray-700 mt-2">5</h3>
+            <p class="text-xs text-gray-400 mt-2">Lowongan aktif</p>
+        </div>
     </div>
-</x-layout>
+
+    <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+        <div class="px-6 py-4 border-b border-gray-100 flex justify-between items-center bg-gray-50">
+            <h3 class="font-bold text-brand-navy text-lg">Menunggu Persetujuan Anda</h3>
+            <span class="bg-brand-orange/10 text-brand-orange px-3 py-1 rounded-full text-xs font-bold">Prioritas</span>
+        </div>
+
+        <div class="overflow-x-auto">
+            <table class="w-full text-sm text-left">
+                <thead class="text-gray-500 border-b border-gray-100 bg-white">
+                    <tr>
+                        <th class="px-6 py-4 font-medium">Kandidat</th>
+                        <th class="px-6 py-4 font-medium">Posisi Dilamar</th>
+                        <th class="px-6 py-4 font-medium">Rekomendasi HR</th>
+                        <th class="px-6 py-4 font-medium text-center">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-50">
+                    <tr class="hover:bg-gray-50 transition">
+                        <td class="px-6 py-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center font-bold text-gray-500 text-xs">BS</div>
+                                <span class="font-semibold text-brand-navy">Budi Santoso</span>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4 text-gray-600">Site Manager</td>
+                        <td class="px-6 py-4">
+                            <span class="text-green-600 bg-green-50 px-2 py-1 rounded text-xs font-bold">Sangat Direkomendasikan</span>
+                        </td>
+                        <td class="px-6 py-4 flex justify-center gap-2">
+                            <button class="p-2 text-green-600 hover:bg-green-50 rounded-lg transition" title="Setujui">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            </button>
+                            <button class="p-2 text-red-600 hover:bg-red-50 rounded-lg transition" title="Tolak">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                            </button>
+                            <button class="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition" title="Lihat Detail">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-gray-50 transition">
+                        <td class="px-6 py-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center font-bold text-gray-500 text-xs">SA</div>
+                                <span class="font-semibold text-brand-navy">Siti Aminah</span>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4 text-gray-600">Staff Admin</td>
+                        <td class="px-6 py-4">
+                            <span class="text-blue-600 bg-blue-50 px-2 py-1 rounded text-xs font-bold">Cukup Baik</span>
+                        </td>
+                        <td class="px-6 py-4 flex justify-center gap-2">
+                            <button class="p-2 text-green-600 hover:bg-green-50 rounded-lg transition"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg></button>
+                            <button class="p-2 text-red-600 hover:bg-red-50 rounded-lg transition"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+                            <button class="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</x-admin-layout>

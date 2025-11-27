@@ -10,6 +10,6 @@ class HomeController extends Controller
     public function index()
     {
         // Logika dari route tadi dipindah ke sini
-        return view('home');
+        return view('home', ['title' => 'Home']);
     }
 }
