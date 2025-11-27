@@ -55,6 +55,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/syarat-ketentuan', [KandidatController::class, 'syarat'])->name('kandidat.syarat');
     Route::get('/lowongan-kerja', [KandidatController::class, 'lowongan'])->name('kandidat.lowongan');
     Route::get('/riwayat-lamaran', [KandidatController::class, 'riwayat'])->name('kandidat.riwayat');
+
+    // ... route kandidat lainnya ...
+    Route::get('/lowongan-kerja', [KandidatController::class, 'lowongan'])->name('kandidat.lowongan');
+    
+    // Tambahkan 2 Route ini:
+    Route::get('/lowongan-kerja/{id}', [KandidatController::class, 'showLowongan'])->name('kandidat.lowongan.show');
+    Route::post('/lowongan-kerja/{id}/apply', [KandidatController::class, 'storeLamaran'])->name('kandidat.lowongan.store');
 });
 
 // --- GROUP ROUTE ADMIN ---
