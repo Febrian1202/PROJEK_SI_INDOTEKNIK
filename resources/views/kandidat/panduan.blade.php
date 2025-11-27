@@ -1,5 +1,5 @@
 <x-layout title="Cara Melamar">
-    <x-nav-bar></x-nav-bar>
+    <x-slot:title>Panduan Melamar</x-slot:title>
     <div class="pt-24 pb-12 min-h-screen bg-gray-50">
         <div class="max-w-4xl mx-auto px-6 lg:px-8">
             <div class="mb-6">

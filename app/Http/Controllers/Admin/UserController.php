@@ -19,9 +19,9 @@ class UserController extends Controller
         // Fitur Pencarian Sederhana
         if ($request->has('search')) {
             $search = $request->search;
-            $query->where(function($q) use ($search) {
+            $query->where(function ($q) use ($search) {
                 $q->where('name', 'like', "%$search%")
-                  ->orWhere('email', 'like', "%$search%");
+                    ->orWhere('email', 'like', "%$search%");
             });
         }
 
@@ -68,7 +68,7 @@ class UserController extends Controller
     }
 
     // 5. PROSES UPDATE
-    public function update(Request $request, User $user)    
+    public function update(Request $request, User $user)
     {
         $request->validate([
             'name' => 'required|string|max:255',

@@ -5,9 +5,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\DirekturController;
-use App\Http\Controllers\Admin\SiteController;
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\DirekturController;
+use App\Http\Controllers\KandidatController;
+use App\Http\Controllers\Admin\SiteController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\PosisiController;
 use App\Http\Controllers\Admin\DokumenController;
@@ -42,19 +43,18 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/profil', [ProfilController::class, 'index'])->name('profil.index');
     Route::put('/profil', [ProfilController::class, 'update'])->name('profil.update');
 
-    // Dashboard Kandidat
-    Route::get('/kandidat/dashboard', [KandidatController::class, 'dashboard'])->name('kandidat.dashboard');
-    
-    // Menu-menu sesuai arahan Dosen
-    Route::get('/panduan-melamar', [KandidatController::class, 'panduan'])->name('kandidat.panduan');
-    Route::get('/syarat-ketentuan', [KandidatController::class, 'syarat'])->name('kandidat.syarat');
-    Route::get('/lowongan-kerja', [KandidatController::class, 'lowongan'])->name('kandidat.lowongan');
-    Route::get('/riwayat-lamaran', [KandidatController::class, 'riwayat'])->name('kandidat.riwayat');
-
     // Route Profil (Yang sudah dibuat sebelumnya)
     Route::get('/profil', [App\Http\Controllers\ProfilController::class, 'index'])->name('profil.index');
     Route::put('/profil', [App\Http\Controllers\ProfilController::class, 'update'])->name('profil.update');
 
+    // INI YANG KURANG: Route Dashboard Kandidat
+    Route::get('/kandidat/dashboard', [KandidatController::class, 'dashboard'])->name('kandidat.dashboard');
+
+    // Route menu kandidat lainnya (yang tadi kita bahas)
+    Route::get('/panduan-melamar', [KandidatController::class, 'panduan'])->name('kandidat.panduan');
+    Route::get('/syarat-ketentuan', [KandidatController::class, 'syarat'])->name('kandidat.syarat');
+    Route::get('/lowongan-kerja', [KandidatController::class, 'lowongan'])->name('kandidat.lowongan');
+    Route::get('/riwayat-lamaran', [KandidatController::class, 'riwayat'])->name('kandidat.riwayat');
 });
 
 // --- GROUP ROUTE ADMIN ---

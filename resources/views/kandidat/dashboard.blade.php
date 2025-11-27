@@ -1,8 +1,11 @@
 <x-layout title="Dashboard Kandidat">
-    <x-nav-bar></x-nav-bar>
+    <x-slot:title>Dashboard</x-slot:title>
 
     <div class="pt-24 pb-12 min-h-screen bg-gray-50">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="mb-6">
+                <a href="/" class="text-gray-500 hover:text-brand-orange text-sm flex items-center gap-1">&larr; Kembali ke Beranda</a>
+            </div>
             
             <div class="bg-brand-navy rounded-2xl p-8 mb-10 text-white shadow-lg relative overflow-hidden">
                 <div class="absolute right-0 top-0 h-full w-1/2 bg-gradient-to-l from-brand-blue/50 to-transparent"></div>
@@ -79,4 +82,5 @@
         </div>
     </div>
 
+    <x-footer></x-footer>
 </x-layout>
