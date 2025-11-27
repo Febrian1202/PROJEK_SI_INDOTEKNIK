@@ -6,108 +6,104 @@ use App\Models\User;
 use App\Models\Posisi;
 use App\Models\Lamaran;
 use App\Models\Karyawan;
-use App\Models\KandidatProfil;
 use App\Models\MasterDokumen;
 use App\Models\BerkasKandidat;
+use App\Models\KandidatProfil;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        // --- TAMBAHAN: SEEDING SITES ---
-        // Kita buat data site yang fix (bukan random) agar sesuai kenyataan
+        // 1. Buat Akun Internal
+        User::create([
+            'name' => 'Admin HRD',
+            'email' => 'hrd@indoteknik.com',
+            'password' => Hash::make('password'),
+            'role' => 'admin',
+        ]);
+
+        User::create([
+            'name' => 'Bapak Direktur',
+            'email' => 'direktur@indoteknik.com',
+            'password' => Hash::make('password'),
+            'role' => 'direktur',
+        ]);
+
+        // 2. BUAT DATA SITE TERLEBIH DAHULU (PENTING!)
+        // Kita tidak pakai Factory agar datanya pasti ada dan namanya jelas.
         $sites = [
             ['nama_site' => 'Site Pomalaa', 'lokasi_fisik' => 'Kab. Kolaka'],
             ['nama_site' => 'Site Morosi', 'lokasi_fisik' => 'Kab. Konawe'],
             ['nama_site' => 'Site Mandiodo', 'lokasi_fisik' => 'Kab. Konawe Utara'],
             ['nama_site' => 'Head Office', 'lokasi_fisik' => 'Kota Kendari'],
         ];
-        
-        // 1. Buat Akun Internal (Admin & Direktur)
-        User::factory()->create([
-            'name' => 'Admin HRD',
-            'email' => 'hrd@indoteknik.com',
-            'password' => bcrypt('password'),
-            'role' => 'admin',
-        ]);
 
-        User::factory()->create([
-            'name' => 'Bapak Direktur',
-            'email' => 'direktur@indoteknik.com',
-            'password' => bcrypt('password'),
-            'role' => 'direktur',
-        ]);
-
-        // 2. Buat Master Dokumen (Syarat-syarat umum)
-        $dokumenList = ['KTP', 'Ijazah Terakhir', 'Transkrip Nilai', 'CV / Daftar Riwayat Hidup', 'SKCK', 'SIM A', 'SIM B1', 'Sertifikat K3 Umum'];
-        $dokumenModels = [];
-        foreach ($dokumenList as $docName) {
-            $dokumenModels[$docName] = MasterDokumen::factory()->create(['nama_dokumen' => $docName]);
+        foreach ($sites as $site) {
+            \App\Models\Site::create($site);
         }
 
-        // 3. Buat Data Lowongan (Posisi)
-        $posisi1 = Posisi::factory()->create([
-            'nama_posisi' => 'Site Manager',
-            'deskripsi' => 'Bertanggung jawab atas operasional harian di lokasi proyek pertambangan.',
-        ]);
-        // Syarat Site Manager: Ijazah, CV, Sertifikat K3
-        $posisi1->syaratDokumen()->attach([
-            $dokumenModels['Ijazah Terakhir']->id,
-            $dokumenModels['CV / Daftar Riwayat Hidup']->id,
-            $dokumenModels['Sertifikat K3 Umum']->id
-        ], ['is_mandatory' => true]);
+        // 3. Buat Master Dokumen
+        $dokumenList = [
+            'KTP' => 'PDF',
+            'Ijazah Terakhir' => 'PDF',
+            'CV / Daftar Riwayat Hidup' => 'PDF',
+            'SKCK' => 'PDF',
+            'SIM B2 Umum' => 'PDF',
+        ];
 
+        $dokumenModels = [];
+        foreach ($dokumenList as $nama => $tipe) {
+            $dokumenModels[$nama] = MasterDokumen::create(['nama_dokumen' => $nama, 'tipe_file' => $tipe]);
+        }
 
-        $posisi2 = Posisi::factory()->create([
+        // 4. Buat Posisi & Syaratnya
+        $posisiDriver = Posisi::create([
             'nama_posisi' => 'Driver Dump Truck',
-            'deskripsi' => 'Mengoperasikan unit dump truck 10 roda di area tambang.',
+            'deskripsi' => 'Mengoperasikan unit dump truck.',
+            'is_active' => true,
         ]);
-        // Syarat Driver: KTP, SIM B1, SKCK
-        $posisi2->syaratDokumen()->attach([
-            $dokumenModels['KTP']->id,
-            $dokumenModels['SIM B1']->id,
-            $dokumenModels['SKCK']->id
-        ], ['is_mandatory' => true]);
-
-
-        $posisi3 = Posisi::factory()->create([
-            'nama_posisi' => 'Staff Administrasi',
-            'deskripsi' => 'Mengurus pembukuan dan surat jalan operasional.',
+        // Attach syarat (pastikan ID dokumen ada)
+        $posisiDriver->syaratDokumen()->attach([
+            $dokumenModels['KTP']->id => ['is_mandatory' => true],
+            $dokumenModels['SIM B2 Umum']->id => ['is_mandatory' => true],
         ]);
-        
-        // 4. Buat 10 Kandidat (Pelamar) Dummy
+
+        // 5. Buat Kandidat & Proses Lamaran
+        // Kita buat 10 user kandidat
         $kandidats = User::factory(10)->create(['role' => 'kandidat']);
 
         foreach ($kandidats as $userKandidat) {
-            // Buat Profil untuk setiap user kandidat
+            // Buat Profil
             $profil = KandidatProfil::factory()->create(['user_id' => $userKandidat->id]);
 
-            // 5. Skenario: Kandidat melamar pekerjaan
-            // Ambil posisi acak
-            $posisiTarget = fake()->randomElement([$posisi1, $posisi2, $posisi3]);
-            
+            // Buat Lamaran (Otomatis status acak dari Factory)
             $lamaran = Lamaran::factory()->create([
                 'kandidat_id' => $profil->id,
-                'posisi_id' => $posisiTarget->id,
-                'status' => fake()->randomElement(['Baru', 'Diproses', 'Diterima', 'Ditolak']),
+                'posisi_id' => $posisiDriver->id, // Contoh semua melamar driver
             ]);
 
-            // 6. Upload Berkas Dummy untuk lamaran tersebut
-            // (Misal dia upload KTP)
+            // Upload Berkas (Ceritanya upload KTP)
             BerkasKandidat::factory()->create([
                 'lamaran_id' => $lamaran->id,
                 'dokumen_id' => $dokumenModels['KTP']->id,
-                'nama_file_asli' => 'scan_ktp.pdf',
-                'path_file' => 'uploads/dummy/scan_ktp.pdf'
+                'nama_file_asli' => 'ktp.pdf',
             ]);
 
-            // 7. Skenario: Jika status Diterima, jadikan Karyawan
+            // 6. LOGIKA KARYAWAN (Bagian yang tadi Error)
+            // Hanya buat karyawan jika status lamarannya 'Diterima'
             if ($lamaran->status === 'Diterima') {
+
+                // Ambil satu site secara acak. 
+                // Karena langkah no. 2 sudah dijalankan, maka first() TIDAK AKAN null.
+                $site = \App\Models\Site::inRandomOrder()->first();
+
                 Karyawan::factory()->create([
                     'kandidat_id' => $profil->id,
                     'lamaran_id' => $lamaran->id,
-                    'site_id' => \App\Models\Site::inRandomOrder()->first()->id, // <--- PILIH SITE ACAK
+                    'site_id' => $site->id, // <-- Ini sekarang aman
+                    // 'site_penempatan' => null, // Hapus baris ini jika kolomnya sudah dihapus di migrasi
                 ]);
             }
         }
