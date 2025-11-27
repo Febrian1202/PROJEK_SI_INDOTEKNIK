@@ -42,6 +42,19 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/profil', [ProfilController::class, 'index'])->name('profil.index');
     Route::put('/profil', [ProfilController::class, 'update'])->name('profil.update');
 
+    // Dashboard Kandidat
+    Route::get('/kandidat/dashboard', [KandidatController::class, 'dashboard'])->name('kandidat.dashboard');
+    
+    // Menu-menu sesuai arahan Dosen
+    Route::get('/panduan-melamar', [KandidatController::class, 'panduan'])->name('kandidat.panduan');
+    Route::get('/syarat-ketentuan', [KandidatController::class, 'syarat'])->name('kandidat.syarat');
+    Route::get('/lowongan-kerja', [KandidatController::class, 'lowongan'])->name('kandidat.lowongan');
+    Route::get('/riwayat-lamaran', [KandidatController::class, 'riwayat'])->name('kandidat.riwayat');
+
+    // Route Profil (Yang sudah dibuat sebelumnya)
+    Route::get('/profil', [App\Http\Controllers\ProfilController::class, 'index'])->name('profil.index');
+    Route::put('/profil', [App\Http\Controllers\ProfilController::class, 'update'])->name('profil.update');
+
 });
 
 // --- GROUP ROUTE ADMIN ---

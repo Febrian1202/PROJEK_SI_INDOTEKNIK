@@ -44,31 +44,31 @@
                         
                         <div class="md:col-span-2">
                             <label class="block text-sm font-semibold text-brand-navy mb-2">Nama Lengkap</label>
-                            <input type="text" name="name" value="{{ old('name', $user->name) }}" class="w-full rounded-lg border-gray-300 focus:ring-brand-orange focus:border-brand-orange" required>
+                            <input type="text" name="name" value="{{ old('name', $user->name) }}" class="w-full pl-2 bg-gray-50 shadow-md rounded-md border-gray-300 focus:ring-brand-orange focus:border-brand-orange" required>
                             @error('name') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
                         </div>
 
                         <div>
                             <label class="block text-sm font-semibold text-brand-navy mb-2">Nomor KTP (NIK)</label>
-                            <input type="number" name="no_ktp" value="{{ old('no_ktp', $profil->no_ktp ?? '') }}" class="w-full rounded-lg border-gray-300 focus:ring-brand-orange focus:border-brand-orange" placeholder="16 Digit NIK" required>
+                            <input type="number" name="no_ktp" value="{{ old('no_ktp', $profil->no_ktp ?? '') }}" class="w-full pl-2 bg-gray-50 shadow-md rounded-md border-gray-300 focus:ring-brand-orange focus:border-brand-orange" placeholder="16 Digit NIK" required>
                             @error('no_ktp') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
                         </div>
 
                         <div>
                             <label class="block text-sm font-semibold text-brand-navy mb-2">Nomor WhatsApp / Telp</label>
-                            <input type="number" name="no_telp" value="{{ old('no_telp', $profil->no_telp ?? '') }}" class="w-full rounded-lg border-gray-300 focus:ring-brand-orange focus:border-brand-orange" placeholder="Contoh: 0812..." required>
+                            <input type="number" name="no_telp" value="{{ old('no_telp', $profil->no_telp ?? '') }}" class="pl-2 bg-gray-50 shadow-md rounded-md w-full border-gray-300 focus:ring-brand-orange focus:border-brand-orange" placeholder="Contoh: 0812..." required>
                             @error('no_telp') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
                         </div>
 
                         <div>
                             <label class="block text-sm font-semibold text-brand-navy mb-2">Tanggal Lahir</label>
-                            <input type="date" name="tgl_lahir" value="{{ old('tgl_lahir', $profil->tgl_lahir ?? '') }}" class="w-full rounded-lg border-gray-300 focus:ring-brand-orange focus:border-brand-orange" required>
+                            <input type="date" name="tgl_lahir" value="{{ old('tgl_lahir', $profil->tgl_lahir ?? '') }}" class="w-full pl-2 bg-gray-50 shadow-md rounded-md border-gray-300 focus:ring-brand-orange focus:border-brand-orange" required>
                             @error('tgl_lahir') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
                         </div>
 
                         <div class="md:col-span-2">
                             <label class="block text-sm font-semibold text-brand-navy mb-2">Alamat Domisili Lengkap</label>
-                            <textarea name="alamat_domisili" rows="3" class="w-full rounded-lg border-gray-300 focus:ring-brand-orange focus:border-brand-orange" placeholder="Jalan, RT/RW, Kelurahan, Kecamatan..." required>{{ old('alamat_domisili', $profil->alamat_domisili ?? '') }}</textarea>
+                            <textarea name="alamat_domisili" rows="3" class="w-full pl-2 bg-gray-50 shadow-md rounded-md border-gray-300 focus:ring-brand-orange focus:border-brand-orange" placeholder="Jalan, RT/RW, Kelurahan, Kecamatan..." required>{{ old('alamat_domisili', $profil->alamat_domisili ?? '') }}</textarea>
                             @error('alamat_domisili') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
                         </div>
 

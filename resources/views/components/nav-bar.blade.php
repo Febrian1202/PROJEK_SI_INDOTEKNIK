@@ -90,7 +90,7 @@
                                 <p class="text-xs text-brand-orange mt-0.5 uppercase">{{ Auth::user()->role ?? 'User' }}</p>
                             </div>
 
-                            <a href="#"
+                            <a href="{{ route(Auth::user()->role . '.dashboard') }}"
                                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-brand-gray hover:text-brand-blue transition-colors">
                                 Dashboard
                             </a>
@@ -159,10 +159,18 @@
             @auth
                 <div class="border-t border-white/10 my-2 pt-2">
                     <div class="px-3 py-2 text-white font-bold">Halo, {{ Auth::user()->name }}</div>
+                    
+                    <a href="{{ route(Auth::user()->role . '.dashboard') }}" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-brand-orange hover:text-white">
+                        Dashboard
+                    </a>
+                    
+                    <a href="{{ route('profil.index') }}" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-brand-orange hover:text-white">
+                        Profil Saya
+                    </a>
+
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-                        <button type="submit"
-                            class="block w-full text-left rounded-md px-3 py-2 text-base font-medium text-red-400 hover:bg-red-500/20">Keluar</button>
+                        <button type="submit" class="block w-full text-left rounded-md px-3 py-2 text-base font-medium text-red-400 hover:bg-red-500/20">Keluar</button>
                     </form>
                 </div>
             @endauth

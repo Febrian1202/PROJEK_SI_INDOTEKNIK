@@ -52,7 +52,7 @@ class AuthController extends Controller
             }
 
             // Default: Kandidat (Kembali ke Home)
-            return redirect()->route('home');
+            return redirect()->route('kandidat.dashboard');
         }
 
         // 4. Jika Gagal Login
