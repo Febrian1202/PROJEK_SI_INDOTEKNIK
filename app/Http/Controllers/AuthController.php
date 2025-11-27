@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -18,13 +20,6 @@ class AuthController extends Controller
     public function showRegister()
     {
         return view('auth.register');
-    }
-
-    // Proses Register (Nanti diisi logika simpan user)
-    public function processRegister(Request $request)
-    {
-        // Sementara return string dulu
-        return "Proses Registrasi sedang berjalan...";
     }
 
     public function processLogin(Request $request)
@@ -76,5 +71,40 @@ class AuthController extends Controller
 
         // 4. Redirect kembali ke halaman utama (atau halaman login)
         return redirect('/');
+    }
+
+    // --- LOGIKA REGISTER ---
+    public function processRegister(Request $request)
+    {
+        // 1. Validasi Input
+        $validated = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'], // Email tidak boleh kembar
+            'password' => ['required', 'string', 'min:8', 'confirmed'], // 'confirmed' akan mengecek input 'password_confirmation'
+            'terms' => ['required'], // Checkbox syarat wajib dicentang
+        ], [
+            // Custom Pesan Error (Opsional, biar bahasa Indonesia)
+            'email.unique' => 'Email ini sudah terdaftar, silakan login.',
+            'password.confirmed' => 'Konfirmasi password tidak cocok.',
+            'password.min' => 'Password minimal 8 karakter.',
+            'terms.required' => 'Anda harus menyetujui Syarat & Ketentuan.',
+        ]);
+
+        // 2. Simpan User ke Database
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password), // Enkripsi password
+            'role' => 'kandidat', // Default Role untuk pendaftar umum
+        ]);
+
+        // 3. Otomatis Login setelah daftar
+        Auth::login($user);
+
+        // 4. Regenerasi session (standar keamanan)
+        $request->session()->regenerate();
+
+        // 5. Redirect ke Home
+        return redirect()->route('home')->with('success', 'Registrasi berhasil! Selamat datang.');
     }
 }

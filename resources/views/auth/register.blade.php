@@ -38,6 +38,9 @@
                     <input type="text" name="name" id="name" required
                         class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-brand-navy placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-orange focus:border-transparent transition-all"
                         placeholder="Contoh: Budi Santoso">
+                    @error('name')
+                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <div>
@@ -45,6 +48,9 @@
                     <input type="email" name="email" id="email" required
                         class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-brand-navy placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-orange focus:border-transparent transition-all"
                         placeholder="nama@indoteknik.com">
+                    @error('email')
+                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -53,6 +59,9 @@
                         <input type="password" name="password" id="password" required
                             class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-brand-navy placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-orange focus:border-transparent transition-all"
                             placeholder="••••••••">
+                        @error('password')
+                            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div>
                         <label for="password_confirmation"
@@ -73,6 +82,9 @@
                         Saya setuju dengan <a href="#" class="text-brand-blue hover:underline">Syarat &
                             Ketentuan</a> yang berlaku.
                     </label>
+                    @error('terms')
+                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <button type="submit"
