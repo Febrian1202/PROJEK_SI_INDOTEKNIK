@@ -2,8 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 // Import Controller yang akan dipakai
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DirekturController;
 
 // 1. Route Halaman Utama (Landing Page)
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -27,12 +29,16 @@ Route::controller(AuthController::class)->group(function () {
     
 });
 
-// Halaman Dashboard Admin
-Route::get('/admin/dashboard', function () {
-    return "<h1>Halo Admin! Ini Halaman Dashboard Anda.</h1>";
-})->middleware(['auth'])->name('admin.dashboard');
+// --- GROUP ROUTE ADMIN ---
+Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
+    // Nanti tambah route lain di sini:
+    // Route::resource('lowongan', LowonganController::class);
+});
 
-// Halaman Dashboard Direktur
-Route::get('/direktur/dashboard', function () {
-    return "<h1>Selamat Datang Pak Direktur.</h1>";
-})->middleware(['auth'])->name('direktur.dashboard');
+// --- GROUP ROUTE DIREKTUR ---
+Route::middleware(['auth'])->prefix('direktur')->name('direktur.')->group(function () {
+    Route::get('/dashboard', [DirekturController::class, 'index'])->name('dashboard');
+    // Nanti tambah route lain di sini:
+    // Route::get('/laporan', [DirekturController::class, 'laporan']);
+});
