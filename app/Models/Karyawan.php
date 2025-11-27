@@ -13,8 +13,13 @@ class Karyawan extends Model
     protected $table = 'karyawan';
 
     protected $fillable = [
-        'kandidat_id', 'lamaran_id', 'nik_karyawan', 
-        'site_id', 'tgl_bergabung', 'status_karyawan'
+        'kandidat_id', 
+        'lamaran_id', 
+        'site_id', 
+        'nik_karyawan', 
+        'site_penempatan', 
+        'tgl_bergabung', 
+        'status_karyawan'
     ];
 
     public function kandidat()
@@ -22,7 +27,7 @@ class Karyawan extends Model
         return $this->belongsTo(KandidatProfil::class, 'kandidat_id');
     }
 
-    public function lamaranAsal()
+    public function lamaran()
     {
         return $this->belongsTo(Lamaran::class, 'lamaran_id');
     }
