@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\LamaranController;
+use App\Http\Controllers\Admin\LamaranController; // <--- Tambahkan \Admin
 use App\Http\Controllers\DirekturController;
 use App\Http\Controllers\Admin\PosisiController;
 

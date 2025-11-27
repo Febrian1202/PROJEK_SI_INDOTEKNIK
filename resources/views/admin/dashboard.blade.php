@@ -34,9 +34,13 @@
     </div>
 
     <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+        
         <div class="px-6 py-4 border-b border-gray-100 flex justify-between items-center">
             <h3 class="font-bold text-brand-navy text-lg">Pelamar Terbaru</h3>
-            <a href="#" class="text-sm text-brand-blue hover:underline">Lihat Semua</a>
+            
+            <a href="{{ route('admin.lamaran.index') }}" class="text-sm text-brand-blue hover:underline font-medium">
+                Lihat Semua
+            </a>
         </div>
 
         <div class="overflow-x-auto">
@@ -78,7 +82,9 @@
                                 </span>
                             </td>
                             <td class="px-6 py-4 text-center">
-                                <button class="text-brand-blue hover:underline font-medium">Detail</button>
+                                <a href="{{ route('admin.lamaran.show', $lamaran->id) }}" class="text-brand-blue hover:underline font-medium">
+                                    Detail
+                                </a>
                             </td>
                         </tr>
                     @empty
