@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DirekturController;
+use App\Http\Controllers\Admin\PosisiController;
 
 // 1. Route Halaman Utama (Landing Page)
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -34,6 +35,8 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
     // Nanti tambah route lain di sini:
     // Route::resource('lowongan', LowonganController::class);
+    // Resource Route untuk CRUD Posisi (Otomatis buat route index, create, store, edit, update, destroy)
+    Route::resource('posisi', PosisiController::class);
 });
 
 // --- GROUP ROUTE DIREKTUR ---

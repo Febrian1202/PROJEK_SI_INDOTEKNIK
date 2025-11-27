@@ -1,5 +1,4 @@
 <x-admin-layout>
-    <x-slot:title>{{ $title }}</x-slot:title>
     
     <div class="mb-8 flex justify-between items-center">
         <div>
