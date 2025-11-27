@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LamaranController;
 use App\Http\Controllers\DirekturController;
 use App\Http\Controllers\Admin\PosisiController;
 
@@ -37,6 +38,9 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     // Route::resource('lowongan', LowonganController::class);
     // Resource Route untuk CRUD Posisi (Otomatis buat route index, create, store, edit, update, destroy)
     Route::resource('posisi', PosisiController::class);
+
+    // Route Manajemen Pelamar (Kita pakai 'only' karena tidak butuh create/store dari sisi admin)
+    Route::resource('lamaran', LamaranController::class)->only(['index', 'show', 'update']);
 });
 
 // --- GROUP ROUTE DIREKTUR ---
