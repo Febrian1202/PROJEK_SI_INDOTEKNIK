@@ -4,11 +4,11 @@
     <div class="pt-24 pb-12 min-h-screen bg-gray-50">
         <div class="max-w-4xl mx-auto px-6 lg:px-8">
             <div class="mb-6">
-                <a href="{{ route('home') }}" class="inline-flex items-center text-gray-500 hover:text-brand-orange transition-colors font-medium text-sm group">
+                <a href="{{ route('kandidat.dashboard') }}" class="inline-flex items-center text-gray-500 hover:text-brand-orange transition-colors font-medium text-sm group">
                     <svg class="w-5 h-5 mr-1 transition-transform group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                     </svg>
-                    Kembali ke Beranda
+                    Kembali ke Dashboard
                 </a>
             </div>
             <div class="mb-8">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Str;
 use App\Models\Posisi;
 use App\Models\Lamaran;
 use Illuminate\Http\Request;
@@ -115,26 +116,46 @@ class KandidatController extends Controller
 
         // Loop & Upload Setiap Berkas
         foreach ($posisi->syaratDokumen as $syarat) {
-            $inputName = 'berkas_' . $syarat->id;
-            
-            if ($request->hasFile($inputName)) {
-                $file = $request->file($inputName);
-                
-                // Simpan ke storage/app/public/uploads/lamaran/NIK_NAMA_POSISI
-                $folderName = 'uploads/lamaran/' . $user->kandidatProfil->no_ktp;
-                $fileName = time() . '_' . $syarat->nama_dokumen . '.' . $file->getClientOriginalExtension();
-                $path = $file->storeAs($folderName, $fileName, 'public');
+    $inputName = 'berkas_' . $syarat->id;
+    
+    if ($request->hasFile($inputName)) {
+        $file = $request->file($inputName);
+        
+        // Bersihkan Nama Folder (NIK)
+        $nikFolder = trim($user->kandidatProfil->no_ktp); 
+        $targetFolder = 'uploads/lamaran/' . $nikFolder;
 
-                // Simpan ke tabel berkas_kandidat
-                \App\Models\BerkasKandidat::create([
-                    'lamaran_id' => $lamaran->id,
-                    'dokumen_id' => $syarat->id,
-                    'nama_file_asli' => $file->getClientOriginalName(),
-                    'path_file' => $path,
-                    'tgl_upload' => now(),
-                ]);
-            }
+        // Buat Folder Manual (Cek dulu)
+        // Ini mencegah error "Unable to create directory"
+        if (!Storage::disk('public')->exists($targetFolder)) {
+            Storage::disk('public')->makeDirectory($targetFolder);
         }
+        
+        // Bersihkan Nama File
+        // Str::slug mengubah 'CV / Ijazah' jadi 'cv-ijazah' (huruf kecil semua, tanpa spasi)
+        $cleanDocName = \Illuminate\Support\Str::slug($syarat->nama_dokumen);
+        
+        // Ambil ekstensi & ubah ke huruf kecil (misal .CV jadi .cv)
+        $ext = strtolower($file->getClientOriginalExtension());
+        if (empty($ext)) $ext = 'pdf'; // Default jika ekstensi tidak terdeteksi
+
+        // Gabungkan nama file
+        $fileName = time() . '_' . $cleanDocName . '.' . $ext;
+
+        // Simpan File Menggunakan Storage Facade
+        // putFileAs(Folder, File, NamaBaru)
+        $path = Storage::disk('public')->putFileAs($targetFolder, $file, $fileName);
+
+        // Simpan ke database
+        \App\Models\BerkasKandidat::create([
+            'lamaran_id' => $lamaran->id,
+            'dokumen_id' => $syarat->id,
+            'nama_file_asli' => $file->getClientOriginalName(),
+            'path_file' => $path,
+            'tgl_upload' => now(),
+        ]);
+    }
+}
 
         return redirect()->route('kandidat.riwayat')->with('success', 'Lamaran berhasil dikirim! Pantau statusnya di sini.');
     }
