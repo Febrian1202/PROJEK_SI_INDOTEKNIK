@@ -25,7 +25,7 @@
                         <span
                             class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-orange {{ request()->routeIs('about') ? 'w-full' : 'w-0 group-hover:w-full transition-all duration-300 ease-out' }} rounded-full"></span>
                     </a>
-                    <a href="#"
+                    <a href="{{ route("service") }}"
                         class="relative group font-medium text-base px-1 py-2 transition-colors duration-300 {{ request()->routeIs('service') ? 'text-white hover:text-brand-orange' : 'text-gray-300 hover:text-white' }}">
                         Layanan
                         <span

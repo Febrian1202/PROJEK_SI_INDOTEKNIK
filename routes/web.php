@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\AboutController;
 use Illuminate\Support\Facades\Route;
-// Import Controller yang akan dipakai
 use App\Http\Controllers\AuthController;
+// Import Controller yang akan dipakai
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\DirekturController;
 use App\Http\Controllers\KandidatController;
 use App\Http\Controllers\Admin\SiteController;
@@ -21,6 +22,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('about', [AboutController::class,'about'])->name('about');
 
+Route::get('service', [ServiceController::class,'service'])->name('service');
 // Route Autentikasi (Guest Only)
 Route::controller(AuthController::class)->group(function () {
     

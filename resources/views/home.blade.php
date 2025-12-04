@@ -94,7 +94,7 @@
                     </p>
 
                     <a href="{{ route('login') }}"
-                        class="border border-brand-blue text-white px-8 py-3 rounded-full font-semibold hover:bg-brand-blue hover:text-black transition duration-300 uppercase tracking-widest text-sm">
+                        class="border border-brand-blue text-white px-8 py-3 rounded-xl font-semibold hover:bg-brand-blue hover:text-black transition duration-300 uppercase tracking-widest text-sm">
                         Gabung Bersama Kami
                     </a>
                 </div>
@@ -136,175 +136,182 @@
                         <div class="h-1 w-12 bg-brand-orange rounded-full"></div>
                     </div>
                     <p class="text-gray-600 max-w-2xl mx-auto text-lg">
-                        Kami menyediakan berbagai layanan unggulan untuk memenuhi kebutuhan proyek Anda dengan standar
-                        profesional dan kualitas terbaik.
+                        Kami menyediakan berbagai layanan di bidang konstruksi umum dan penyedia tenaga kerja
+                        profesional dan berintegritas untuk mendukung kebutuhan proyek industri dan infrastruktur
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="container mx-auto">
+                    <div class="flex flex-wrap justify-center gap-8">
 
-                    <div
-                        class="group bg-white p-8 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100 hover:-translate-y-2 transition-all duration-300 hover:shadow-xl hover:border-brand-blue/20">
                         <div
-                            class="mb-6 inline-block p-4 bg-brand-gray rounded-xl text-brand-navy group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300">
-                            <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                            </svg>
+                            class="w-full max-w-sm group bg-white p-8 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100 hover:-translate-y-2 transition-all duration-300 hover:shadow-xl hover:border-brand-blue/20 flex flex-col">
+                            <div
+                                class="mb-3 inline-block p-4 bg-brand-gray rounded-xl text-brand-navy group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300 w-fit">
+                                <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                                </svg>
+                            </div>
+                            <h3
+                                class="text-xl font-bold text-brand-navy mb-3 group-hover:text-brand-blue transition-colors relative inline-block">
+                                Industri Peralatan Listrik Lainnya
+                                <span
+                                    class="absolute -bottom-2 left-0 w-full h-1 bg-gray-200 rounded-full group-hover:bg-brand-blue transition-colors duration-300"></span>
+                            </h3>
+                            <p class="text-gray-600 mb-0 mt-4 leading-relaxed text-justify">
+                                Menyediakan dan memproduksi berbagai peralatan serta komponen listrik untuk kebutuhan
+                                industri dan proyek.
+                            </p>
+
                         </div>
-                        <h3
-                            class="text-xl font-bold text-brand-navy mb-3 group-hover:text-brand-blue transition-colors">
-                            Layanan Konstruksi Umum</h3>
-                        <p class="text-gray-600 mb-6 leading-relaxed">
-                            Kami melaksanakan pembangunan dan renovasi berbagai jenis bangunan serta infrastruktur
-                            sesuai standar mutu dan waktu pelaksanaan.
-                        </p>
-                        <a href="#"
-                            class="inline-flex items-center font-semibold text-brand-orange hover:text-orange-700 transition-colors">
-                            Selengkapnya
-                            <svg class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
+
+                        <div
+                            class="w-full max-w-sm group bg-white p-8 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100 hover:-translate-y-2 transition-all duration-300 hover:shadow-xl hover:border-brand-blue/20 flex flex-col">
+                            <div
+                                class="mb-3 inline-block p-4 bg-brand-gray rounded-xl text-brand-navy group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300 w-fit">
+                                <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" />
+                                </svg>
+                            </div>
+                            <h3
+                                class="text-xl font-bold text-brand-navy mb-3 group-hover:text-brand-blue transition-colors relative inline-block">
+                                Konstruksi Umum
+                                <span
+                                    class="absolute -bottom-2 left-0 w-full h-1 bg-gray-200 rounded-full group-hover:bg-brand-blue transition-colors duration-300"></span>
+                            </h3>
+                            <p class="text-gray-600 mb-0 mt-4 leading-relaxed text-justify">
+                                Melaksanakan pekerjan konstruksi bangunan, jalan, jembatan, dan infrastruktur lainnya
+                                dengan
+                                standar mutu tinggi.
+                            </p>
+
+                        </div>
+
+                        <div
+                            class="w-full max-w-sm group bg-white p-8 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100 hover:-translate-y-2 transition-all duration-300 hover:shadow-xl hover:border-brand-blue/20 flex flex-col">
+                            <div
+                                class="mb-3 inline-block p-4 bg-brand-gray rounded-xl text-brand-navy group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300 w-fit">
+                                <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+                                </svg>
+                            </div>
+                            <h3
+                                class="text-xl font-bold text-brand-navy mb-3 group-hover:text-brand-blue transition-colors relative inline-block">
+                                Perdagangan Besar
+                                <span
+                                    class="absolute -bottom-2 left-0 w-full h-1 bg-gray-200 rounded-full group-hover:bg-brand-blue transition-colors duration-300"></span>
+                            </h3>
+                            <p class="text-gray-600 mb-0 mt-4 leading-relaxed text-justify">
+                                Melayani distribusi dan penjualan material teknik, alat listrik, serta perlengkapan
+                                konstruksi dalam skala besar.
+                            </p>
+
+                        </div>
+
+                        <div
+                            class="w-full max-w-sm group bg-white p-8 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100 hover:-translate-y-2 transition-all duration-300 hover:shadow-xl hover:border-brand-blue/20 flex flex-col">
+                            <div
+                                class="mb-3 inline-block p-4 bg-brand-gray rounded-xl text-brand-navy group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300 w-fit">
+                                <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                                </svg>
+                            </div>
+                            <h3
+                                class="text-xl font-bold text-brand-navy mb-3 group-hover:text-brand-blue transition-colors relative inline-block">
+                                Penyedia Tenaga Kerja
+                                <span
+                                    class="absolute -bottom-2 left-0 w-full h-1 bg-gray-200 rounded-full group-hover:bg-brand-blue transition-colors duration-300"></span>
+                            </h3>
+                            <p class="text-gray-600 mb-0 mt-4 leading-relaxed text-justify">
+                                Menyuplai tenaga kerja terampil dan profesional untuk berbagai bidang industri dan
+                                proyek
+                                konstruksi.
+                            </p>
+
+                        </div>
+
+                        <div
+                            class="w-full max-w-sm group bg-white p-8 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100 hover:-translate-y-2 transition-all duration-300 hover:shadow-xl hover:border-brand-blue/20 flex flex-col">
+                            <div
+                                class="mb-3 inline-block p-4 bg-brand-gray rounded-xl text-brand-navy group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300 w-fit">
+                                <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+                                </svg>
+                            </div>
+                            <h3
+                                class="text-xl font-bold text-brand-navy mb-3 group-hover:text-brand-blue transition-colors relative inline-block">
+                                Navigasi Penerbangan
+                                <span
+                                    class="absolute -bottom-2 left-0 w-full h-1 bg-gray-200 rounded-full group-hover:bg-brand-blue transition-colors duration-300"></span>
+                            </h3>
+                            <p class="text-gray-600 mb-0 mt-4 leading-relaxed text-justify">
+                                Memberikan layanan teknis dan dukungan operasional pada sistem navigasi penerbangan dan
+                                infrastruktur bandara.
+                            </p>
+
+                        </div>
+
+                        <div
+                            class="w-full max-w-sm group bg-white p-8 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100 hover:-translate-y-2 transition-all duration-300 hover:shadow-xl hover:border-brand-blue/20 flex flex-col">
+                            <div
+                                class="mb-3 inline-block p-4 bg-brand-gray rounded-xl text-brand-navy group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300 w-fit">
+                                <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.75" />
+                                </svg>
+                            </div>
+                            <h3
+                                class="text-xl font-bold text-brand-navy mb-3 group-hover:text-brand-blue transition-colors relative inline-block">
+                                Aktivitas Penunjang Pertambangan
+                                <span
+                                    class="absolute -bottom-2 left-0 w-full h-1 bg-gray-200 rounded-full group-hover:bg-brand-blue transition-colors duration-300"></span>
+                            </h3>
+                            <p class="text-gray-600 mb-0 mt-4 leading-relaxed text-justify">
+                                Menunjang kegiatan pertambangan melalui penyediaan jasa teknis,
+                                peralatan, dan tenaga ahli di lapangan.
+                            </p>
+
+                        </div>
+                        <div
+                            class="w-full max-w-sm group bg-white p-8 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100 hover:-translate-y-2 transition-all duration-300 hover:shadow-xl hover:border-brand-blue/20 flex flex-col">
+                            <div
+                                class="mb-3 inline-block p-4 bg-brand-gray rounded-xl text-brand-navy group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300 w-fit">
+                                <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                                </svg>
+                            </div>
+                            <h3
+                                class="text-xl font-bold text-brand-navy mb-3 group-hover:text-brand-blue transition-colors relative inline-block">
+                                Real Estate
+                                <span
+                                    class="absolute -bottom-2 left-0 w-full h-1 bg-gray-200 rounded-full group-hover:bg-brand-blue transition-colors duration-300"></span>
+                            </h3>
+                            <p class="text-gray-600 mb-0 mt-4 leading-relaxed text-justify">
+                                Mengembangkan dan mengelola properti komersial maupun hunian dengan konsep efisien dan
+                                berkelanjutan.
+                            </p>
+
+                        </div>
+
+                    </div>
+                    <div class="text-center mt-10">
+                        <a href="{{ route("service") }}"
+                            class="group inline-flex items-center gap-2 px-8 py-3 bg-white border-2 border-brand-blue text-brand-blue font-bold rounded-xl transition-all duration-300 hover:bg-brand-blue hover:text-white hover:shadow-lg hover:shadow-blue-500/30 hover:-translate-y-1">
+                            Lihat Selengkapnya
+
+                            <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M17 8l4 4m0 0l-4 4m4-4H3" />
                             </svg>
                         </a>
                     </div>
-
-                    <div
-                        class="group bg-white p-8 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100 hover:-translate-y-2 transition-all duration-300 hover:shadow-xl hover:border-brand-blue/20">
-                        <div
-                            class="mb-6 inline-block p-4 bg-brand-gray rounded-xl text-brand-navy group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300">
-                            <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                    d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-                            </svg>
-                        </div>
-                        <h3
-                            class="text-xl font-bold text-brand-navy mb-3 group-hover:text-brand-blue transition-colors">
-                            Perdagangan Besar & Ritel</h3>
-                        <p class="text-gray-600 mb-6 leading-relaxed">
-                            Kami menyediakan dan mendistribusikan berbagai material teknik, peralatan industri, dan
-                            kebutuhan proyek secara efisien.
-                        </p>
-                        <a href="#"
-                            class="inline-flex items-center font-semibold text-brand-orange hover:text-orange-700 transition-colors">
-                            Selengkapnya
-                            <svg class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                            </svg>
-                        </a>
-                    </div>
-
-                    <div
-                        class="group bg-white p-8 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100 hover:-translate-y-2 transition-all duration-300 hover:shadow-xl hover:border-brand-blue/20">
-                        <div
-                            class="mb-6 inline-block p-4 bg-brand-gray rounded-xl text-brand-navy group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300">
-                            <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                    d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                            </svg>
-                        </div>
-                        <h3
-                            class="text-xl font-bold text-brand-navy mb-3 group-hover:text-brand-blue transition-colors">
-                            Penunjang Pertambangan</h3>
-                        <p class="text-gray-600 mb-6 leading-relaxed">
-                            Kami mendukung kegiatan pertambangan dengan penyediaan tenaga ahli, peralatan, dan layanan
-                            teknis lapangan.
-                        </p>
-                        <a href="#"
-                            class="inline-flex items-center font-semibold text-brand-orange hover:text-orange-700 transition-colors">
-                            Selengkapnya
-                            <svg class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                            </svg>
-                        </a>
-                    </div>
-
-                    <div
-                        class="group bg-white p-8 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100 hover:-translate-y-2 transition-all duration-300 hover:shadow-xl hover:border-brand-blue/20">
-                        <div
-                            class="mb-6 inline-block p-4 bg-brand-gray rounded-xl text-brand-navy group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300">
-                            <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                            </svg>
-                        </div>
-                        <h3
-                            class="text-xl font-bold text-brand-navy mb-3 group-hover:text-brand-blue transition-colors">
-                            Penyedia Tenaga Kerja Profesional</h3>
-                        <p class="text-gray-600 mb-6 leading-relaxed">
-                            Kami menyalurkan tenaga kerja terampil dan berpengalaman untuk mendukung kebutuhan
-                            operasional di berbagai sektor industri.
-                        </p>
-                        <a href="#"
-                            class="inline-flex items-center font-semibold text-brand-orange hover:text-orange-700 transition-colors">
-                            Selengkapnya
-                            <svg class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                            </svg>
-                        </a>
-                    </div>
-
-                    <div
-                        class="group bg-white p-8 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100 hover:-translate-y-2 transition-all duration-300 hover:shadow-xl hover:border-brand-blue/20">
-                        <div
-                            class="mb-6 inline-block p-4 bg-brand-gray rounded-xl text-brand-navy group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300">
-                            <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                    d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.75" />
-                            </svg>
-                        </div>
-                        <h3
-                            class="text-xl font-bold text-brand-navy mb-3 group-hover:text-brand-blue transition-colors">
-                            Layanan Transportasi Dan Pergudangan</h3>
-                        <p class="text-gray-600 mb-6 leading-relaxed">
-                            Kami melayani pengangkutan dan penyimpanan material proyek dengan sistem logistik yang aman
-                            dan terintegrasi.
-                        </p>
-                        <a href="#"
-                            class="inline-flex items-center font-semibold text-brand-orange hover:text-orange-700 transition-colors">
-                            Selengkapnya
-                            <svg class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                            </svg>
-                        </a>
-                    </div>
-
-                    <div
-                        class="group bg-white p-8 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100 hover:-translate-y-2 transition-all duration-300 hover:shadow-xl hover:border-brand-blue/20">
-                        <div
-                            class="mb-6 inline-block p-4 bg-brand-gray rounded-xl text-brand-navy group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300">
-                            <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                    d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" />
-                            </svg>
-                        </div>
-                        <h3
-                            class="text-xl font-bold text-brand-navy mb-3 group-hover:text-brand-blue transition-colors">
-                            Jasa Penyewaan Dan Sewa Guna Usaha</h3>
-                        <p class="text-gray-600 mb-6 leading-relaxed">
-                            Kami menyediakan peralatan kerja, kendaraan operasional, dan perlengkapan proyek untuk
-                            disewa sesuai kebutuhan klien.
-                        </p>
-                        <a href="#"
-                            class="inline-flex items-center font-semibold text-brand-orange hover:text-orange-700 transition-colors">
-                            Selengkapnya
-                            <svg class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                            </svg>
-                        </a>
-                    </div>
-
                 </div>
             </div>
         </section>
