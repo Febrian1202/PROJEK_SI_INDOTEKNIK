@@ -39,13 +39,14 @@
                 <div
                     class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 translate-y-10">
 
-                    <h1 class="text-brand-gray text-4xl font-bold mb-5 md:mb-6 lg:mb-7 lg:text-6xl md:text-5xl">Layanan Kami</h1>
+                    <h1 class="text-brand-gray text-4xl font-bold mb-5 md:mb-6 lg:mb-7 lg:text-6xl md:text-5xl">Layanan
+                        Kami</h1>
 
-                    <div class="w-16 h-1 bg-brand-orange rounded-full mb-5"></div>
+                    <div class="w-16 h-1 bg-brand-blue rounded-full mb-5"></div>
 
                     <span class="text-gray-200 max-w-2xl text-base md:text-lg mb-8 leading-relaxed"><a
                             href="{{ route('home') }}"
-                            class="text-brand-orange hover:text-brand-blue ransition-colors duration-300">Home</a> /
+                            class="text-brand-blue hover:text-brand-orange ransition-colors duration-300">Home</a> /
                         Service</span>
                 </div>
 
@@ -81,9 +82,9 @@
             <div class="max-w-7xl mx-auto px-6 lg:px-8">
                 <div class="text-center mb-16">
                     <div class="flex items-center justify-center gap-4 mb-4">
-                        <div class="h-1 w-12 bg-brand-orange rounded-full"></div>
+                        <div class="h-1 w-12 bg-brand-blue rounded-full"></div>
                         <h2 class="text-3xl md:text-4xl font-bold text-brand-navy">Layanan Kami</h2>
-                        <div class="h-1 w-12 bg-brand-orange rounded-full"></div>
+                        <div class="h-1 w-12 bg-brand-blue rounded-full"></div>
                     </div>
                     <p class="text-gray-600 max-w-2xl mx-auto text-lg">
                         Kami menyediakan berbagai layanan di bidang konstruksi umum dan penyedia tenaga kerja
@@ -95,7 +96,7 @@
                     <div class="flex flex-wrap justify-center gap-8">
 
                         <div
-                            class="w-full max-w-sm group bg-white p-8 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100 hover:-translate-y-2 transition-all duration-300 hover:shadow-xl hover:border-brand-blue/20 flex flex-col">
+                            class="w-full max-w-sm group bg-white p-8 rounded-2xl border border-gray-100 shadow-[0_4px_20px_rgba(37,150,190,0.15)] hover:shadow-[0_10px_30px_rgba(37,150,190,0.40)] hover:-translate-y-2 transition-all duration-300 hover:border-brand-blue/20 flex flex-col">
                             <div
                                 class="mb-3 inline-block p-4 bg-brand-gray rounded-xl text-brand-navy group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300 w-fit">
                                 <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -106,17 +107,18 @@
                             <h3
                                 class="text-xl font-bold text-brand-navy mb-3 group-hover:text-brand-blue transition-colors relative inline-block">
                                 Industri Peralatan Listrik Lainnya
-                                <span class="absolute -bottom-2 left-0 w-full h-1 bg-gray-200 rounded-full group-hover:bg-brand-blue transition-colors duration-300"></span>
+                                <span
+                                    class="absolute -bottom-2 left-0 w-full h-1 bg-gray-200 rounded-full group-hover:bg-brand-blue transition-colors duration-300"></span>
                             </h3>
                             <p class="text-gray-600 mb-0 mt-4 leading-relaxed text-justify">
                                 Menyediakan dan memproduksi berbagai peralatan serta komponen listrik untuk kebutuhan
                                 industri dan proyek.
                             </p>
-                            
+
                         </div>
 
                         <div
-                            class="w-full max-w-sm group bg-white p-8 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100 hover:-translate-y-2 transition-all duration-300 hover:shadow-xl hover:border-brand-blue/20 flex flex-col">
+                            class="w-full max-w-sm group bg-white p-8 rounded-2xl border border-gray-100 shadow-[0_4px_20px_rgba(37,150,190,0.15)] hover:shadow-[0_10px_30px_rgba(37,150,190,0.40)] hover:-translate-y-2 transition-all duration-300 hover:border-brand-blue/20 flex flex-col">
                             <div
                                 class="mb-3 inline-block p-4 bg-brand-gray rounded-xl text-brand-navy group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300 w-fit">
                                 <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -127,17 +129,19 @@
                             <h3
                                 class="text-xl font-bold text-brand-navy mb-3 group-hover:text-brand-blue transition-colors relative inline-block">
                                 Konstruksi Umum
-                                <span class="absolute -bottom-2 left-0 w-full h-1 bg-gray-200 rounded-full group-hover:bg-brand-blue transition-colors duration-300"></span>
+                                <span
+                                    class="absolute -bottom-2 left-0 w-full h-1 bg-gray-200 rounded-full group-hover:bg-brand-blue transition-colors duration-300"></span>
                             </h3>
                             <p class="text-gray-600 mb-0 mt-4 leading-relaxed text-justify">
-                                Melaksanakan pekerjan konstruksi bangunan, jalan, jembatan, dan infrastruktur lainnya dengan
+                                Melaksanakan pekerjan konstruksi bangunan, jalan, jembatan, dan infrastruktur lainnya
+                                dengan
                                 standar mutu tinggi.
                             </p>
-                            
+
                         </div>
 
                         <div
-                            class="w-full max-w-sm group bg-white p-8 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100 hover:-translate-y-2 transition-all duration-300 hover:shadow-xl hover:border-brand-blue/20 flex flex-col">
+                            class="w-full max-w-sm group bg-white p-8 rounded-2xl border border-gray-100 shadow-[0_4px_20px_rgba(37,150,190,0.15)] hover:shadow-[0_10px_30px_rgba(37,150,190,0.40)] hover:-translate-y-2 transition-all duration-300 hover:border-brand-blue/20 flex flex-col">
                             <div
                                 class="mb-3 inline-block p-4 bg-brand-gray rounded-xl text-brand-navy group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300 w-fit">
                                 <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -148,17 +152,18 @@
                             <h3
                                 class="text-xl font-bold text-brand-navy mb-3 group-hover:text-brand-blue transition-colors relative inline-block">
                                 Perdagangan Besar
-                                <span class="absolute -bottom-2 left-0 w-full h-1 bg-gray-200 rounded-full group-hover:bg-brand-blue transition-colors duration-300"></span>
+                                <span
+                                    class="absolute -bottom-2 left-0 w-full h-1 bg-gray-200 rounded-full group-hover:bg-brand-blue transition-colors duration-300"></span>
                             </h3>
                             <p class="text-gray-600 mb-0 mt-4 leading-relaxed text-justify">
                                 Melayani distribusi dan penjualan material teknik, alat listrik, serta perlengkapan
                                 konstruksi dalam skala besar.
                             </p>
-                            
+
                         </div>
 
                         <div
-                            class="w-full max-w-sm group bg-white p-8 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100 hover:-translate-y-2 transition-all duration-300 hover:shadow-xl hover:border-brand-blue/20 flex flex-col">
+                            class="w-full max-w-sm group bg-white p-8 rounded-2xl border border-gray-100 shadow-[0_4px_20px_rgba(37,150,190,0.15)] hover:shadow-[0_10px_30px_rgba(37,150,190,0.40)] hover:-translate-y-2 transition-all duration-300 hover:border-brand-blue/20 flex flex-col">
                             <div
                                 class="mb-3 inline-block p-4 bg-brand-gray rounded-xl text-brand-navy group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300 w-fit">
                                 <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -169,17 +174,19 @@
                             <h3
                                 class="text-xl font-bold text-brand-navy mb-3 group-hover:text-brand-blue transition-colors relative inline-block">
                                 Penyedia Tenaga Kerja
-                                <span class="absolute -bottom-2 left-0 w-full h-1 bg-gray-200 rounded-full group-hover:bg-brand-blue transition-colors duration-300"></span>
+                                <span
+                                    class="absolute -bottom-2 left-0 w-full h-1 bg-gray-200 rounded-full group-hover:bg-brand-blue transition-colors duration-300"></span>
                             </h3>
                             <p class="text-gray-600 mb-0 mt-4 leading-relaxed text-justify">
-                                Menyuplai tenaga kerja terampil dan profesional untuk berbagai bidang industri dan proyek
+                                Menyuplai tenaga kerja terampil dan profesional untuk berbagai bidang industri dan
+                                proyek
                                 konstruksi.
                             </p>
-                            
+
                         </div>
 
                         <div
-                            class="w-full max-w-sm group bg-white p-8 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100 hover:-translate-y-2 transition-all duration-300 hover:shadow-xl hover:border-brand-blue/20 flex flex-col">
+                            class="w-full max-w-sm group bg-white p-8 rounded-2xl border border-gray-100 shadow-[0_4px_20px_rgba(37,150,190,0.15)] hover:shadow-[0_10px_30px_rgba(37,150,190,0.40)] hover:-translate-y-2 transition-all duration-300 hover:border-brand-blue/20 flex flex-col">
                             <div
                                 class="mb-3 inline-block p-4 bg-brand-gray rounded-xl text-brand-navy group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300 w-fit">
                                 <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -190,17 +197,18 @@
                             <h3
                                 class="text-xl font-bold text-brand-navy mb-3 group-hover:text-brand-blue transition-colors relative inline-block">
                                 Navigasi Penerbangan
-                                <span class="absolute -bottom-2 left-0 w-full h-1 bg-gray-200 rounded-full group-hover:bg-brand-blue transition-colors duration-300"></span>
+                                <span
+                                    class="absolute -bottom-2 left-0 w-full h-1 bg-gray-200 rounded-full group-hover:bg-brand-blue transition-colors duration-300"></span>
                             </h3>
                             <p class="text-gray-600 mb-0 mt-4 leading-relaxed text-justify">
                                 Memberikan layanan teknis dan dukungan operasional pada sistem navigasi penerbangan dan
                                 infrastruktur bandara.
                             </p>
-                            
+
                         </div>
 
                         <div
-                            class="w-full max-w-sm group bg-white p-8 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100 hover:-translate-y-2 transition-all duration-300 hover:shadow-xl hover:border-brand-blue/20 flex flex-col">
+                            class="w-full max-w-sm group bg-white p-8 rounded-2xl border border-gray-100 shadow-[0_4px_20px_rgba(37,150,190,0.15)] hover:shadow-[0_10px_30px_rgba(37,150,190,0.40)] hover:-translate-y-2 transition-all duration-300 hover:border-brand-blue/20 flex flex-col">
                             <div
                                 class="mb-3 inline-block p-4 bg-brand-gray rounded-xl text-brand-navy group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300 w-fit">
                                 <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -211,16 +219,17 @@
                             <h3
                                 class="text-xl font-bold text-brand-navy mb-3 group-hover:text-brand-blue transition-colors relative inline-block">
                                 Aktivitas Penunjang Pertambangan
-                                <span class="absolute -bottom-2 left-0 w-full h-1 bg-gray-200 rounded-full group-hover:bg-brand-blue transition-colors duration-300"></span>
+                                <span
+                                    class="absolute -bottom-2 left-0 w-full h-1 bg-gray-200 rounded-full group-hover:bg-brand-blue transition-colors duration-300"></span>
                             </h3>
                             <p class="text-gray-600 mb-0 mt-4 leading-relaxed text-justify">
                                 Menunjang kegiatan pertambangan melalui penyediaan jasa teknis,
                                 peralatan, dan tenaga ahli di lapangan.
                             </p>
-                            
+
                         </div>
                         <div
-                            class="w-full max-w-sm group bg-white p-8 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100 hover:-translate-y-2 transition-all duration-300 hover:shadow-xl hover:border-brand-blue/20 flex flex-col">
+                            class="w-full max-w-sm group bg-white p-8 rounded-2xl border border-gray-100 shadow-[0_4px_20px_rgba(37,150,190,0.15)] hover:shadow-[0_10px_30px_rgba(37,150,190,0.40)] hover:-translate-y-2 transition-all duration-300 hover:border-brand-blue/20 flex flex-col">
                             <div
                                 class="mb-3 inline-block p-4 bg-brand-gray rounded-xl text-brand-navy group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300 w-fit">
                                 <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -231,13 +240,14 @@
                             <h3
                                 class="text-xl font-bold text-brand-navy mb-3 group-hover:text-brand-blue transition-colors relative inline-block">
                                 Real Estate
-                                <span class="absolute -bottom-2 left-0 w-full h-1 bg-gray-200 rounded-full group-hover:bg-brand-blue transition-colors duration-300"></span>
+                                <span
+                                    class="absolute -bottom-2 left-0 w-full h-1 bg-gray-200 rounded-full group-hover:bg-brand-blue transition-colors duration-300"></span>
                             </h3>
                             <p class="text-gray-600 mb-0 mt-4 leading-relaxed text-justify">
                                 Mengembangkan dan mengelola properti komersial maupun hunian dengan konsep efisien dan
                                 berkelanjutan.
                             </p>
-                            
+
                         </div>
 
                     </div>
@@ -255,11 +265,116 @@
                             class="absolute inset-0 w-full h-full object-cover">
                     </div>
                     <div>
-                        <h3 class="text-3xl font-bold text-brand-gray text-bold mb-6 tracking-wider">Cara <strong>PT. INDOTEKNIK PRIMA MEKONGGA</strong> Bekerja</h3>
+                        <h3 class="text-3xl font-bold text-brand-gray text-bold mb-6 tracking-wider">Cara <strong
+                                class="text-brand-orange">PT.
+                                INDOTEKNIK PRIMA MEKONGGA</strong> Bekerja</h3>
                         <div class="w-16 h-1 bg-brand-orange rounded-full mb-6"></div>
                         <p class="text-lg text-brand-gray leading-relaxed text-justify">
                             6 Langkah cara kami bekerja
                         </p>
+                        <div class="group mt-4 flex items-start gap-4">
+                            <div
+                                class="mt-2 inline-block p-2 bg-brand-gray rounded-xl text-brand-navy group-hover:bg-brand-orange group-hover:text-white transition-colors duration-300 w-fit shrink-0">
+                                <svg class="w-9 h-9" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3
+                                    class="text-xl inline-block text-white text-bold font-bold group-hover:text-brand-orange transition-colors duration-300">
+                                    KONSULTASI AWAL</h3>
+                                <p class="text-justify text-base inline-block text-gray-200">Menjaga kejujuran,
+                                    tanggung jawab, dan
+                                    kepercayaan dalam setiap pekerjaan.</p>
+                            </div>
+                        </div>
+                        <div class="group mt-4 flex items-start gap-4">
+                            <div
+                                class="mt-2 inline-block p-2 bg-brand-gray rounded-xl text-brand-navy group-hover:bg-brand-orange group-hover:text-white transition-colors duration-300 w-fit shrink-0">
+                                <svg class="w-9 h-9" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    {{-- <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /> --}}
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3
+                                    class="text-xl inline-block text-white text-bold font-bold group-hover:text-brand-orange transition-colors duration-300">
+                                    SURVEY & ANALISIS LAPANGAN</h3>
+                                <p class="text-justify text-base inline-block text-gray-200">Bekerja dengan disiplin,
+                                    kompeten, dan
+                                    berorientasi pada hasil yang terbaik.</p>
+                            </div>
+                        </div>
+                        <div class="group mt-4 flex items-start gap-4">
+                            <div
+                                class="mt-2 inline-block p-2 bg-brand-gray rounded-xl text-brand-navy group-hover:bg-brand-orange group-hover:text-white transition-colors duration-300 w-fit shrink-0">
+                                <svg class="w-9 h-9" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3
+                                    class="text-xl inline-block text-white text-bold font-bold group-hover:text-brand-orange transition-colors duration-300">
+                                    PENAWARAN & KONTRAK</h3>
+                                <p class="text-justify text-base inline-block text-gray-200">Membangun kolaborasi dan
+                                    komunikasi
+                                    yang solid di setiap lini kerja.</p>
+                            </div>
+                        </div>
+                        <div class="group mt-4 flex items-start gap-4">
+                            <div
+                                class="mt-2 inline-block p-2 bg-brand-gray rounded-xl text-brand-navy group-hover:bg-brand-orange group-hover:text-white transition-colors duration-300 w-fit shrink-0">
+                                <svg class="w-9 h-9" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3
+                                    class="text-xl inline-block text-white text-bold font-bold group-hover:text-brand-orange transition-colors duration-300">
+                                    PELAKSANAAN PROYEK</h3>
+                                <p class="text-justify text-base inline-block text-gray-200">Mengutamakan budaya kerja
+                                    aman dan penerapan standar K3</p>
+                            </div>
+                        </div>
+                        <div class="group mt-4 flex items-start gap-4">
+                            <div
+                                class="mt-2 inline-block p-2 bg-brand-gray rounded-xl text-brand-navy group-hover:bg-brand-orange group-hover:text-white transition-colors duration-300 w-fit shrink-0">
+                                <svg class="w-9 h-9" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3
+                                    class="text-xl inline-block text-white text-bold font-bold group-hover:text-brand-orange transition-colors duration-300">
+                                    QUALITY CONTROL (QC)</h3>
+                                <p class="text-justify text-base inline-block text-gray-200">Berpikir kreatif dan
+                                    adaptif untuk menghadirkan solusi yang efisien.</p>
+                            </div>
+                        </div>
+                        <div class="group mt-4 flex items-start gap-4">
+                            <div
+                                class="mt-2 inline-block p-2 bg-brand-gray rounded-xl text-brand-navy group-hover:bg-brand-orange group-hover:text-white transition-colors duration-300 w-fit shrink-0">
+                                <svg class="w-9 h-9" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M9 15l2 2 4-4" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3
+                                    class="text-xl inline-block text-white text-bold font-bold group-hover:text-brand-orange transition-colors duration-300">
+                                    SERAH TERIMA & DOKUMENTASI</h3>
+                                <p class="text-justify text-base inline-block text-gray-200">Peduli terhadap masyarakat
+                                    dan lingkungan dalam setiap kegiatan perusahaan.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 

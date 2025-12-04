@@ -430,6 +430,435 @@
                 </div>
             </div>
         </section>
+        <section class="py-24 bg-brand-navy" x-data="{
+            activeCert: null,
+            certificates: [
+                { title: 'Sertifikat Badan Usaha (SBU)', image: 'https://placehold.co/600x800/png?text=Scan+SBU' },
+                { title: 'ISO 9001:2015 (Mutu)', image: 'https://placehold.co/600x800/png?text=Scan+ISO9001' },
+                { title: 'ISO 45001:2018 (K3)', image: 'https://placehold.co/600x800/png?text=Scan+ISO45001' },
+                { title: 'Sertifikat K3 Umum', image: 'https://placehold.co/600x800/png?text=Scan+K3' }
+            ],
+            openModal(cert) {
+                this.activeCert = cert;
+                document.body.style.overflow = 'hidden';
+            },
+            closeModal() {
+                this.activeCert = null;
+                document.body.style.overflow = 'auto';
+            }
+        }">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+                <div class="text-center mb-12">
+                    <div class="flex items-center justify-center gap-4 mb-4">
+                        <div class="h-1 w-12 bg-brand-orange rounded-full"></div>
+                        <h2 class="text-3xl md:text-4xl font-bold text-white">Sertifikat & Perizinan</h2>
+                        <div class="h-1 w-12 bg-brand-orange rounded-full"></div>
+                    </div>
+                    <p class="text-gray-300 max-w-2xl mx-auto text-lg">
+                        Identitas resmi dan kelengkapan perizinan operasional PT. Indoteknik Prima Mekongga.
+                    </p>
+                </div>
+
+                <div class="bg-brand-gray backdrop-blur-sm rounded-2xl border border-brand-blue/30 p-8 mb-12">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                        <div class="flex gap-4">
+                            <div
+                                class="w-12 h-12 rounded-lg bg-brand-blue/20 text-brand-blue flex items-center justify-center shrink-0 border border-brand-blue/30">
+                                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-sm text-brand-blue font-medium">Nama Perusahaan</p>
+                                <h4 class="text-lg font-bold text-brand-navy">PT. INDOTEKNIK PRIMA MEKONGGA</h4>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div
+                                class="w-12 h-12 rounded-lg bg-brand-blue/20 text-brand-blue flex items-center justify-center shrink-0 border border-brand-blue/30">
+                                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-sm text-brand-blue font-medium">Direktur Utama</p>
+                                <h4 class="text-lg font-bold text-brand-navy capitalize">MUHAMMAD ILHAM NAFRUDDIN</h4>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div
+                                class="w-12 h-12 rounded-lg bg-brand-blue/20 text-brand-blue flex items-center justify-center shrink-0 border border-brand-blue/30">
+                                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-sm text-brand-blue font-medium">Akte Notaris</p>
+                                <h4 class="text-lg font-bold text-brand-navy">H. RUDI TAUFAN, S.H., M.Kn</h4>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div
+                                class="w-12 h-12 rounded-lg bg-brand-orange/20 text-brand-orange flex items-center justify-center shrink-0 border border-brand-orange/30">
+                                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-sm text-brand-blue font-medium">SK Kemenkumham</p>
+                                <h4 class="text-base font-bold text-brand-navy font-mono">NO.AHU-0000247.AH.01.01 TAHUN
+                                    2025</h4>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div
+                                class="w-12 h-12 rounded-lg bg-brand-orange/20 text-brand-orange flex items-center justify-center shrink-0 border border-brand-orange/30">
+                                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-sm text-brand-blue font-medium">Nomor Pokok Wajib Pajak (NPWP)</p>
+                                <h4 class="text-base font-bold text-brand-navy font-mono">1091 031 1154 0831</h4>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div
+                                class="w-12 h-12 rounded-lg bg-brand-orange/20 text-brand-orange flex items-center justify-center shrink-0 border border-brand-orange/30">
+                                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-sm text-brand-blue font-medium">Nomor Induk Berusaha (NIB)</p>
+                                <h4 class="text-base font-bold text-brand-navy font-mono">1202250122565</h4>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <h3 class="text-xl font-bold text-white mb-6 text-center border-t border-brand-blue/20 pt-8">Scan
+                    Dokumen Resmi</h3>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <template x-for="(cert, index) in certificates" :key="index">
+                        <div @click="openModal(cert)"
+                            class="group bg-brand-gray p-3 rounded-xl shadow-lg border border-brand-blue/30 hover:-translate-y-1 transition-all duration-300 cursor-pointer overflow-hidden relative">
+                            <div class="aspect-[3/4] bg-white rounded-lg overflow-hidden relative mb-3">
+                                <img :src="cert.image" :alt="cert.title"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div
+                                    class="absolute inset-0 bg-brand-navy/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+                                    <svg class="w-8 h-8 text-brand-navy" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <h4 class="font-bold text-brand-navy text-sm leading-tight group-hover:text-brand-orange transition-colors"
+                                    x-text="cert.title"></h4>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+
+                <div class="mt-12 text-center">
+                    <a href="#"
+                        class="inline-flex items-center gap-3 bg-brand-orange text-white px-8 py-3 rounded-full font-bold hover:bg-orange-600 transition shadow-lg shadow-orange-500/30 group">
+                        <svg class="w-5 h-5 group-hover:animate-bounce" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        </svg>
+                        Download Company Profile
+                    </a>
+                </div>
+
+            </div>
+
+            <div x-show="activeCert" style="display: none;"
+                class="fixed inset-0 z-[100] flex items-center justify-center p-4" x-transition.opacity>
+                <div class="absolute inset-0 bg-black/90 backdrop-blur-sm" @click="closeModal()"></div>
+                <div class="relative bg-white max-w-3xl w-full max-h-[90vh] rounded-2xl overflow-hidden shadow-2xl flex flex-col"
+                    x-show="activeCert" x-transition.scale.95>
+                    <div class="flex justify-between items-center p-4 border-b bg-gray-50">
+                        <h3 class="font-bold text-brand-navy text-lg" x-text="activeCert?.title"></h3>
+                        <button @click="closeModal()" class="text-gray-400 hover:text-red-500"><svg class="w-6 h-6"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12" />
+                            </svg></button>
+                    </div>
+                    <div class="flex-1 overflow-y-auto p-4 bg-gray-200 flex justify-center">
+                        <img :src="activeCert?.image" class="max-w-full h-auto shadow-md">
+                    </div>
+                </div>
+            </div>
+        </section>
+        {{-- <section class="py-24 bg-white" x-data="{
+            activeCategory: 'all',
+            projects: [{
+                    title: 'Pembangunan Jembatan Konawe',
+                    category: 'Konstruksi',
+                    image: 'https://images.pexels.com/photos/220769/pexels-photo-220769.jpeg?auto=compress&cs=tinysrgb&w=800',
+                    desc: 'Konstruksi jembatan penghubung antar desa sepanjang 50m dengan struktur beton bertulang.'
+                },
+                {
+                    title: 'Hauling Ore Site Pomalaa',
+                    category: 'Pertambangan',
+                    image: 'https://images.pexels.com/photos/2832061/pexels-photo-2832061.jpeg?auto=compress&cs=tinysrgb&w=800',
+                    desc: 'Kegiatan pengangkutan bijih nikel dari front penambangan menuju jetty stockpile.'
+                },
+                {
+                    title: 'Instalasi Panel Listrik Smelter',
+                    category: 'Kelistrikan',
+                    image: 'https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg?auto=compress&cs=tinysrgb&w=800',
+                    desc: 'Pemasangan sistem kelistrikan tegangan menengah untuk area pabrik pemurnian.'
+                },
+                {
+                    title: 'Perumahan Karyawan Morosi',
+                    category: 'Properti',
+                    image: 'https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=800',
+                    desc: 'Pengembangan komplek hunian type 45 untuk tenaga kerja site Morosi.'
+                },
+                {
+                    title: 'Maintenance Alat Berat',
+                    category: 'Pertambangan',
+                    image: 'https://images.pexels.com/photos/162553/keys-workshop-mechanic-tools-162553.jpeg?auto=compress&cs=tinysrgb&w=800',
+                    desc: 'Perawatan rutin unit excavator dan dump truck untuk menjaga performa operasional.'
+                },
+                {
+                    title: 'Renovasi Kantor Pusat',
+                    category: 'Konstruksi',
+                    image: 'https://images.pexels.com/photos/159306/construction-site-build-construction-work-159306.jpeg?auto=compress&cs=tinysrgb&w=800',
+                    desc: 'Pemugaran gedung kantor utama di Kendari dengan konsep modern minimalis.'
+                }
+            ]
+        }">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+                <div class="text-center mb-12">
+                    <div class="flex items-center justify-center gap-4 mb-4">
+                        <div class="h-1 w-12 bg-brand-orange rounded-full"></div>
+                        <h2 class="text-3xl md:text-4xl font-bold text-brand-navy">Portofolio Proyek</h2>
+                        <div class="h-1 w-12 bg-brand-orange rounded-full"></div>
+                    </div>
+                    <p class="text-gray-600 max-w-2xl mx-auto text-lg">
+                        Rekam jejak keberhasilan kami dalam menyelesaikan berbagai proyek strategis di Sulawesi
+                        Tenggara.
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-3 mb-12">
+                    <button @click="activeCategory = 'all'"
+                        :class="activeCategory === 'all' ? 'bg-brand-navy text-white shadow-lg shadow-brand-navy/30' :
+                            'bg-gray-100 text-gray-600 hover:bg-gray-200'"
+                        class="px-6 py-2 rounded-full font-semibold text-sm transition-all duration-300 transform hover:-translate-y-1">
+                        Semua Proyek
+                    </button>
+
+                    <template x-for="cat in ['Konstruksi', 'Pertambangan', 'Kelistrikan', 'Properti']">
+                        <button @click="activeCategory = cat"
+                            :class="activeCategory === cat ? 'bg-brand-navy text-white shadow-lg shadow-brand-navy/30' :
+                                'bg-gray-100 text-gray-600 hover:bg-gray-200'"
+                            class="px-6 py-2 rounded-full font-semibold text-sm transition-all duration-300 transform hover:-translate-y-1"
+                            x-text="cat">
+                        </button>
+                    </template>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <template x-for="(project, index) in projects" :key="index">
+
+                        <div x-show="activeCategory === 'all' || activeCategory === project.category"
+                            x-transition:enter="transition ease-out duration-500"
+                            x-transition:enter-start="opacity-0 transform scale-90"
+                            x-transition:enter-end="opacity-100 transform scale-100"
+                            class="group relative h-80 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer">
+
+                            <img :src="project.image" :alt="project.title"
+                                class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity">
+                            </div>
+
+                            <div
+                                class="absolute bottom-0 left-0 w-full p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                <span
+                                    class="inline-block px-3 py-1 mb-3 text-xs font-bold text-white bg-brand-orange rounded-full uppercase tracking-wider shadow-sm"
+                                    x-text="project.category"></span>
+
+                                <h3 class="text-xl font-bold text-white mb-2 leading-tight" x-text="project.title">
+                                </h3>
+
+                                <div class="h-0 group-hover:h-auto overflow-hidden transition-all duration-500">
+                                    <p class="text-gray-300 text-sm line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100"
+                                        x-text="project.desc"></p>
+                                </div>
+                            </div>
+
+                            <div
+                                class="absolute top-4 right-4 bg-white/10 backdrop-blur-md p-2 rounded-full text-white opacity-0 group-hover:opacity-100 -translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                </svg>
+                            </div>
+
+                        </div>
+
+                    </template>
+                </div>
+
+            </div>
+        </section> --}}
+        <section class="py-24 bg-white" x-data="{
+            activeCategory: 'all',
+            projects: [{
+                    title: 'Pengecetan Tower Crane & Ship Unloader',
+                    client: 'PT. BOSOWA ENERGY',
+                    loc: 'Jeneponto Coal Fired Steam Power Plant',
+                    category: 'Konstruksi',
+                    image: 'https://images.pexels.com/photos/220769/pexels-photo-220769.jpeg?auto=compress&cs=tinysrgb&w=800'
+                },
+                {
+                    title: 'Pembuatan KM/WC & Perbaikan Gudang GA',
+                    client: 'PT. ANTAM POMALAA',
+                    loc: 'Pomalaa, Kolaka',
+                    category: 'Konstruksi',
+                    image: 'https://images.pexels.com/photos/159306/construction-site-build-construction-work-159306.jpeg?auto=compress&cs=tinysrgb&w=800'
+                },
+                {
+                    title: 'Surface Preparation & Coating Storage Tank',
+                    client: 'PT. ANTAM',
+                    loc: 'Pomalaa',
+                    category: 'Maintenance',
+                    image: 'https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg?auto=compress&cs=tinysrgb&w=800'
+                },
+                {
+                    title: 'Pembersihan Raw Gas Feni Plant 3',
+                    client: 'ANTAM UBPN KOLAKA',
+                    loc: 'Kolaka (2025)',
+                    category: 'Maintenance',
+                    image: 'https://images.pexels.com/photos/2832061/pexels-photo-2832061.jpeg?auto=compress&cs=tinysrgb&w=800'
+                },
+                {
+                    title: 'Pengecetan Cooling Tower',
+                    client: 'PT. ANTAM',
+                    loc: 'Pomalaa',
+                    category: 'Maintenance',
+                    image: 'https://images.pexels.com/photos/162553/keys-workshop-mechanic-tools-162553.jpeg?auto=compress&cs=tinysrgb&w=800'
+                },
+                {
+                    title: 'Cleaning & Recoating Coal Firing System',
+                    client: 'ANTAM UBPN KOLAKA',
+                    loc: 'Kolaka (2025)',
+                    category: 'Maintenance',
+                    image: 'https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=800'
+                },
+                {
+                    title: 'Pembuatan Paving Block',
+                    client: 'ANTAM UBPN POMALAA',
+                    loc: 'Pomalaa',
+                    category: 'Konstruksi',
+                    image: 'https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=800'
+                }
+            ]
+        }">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+                <div class="text-center mb-12">
+                    <div class="flex items-center justify-center gap-4 mb-4">
+                        <div class="h-1 w-12 bg-brand-orange rounded-full"></div>
+                        <h2 class="text-3xl md:text-4xl font-bold text-brand-navy">Portofolio Proyek</h2>
+                        <div class="h-1 w-12 bg-brand-orange rounded-full"></div>
+                    </div>
+                    <p class="text-gray-600 max-w-3xl mx-auto text-lg">
+                        Pengalaman kami dalam menyelesaikan berbagai proyek strategis bersama mitra terkemuka.
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-3 mb-12">
+                    <button @click="activeCategory = 'all'"
+                        :class="activeCategory === 'all' ? 'bg-brand-navy text-white shadow-lg shadow-brand-navy/30' :
+                            'bg-gray-100 text-gray-600 hover:bg-gray-200'"
+                        class="px-6 py-2 rounded-full font-semibold text-sm transition-all duration-300 transform hover:-translate-y-1">
+                        Semua Proyek
+                    </button>
+
+                    <template x-for="cat in ['Konstruksi', 'Maintenance']">
+                        <button @click="activeCategory = cat"
+                            :class="activeCategory === cat ? 'bg-brand-navy text-white shadow-lg shadow-brand-navy/30' :
+                                'bg-gray-100 text-gray-600 hover:bg-gray-200'"
+                            class="px-6 py-2 rounded-full font-semibold text-sm transition-all duration-300 transform hover:-translate-y-1"
+                            x-text="cat">
+                        </button>
+                    </template>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <template x-for="(project, index) in projects" :key="index">
+
+                        <div x-show="activeCategory === 'all' || activeCategory === project.category"
+                            x-transition:enter="transition ease-out duration-500"
+                            x-transition:enter-start="opacity-0 transform scale-95"
+                            x-transition:enter-end="opacity-100 transform scale-100"
+                            class="group bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full">
+
+                            <div class="h-48 overflow-hidden relative">
+                                <img :src="project.image" :alt="project.title"
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+
+                                <div class="absolute top-4 right-4">
+                                    <span
+                                        class="bg-white/90 text-brand-navy text-xs font-bold px-3 py-1 rounded-full shadow-sm"
+                                        x-text="project.category"></span>
+                                </div>
+                            </div>
+
+                            <div class="p-6 flex-1 flex flex-col">
+                                <div class="text-xs font-bold text-brand-orange uppercase tracking-wider mb-2"
+                                    x-text="project.client"></div>
+                                <h3 class="text-lg font-bold text-brand-navy mb-3 leading-snug group-hover:text-brand-blue transition-colors"
+                                    x-text="project.title"></h3>
+
+                                <div
+                                    class="mt-auto pt-4 border-t border-gray-50 flex items-center text-gray-500 text-sm">
+                                    <svg class="w-4 h-4 mr-2 text-gray-400" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
+                                    <span x-text="project.loc"></span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </template>
+                </div>
+
+            </div>
+        </section>
 
         <x-footer></x-footer>
     </body>

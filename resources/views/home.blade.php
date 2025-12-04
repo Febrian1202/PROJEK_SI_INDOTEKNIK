@@ -145,7 +145,7 @@
                     <div class="flex flex-wrap justify-center gap-8">
 
                         <div
-                            class="w-full max-w-sm group bg-white p-8 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100 hover:-translate-y-2 transition-all duration-300 hover:shadow-xl hover:border-brand-blue/20 flex flex-col">
+                            class="w-full max-w-sm group bg-white p-8 rounded-2xl border border-gray-100 shadow-[0_4px_20px_rgba(37,150,190,0.15)] hover:shadow-[0_10px_30px_rgba(37,150,190,0.40)] hover:-translate-y-2 transition-all duration-300 hover:border-brand-blue/20 flex flex-col">
                             <div
                                 class="mb-3 inline-block p-4 bg-brand-gray rounded-xl text-brand-navy group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300 w-fit">
                                 <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -167,7 +167,7 @@
                         </div>
 
                         <div
-                            class="w-full max-w-sm group bg-white p-8 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100 hover:-translate-y-2 transition-all duration-300 hover:shadow-xl hover:border-brand-blue/20 flex flex-col">
+                            class="w-full max-w-sm group bg-white p-8 rounded-2xl border border-gray-100 shadow-[0_4px_20px_rgba(37,150,190,0.15)] hover:shadow-[0_10px_30px_rgba(37,150,190,0.40)] hover:-translate-y-2 transition-all duration-300 hover:border-brand-blue/20 flex flex-col">
                             <div
                                 class="mb-3 inline-block p-4 bg-brand-gray rounded-xl text-brand-navy group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300 w-fit">
                                 <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -190,7 +190,7 @@
                         </div>
 
                         <div
-                            class="w-full max-w-sm group bg-white p-8 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100 hover:-translate-y-2 transition-all duration-300 hover:shadow-xl hover:border-brand-blue/20 flex flex-col">
+                            class="w-full max-w-sm group bg-white p-8 rounded-2xl border border-gray-100 shadow-[0_4px_20px_rgba(37,150,190,0.15)] hover:shadow-[0_10px_30px_rgba(37,150,190,0.40)] hover:-translate-y-2 transition-all duration-300 hover:border-brand-blue/20 flex flex-col">
                             <div
                                 class="mb-3 inline-block p-4 bg-brand-gray rounded-xl text-brand-navy group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300 w-fit">
                                 <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -212,7 +212,7 @@
                         </div>
 
                         <div
-                            class="w-full max-w-sm group bg-white p-8 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100 hover:-translate-y-2 transition-all duration-300 hover:shadow-xl hover:border-brand-blue/20 flex flex-col">
+                            class="w-full max-w-sm group bg-white p-8 rounded-2xl border border-gray-100 shadow-[0_4px_20px_rgba(37,150,190,0.15)] hover:shadow-[0_10px_30px_rgba(37,150,190,0.40)] hover:-translate-y-2 transition-all duration-300 hover:border-brand-blue/20 flex flex-col">
                             <div
                                 class="mb-3 inline-block p-4 bg-brand-gray rounded-xl text-brand-navy group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300 w-fit">
                                 <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -235,7 +235,7 @@
                         </div>
 
                         <div
-                            class="w-full max-w-sm group bg-white p-8 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100 hover:-translate-y-2 transition-all duration-300 hover:shadow-xl hover:border-brand-blue/20 flex flex-col">
+                            class="w-full max-w-sm group bg-white p-8 rounded-2xl border border-gray-100 shadow-[0_4px_20px_rgba(37,150,190,0.15)] hover:shadow-[0_10px_30px_rgba(37,150,190,0.40)] hover:-translate-y-2 transition-all duration-300 hover:border-brand-blue/20 flex flex-col">
                             <div
                                 class="mb-3 inline-block p-4 bg-brand-gray rounded-xl text-brand-navy group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300 w-fit">
                                 <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -257,7 +257,7 @@
                         </div>
 
                         <div
-                            class="w-full max-w-sm group bg-white p-8 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100 hover:-translate-y-2 transition-all duration-300 hover:shadow-xl hover:border-brand-blue/20 flex flex-col">
+                            class="w-full max-w-sm group bg-white p-8 rounded-2xl border border-gray-100 shadow-[0_4px_20px_rgba(37,150,190,0.15)] hover:shadow-[0_10px_30px_rgba(37,150,190,0.40)] hover:-translate-y-2 transition-all duration-300 hover:border-brand-blue/20 flex flex-col">
                             <div
                                 class="mb-3 inline-block p-4 bg-brand-gray rounded-xl text-brand-navy group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300 w-fit">
                                 <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -278,7 +278,7 @@
 
                         </div>
                         <div
-                            class="w-full max-w-sm group bg-white p-8 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100 hover:-translate-y-2 transition-all duration-300 hover:shadow-xl hover:border-brand-blue/20 flex flex-col">
+                            class="w-full max-w-sm group bg-white p-8 rounded-2xl border border-gray-100 shadow-[0_4px_20px_rgba(37,150,190,0.15)] hover:shadow-[0_10px_30px_rgba(37,150,190,0.40)] hover:-translate-y-2 transition-all duration-300 hover:border-brand-blue/20 flex flex-col">
                             <div
                                 class="mb-3 inline-block p-4 bg-brand-gray rounded-xl text-brand-navy group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300 w-fit">
                                 <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -301,7 +301,7 @@
 
                     </div>
                     <div class="text-center mt-10">
-                        <a href="{{ route("service") }}"
+                        <a href="{{ route('service') }}"
                             class="group inline-flex items-center gap-2 px-8 py-3 bg-white border-2 border-brand-blue text-brand-blue font-bold rounded-xl transition-all duration-300 hover:bg-brand-blue hover:text-white hover:shadow-lg hover:shadow-blue-500/30 hover:-translate-y-1">
                             Lihat Selengkapnya
 
@@ -446,154 +446,197 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
 
                     <div
-                        class="w-full max-w-sm bg-white rounded-2xl border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden hover:-translate-y-2 transition-all duration-300 hover:shadow-xl group">
-                        <div class="h-32 bg-brand-navy relative">
-                            <div class="absolute -bottom-12 left-1/2 transform -translate-x-1/2">
-                                <div class="p-1 bg-white rounded-full">
-                                    <img class="w-24 h-24 rounded-full object-cover border-4 border-brand-orange"
-                                        src="{{ asset('assets/img/pexels-yury-kim-181374-585419.jpg') }}"
-                                        alt="Foto Profil">
-                                </div>
+                        class="w-full max-w-sm bg-white rounded-xl border border-gray-100 shadow-lg overflow-hidden group hover:-translate-y-2 hover:rounded-2xl transition-all duration-300">
+                        <div class="h-[480px] overflow-hidden relative">
+                            <img class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                                src="{{ asset('assets/img/team/ilham-nafruddin.png') }}" alt="Foto Profil">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-transparent to-transparent">
+                            </div>
+
+                            <div
+                                class="absolute bottom-4 right-4 flex space-x-3 translate-y-10 group-hover:translate-y-0 transition-transform duration-300">
+                                <a href="#"
+                                    class="bg-white/20 p-2 rounded-full text-white hover:bg-brand-orange transition-colors backdrop-blur-sm">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="..." />
+                                    </svg> </a>
                             </div>
                         </div>
-                        <div class="pt-16 pb-8 px-6 text-center">
-                            <h3
-                                class="text-xl font-bold text-brand-navy mb-1 group-hover:text-brand-blue transition-colors">
-                                MUH. ILHAM NAFRUDDIN</h3>
-                            <p class="text-brand-orange font-semibold text-sm uppercase tracking-wider mb-4">Komisaris
-                                Utama</p>
 
-                            <p class="text-gray-500 text-sm leading-relaxed mb-6">
-                                Seorang pemimpin visioner yang menanamkan nilai integritas dan inovasi di setiap langkah
-                                perusahaan untuk tumbuh tangguh dan terpercaya.
-                            </p>
-
-                            <div class="flex justify-center space-x-4">
-                                <a href="#" class="text-gray-400 hover:text-brand-blue"><svg class="w-5 h-5"
-                                        fill="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
-                                    </svg></a>
-                                <a href="#" class="text-gray-400 hover:text-brand-blue"><svg class="w-5 h-5"
-                                        fill="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                                    </svg></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div
-                        class="w-full max-w-sm bg-white rounded-2xl border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden hover:-translate-y-2 transition-all duration-300 hover:shadow-xl group">
-                        <div class="h-32 bg-brand-navy relative">
-                            <div class="absolute -bottom-12 left-1/2 transform -translate-x-1/2">
-                                <div class="p-1 bg-white rounded-full">
-                                    <img class="w-24 h-24 rounded-full object-cover border-4 border-brand-orange"
-                                        src="{{ asset('assets/img/pexels-yury-kim-181374-585419.jpg') }}"
-                                        alt="Foto Profil">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="pt-16 pb-8 px-6 text-center">
-                            <h3
-                                class="text-xl font-bold text-brand-navy mb-1 group-hover:text-brand-blue transition-colors">
-                                JARIAH</h3>
+                        <div class="p-6 text-center relative">
+                            <h3 class="text-xl font-bold text-brand-navy mb-1">Muh. Ilham Nafruddin</h3>
                             <p class="text-brand-orange font-semibold text-sm uppercase tracking-wider mb-4">Direktur
                                 Utama</p>
-
-                            <p class="text-gray-500 text-sm leading-relaxed mb-6">
-                                Membangun dengan hati. Setiap proyek adalah tanggung jawab kami untuk menghadirkan karya
-                                yang kuat, estetis, dan bermanfaat bagi masyarakat.
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                Sebagai Direktur Utama Indoteknik
+                                Prima Mekongga ,bertugas untuk
+                                mengawasi seluruh kegiatan
+                                perusahaan, mengambil keputusan
+                                strategis, dan memastikan proyek
+                                berjalan sesuai visi dan misi.
                             </p>
-
-                            <div class="flex justify-center space-x-4">
-                                <a href="#" class="text-gray-400 hover:text-brand-blue"><svg class="w-5 h-5"
-                                        fill="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
-                                    </svg></a>
-                                <a href="#" class="text-gray-400 hover:text-brand-blue"><svg class="w-5 h-5"
-                                        fill="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                                    </svg></a>
-                            </div>
                         </div>
                     </div>
-
                     <div
-                        class="w-full max-w-sm bg-white rounded-2xl border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden hover:-translate-y-2 transition-all duration-300 hover:shadow-xl group">
-                        <div class="h-32 bg-brand-navy relative">
-                            <div class="absolute -bottom-12 left-1/2 transform -translate-x-1/2">
-                                <div class="p-1 bg-white rounded-full">
-                                    <img class="w-24 h-24 rounded-full object-cover border-4 border-brand-orange"
-                                        src="{{ asset('assets/img/pexels-yury-kim-181374-585419.jpg') }}"
-                                        alt="Foto Profil">
-                                </div>
+                        class="w-full max-w-sm bg-white rounded-xl border border-gray-100 shadow-lg overflow-hidden group hover:-translate-y-2 hover:rounded-2xl transition-all duration-300">
+                        <div class="h-[480px] overflow-hidden relative">
+                            <img class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                                src="{{ asset('assets/img/team/wisnu-tri-sardi.png') }}" alt="Foto Profil">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-transparent to-transparent">
+                            </div>
+
+                            <div
+                                class="absolute bottom-4 right-4 flex space-x-3 translate-y-10 group-hover:translate-y-0 transition-transform duration-300">
+                                <a href="#"
+                                    class="bg-white/20 p-2 rounded-full text-white hover:bg-brand-orange transition-colors backdrop-blur-sm">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="..." />
+                                    </svg> </a>
                             </div>
                         </div>
-                        <div class="pt-16 pb-8 px-6 text-center">
-                            <h3
-                                class="text-xl font-bold text-brand-navy mb-1 group-hover:text-brand-blue transition-colors">
-                                NAMA ANGGOTA</h3>
-                            <p class="text-brand-orange font-semibold text-sm uppercase tracking-wider mb-4">Manager
-                                Operasional</p>
 
-                            <p class="text-gray-500 text-sm leading-relaxed mb-6">
-                                Memastikan seluruh kegiatan operasional di lapangan berjalan sesuai standar K3 dan
-                                timeline proyek yang telah ditetapkan.
+                        <div class="p-6 text-center relative">
+                            <h3 class="text-xl font-bold text-brand-navy mb-1">Wisnu Tri Sardi, S. Kom., M.
+                                M., CHCS</h3>
+                            <p class="text-brand-orange font-semibold text-sm uppercase tracking-wider mb-4">Manajer HR
+                                & Finance</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                Bertanggung jawab mengelola
+                                keuangan dan SDM, menyusun
+                                anggaran, serta memastikan
+                                efisiensi opersional dan
+                                kesejahteraan karyawan
                             </p>
-
-                            <div class="flex justify-center space-x-4">
-                                <a href="#" class="text-gray-400 hover:text-brand-blue"><svg class="w-5 h-5"
-                                        fill="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
-                                    </svg></a>
-                                <a href="#" class="text-gray-400 hover:text-brand-blue"><svg class="w-5 h-5"
-                                        fill="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                                    </svg></a>
-                            </div>
                         </div>
                     </div>
-
                     <div
-                        class="w-full max-w-sm bg-white rounded-2xl border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden hover:-translate-y-2 transition-all duration-300 hover:shadow-xl group">
-                        <div class="h-32 bg-brand-navy relative">
-                            <div class="absolute -bottom-12 left-1/2 transform -translate-x-1/2">
-                                <div class="p-1 bg-white rounded-full">
-                                    <img class="w-24 h-24 rounded-full object-cover border-4 border-brand-orange"
-                                        src="{{ asset('assets/img/pexels-yury-kim-181374-585419.jpg') }}"
-                                        alt="Foto Profil">
-                                </div>
+                        class="w-full max-w-sm bg-white rounded-xl border border-gray-100 shadow-lg overflow-hidden group hover:-translate-y-2 hover:rounded-2xl transition-all duration-300">
+                        <div class="h-[480px] overflow-hidden relative">
+                            <img class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                                src="{{ asset('assets/img/team/alif-ramadhan.png') }}" alt="Foto Profil">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-transparent to-transparent">
+                            </div>
+
+                            <div
+                                class="absolute bottom-4 right-4 flex space-x-3 translate-y-10 group-hover:translate-y-0 transition-transform duration-300">
+                                <a href="#"
+                                    class="bg-white/20 p-2 rounded-full text-white hover:bg-brand-orange transition-colors backdrop-blur-sm">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="..." />
+                                    </svg> </a>
                             </div>
                         </div>
-                        <div class="pt-16 pb-8 px-6 text-center">
-                            <h3
-                                class="text-xl font-bold text-brand-navy mb-1 group-hover:text-brand-blue transition-colors">
-                                NAMA ANGGOTA</h3>
-                            <p class="text-brand-orange font-semibold text-sm uppercase tracking-wider mb-4">Manager
-                                Operasional</p>
 
-                            <p class="text-gray-500 text-sm leading-relaxed mb-6">
-                                Memastikan seluruh kegiatan operasional di lapangan berjalan sesuai standar K3 dan
-                                timeline proyek yang telah ditetapkan.
+                        <div class="p-6 text-center relative">
+                            <h3 class="text-xl font-bold text-brand-navy mb-1">Alif Ramadhan</h3>
+                            <p class="text-brand-orange font-semibold text-sm uppercase tracking-wider mb-4">Manajer
+                                HSE</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                Menjamin keselamatan
+                                kerja dan lingkungan
+                                proyek melalui penerapan
+                                standar HSE dan pengawan
+                                rutin di lapangan
                             </p>
-
-                            <div class="flex justify-center space-x-4">
-                                <a href="#" class="text-gray-400 hover:text-brand-blue"><svg class="w-5 h-5"
-                                        fill="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
-                                    </svg></a>
-                                <a href="#" class="text-gray-400 hover:text-brand-blue"><svg class="w-5 h-5"
-                                        fill="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                                    </svg></a>
+                        </div>
+                    </div>
+                    <div
+                        class="w-full max-w-sm bg-white rounded-xl border border-gray-100 shadow-lg overflow-hidden group hover:-translate-y-2 hover:rounded-2xl transition-all duration-300">
+                        <div class="h-[480px] overflow-hidden relative">
+                            <img class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                                src="{{ asset('assets/img/team/abd-rahman.png') }}" alt="Foto Profil">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-transparent to-transparent">
                             </div>
+
+                            <div
+                                class="absolute bottom-4 right-4 flex space-x-3 translate-y-10 group-hover:translate-y-0 transition-transform duration-300">
+                                <a href="#"
+                                    class="bg-white/20 p-2 rounded-full text-white hover:bg-brand-orange transition-colors backdrop-blur-sm">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="..." />
+                                    </svg> </a>
+                            </div>
+                        </div>
+
+                        <div class="p-6 text-center relative">
+                            <h3 class="text-xl font-bold text-brand-navy mb-1">Abd. Rahman, S.T</h3>
+                            <p class="text-brand-orange font-semibold text-sm uppercase tracking-wider mb-4">Manager QC
+                            </p>
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                Bertugas untuk mengontrol
+                                mutu pekerjaan dan
+                                material agar sesuai
+                                spesifikasi serta menjaga
+                                standar kualitas proyek
+                            </p>
+                        </div>
+                    </div>
+                    <div
+                        class="w-full max-w-sm bg-white rounded-xl border border-gray-100 shadow-lg overflow-hidden group hover:-translate-y-2 hover:rounded-2xl transition-all duration-300">
+                        <div class="h-[480px] overflow-hidden relative">
+                            <img class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                                src="{{ asset('assets/img/team/andri-arianto.png') }}" alt="Foto Profil">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-transparent to-transparent">
+                            </div>
+
+                            <div
+                                class="absolute bottom-4 right-4 flex space-x-3 translate-y-10 group-hover:translate-y-0 transition-transform duration-300">
+                                <a href="#"
+                                    class="bg-white/20 p-2 rounded-full text-white hover:bg-brand-orange transition-colors backdrop-blur-sm">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="..." />
+                                    </svg> </a>
+                            </div>
+                        </div>
+
+                        <div class="p-6 text-center relative">
+                            <h3 class="text-xl font-bold text-brand-navy mb-1">Andri Arianto</h3>
+                            <p class="text-brand-orange font-semibold text-sm uppercase tracking-wider mb-4">Manajer
+                                Produksi</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                Bertugas mengatur
+                                pelaksanaan proyek di
+                                lapangan, memastikan
+                                pekerjaan tepat waktu dan
+                                sesuai secara teknis
+                            </p>
+                        </div>
+                    </div>
+                    <div
+                        class="w-full max-w-sm bg-white rounded-xl border border-gray-100 shadow-lg overflow-hidden group hover:-translate-y-2 hover:rounded-2xl transition-all duration-300">
+                        <div class="h-[480px] overflow-hidden relative">
+                            <img class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                                src="{{ asset('assets/img/team/ilham-nafruddin.png') }}" alt="Foto Profil">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-transparent to-transparent">
+                            </div>
+
+                            <div
+                                class="absolute bottom-4 right-4 flex space-x-3 translate-y-10 group-hover:translate-y-0 transition-transform duration-300">
+                                <a href="#"
+                                    class="bg-white/20 p-2 rounded-full text-white hover:bg-brand-orange transition-colors backdrop-blur-sm">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="..." />
+                                    </svg> </a>
+                            </div>
+                        </div>
+
+                        <div class="p-6 text-center relative">
+                            <h3 class="text-xl font-bold text-brand-navy mb-1">Herman S.T</h3>
+                            <p class="text-brand-orange font-semibold text-sm uppercase tracking-wider mb-4">Manajer
+                                Civil & Engineering</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                Bertugas menyusun desain
+                                teknis, menghitung
+                                kebutuhan material, dan
+                                memastikan struktur proyek
+                                aman serta efisien
+                            </p>
                         </div>
                     </div>
 
