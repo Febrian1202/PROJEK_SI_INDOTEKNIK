@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use Illuminate\Support\Facades\Route;
 // Import Controller yang akan dipakai
 use App\Http\Controllers\AuthController;
@@ -17,6 +18,8 @@ use App\Http\Controllers\Admin\LamaranController; // <--- Tambahkan \Admin
 
 // Route Halaman Utama (Landing Page)
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::get('about', [AboutController::class,'about'])->name('about');
 
 // Route Autentikasi (Guest Only)
 Route::controller(AuthController::class)->group(function () {

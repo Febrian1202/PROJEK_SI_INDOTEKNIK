@@ -8,9 +8,9 @@ class HomeController extends Controller
 {
     //
     public function index()
-{
-    return view('home', [
-        'title' => 'Beranda - PT. Indoteknik Prima Mekongga'
-    ]);
-}
+    {
+        return view('home', [
+            'title' => 'Beranda - PT. Indoteknik Prima Mekongga'
+        ]);
+    }
 }

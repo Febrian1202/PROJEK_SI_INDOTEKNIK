@@ -30,7 +30,7 @@
                 <h1 class="text-lg font-bold text-brand-navy tracking-wide">INTERNAL</h1>
             </div>
 
-            <nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
+            <nav class="flex-1 px-4 py-6 space-y-2 overflow-y-aut">
 
                 <a href="{{ Auth::user()->role == 'admin' ? route('admin.dashboard') : route('direktur.dashboard') }}"
                     class="flex items-center gap-3 px-4 py-3 {{ request()->routeIs('*.dashboard') ? 'bg-brand-blue/10 text-brand-blue' : 'text-gray-600 hover:bg-gray-50' }} font-semibold rounded-lg transition-colors">

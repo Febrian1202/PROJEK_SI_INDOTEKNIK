@@ -15,27 +15,27 @@
             <div class="hidden md:block">
                 <div class="ml-10 flex items-baseline space-x-8">
                     <a href="{{ route('home') }}"
-                        class="relative group text-white font-medium text-base px-1 py-2 transition-colors duration-300 hover:text-brand-orange">
+                        class="relative group font-medium text-base px-1 py-2 transition-colors duration-300 {{ request()->routeIs('home') ? 'text-white hover:text-brand-orange' : 'text-gray-300 hover:text-white' }}">
                         Beranda
-                        <span class="absolute bottom-0 left-0 w-full h-0.5 bg-brand-orange rounded-full"></span>
+                        <span class="absolute bottom-0 left-0 {{ request()->routeIs('home') ? 'w-full' : 'w-0 group-hover:w-full transition-all duration-300 ease-out' }} h-0.5 bg-brand-orange rounded-full"></span>
                     </a>
-                    <a href="#"
-                        class="relative group text-gray-300 font-medium text-base px-1 py-2 transition-colors duration-300 hover:text-white">
+                    <a href="{{ route("about") }}"
+                        class="relative group font-medium text-base px-1 py-2 transition-colors duration-300 {{ request()->routeIs('about') ? 'text-white hover:text-brand-orange' : 'text-gray-300 hover:text-white' }}">
                         Tentang Kami
                         <span
-                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-orange transition-all duration-300 ease-out group-hover:w-full rounded-full"></span>
+                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-orange {{ request()->routeIs('about') ? 'w-full' : 'w-0 group-hover:w-full transition-all duration-300 ease-out' }} rounded-full"></span>
                     </a>
                     <a href="#"
-                        class="relative group text-gray-300 font-medium text-base px-1 py-2 transition-colors duration-300 hover:text-white">
+                        class="relative group font-medium text-base px-1 py-2 transition-colors duration-300 {{ request()->routeIs('service') ? 'text-white hover:text-brand-orange' : 'text-gray-300 hover:text-white' }}">
                         Layanan
                         <span
-                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-orange transition-all duration-300 ease-out group-hover:w-full rounded-full"></span>
+                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-orange rounded-full {{ request()->routeIs('service') ? 'w-full' : 'w-0 group-hover:w-full transition-all duration-300 ease-out' }}"></span>
                     </a>
                     <a href="#"
-                        class="relative group text-gray-300 font-medium text-base px-1 py-2 transition-colors duration-300 hover:text-white">
+                        class="relative group font-medium text-base px-1 py-2 transition-colors duration-300 {{ request()->routeIs('contact') ? 'text-white hover:text-brand-orange' : 'text-gray-300 hover:text-white' }}">
                         Kontak
                         <span
-                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-orange transition-all duration-300 ease-out group-hover:w-full rounded-full"></span>
+                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-orange rounded-full {{ request()->routeIs('contact') ? 'w-full' : 'w-0 group-hover:w-full transition-all duration-300 ease-out' }}"></span>
                     </a>
                 </div>
             </div>

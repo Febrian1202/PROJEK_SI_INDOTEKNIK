@@ -3,7 +3,7 @@
 
     <body class="font-sans antialiased">
         <x-nav-bar></x-nav-bar>
-        <div class="relative w-full h-screen">
+        {{-- <div class="relative w-full h-screen">
 
             <div class="absolute inset-0 bg-cover bg-center"
                 style="background-image: url('assets/img/pexels-yury-kim-181374-585419.jpg')">
@@ -47,7 +47,84 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                 </svg>
             </button>
-        </div>
+        </div> --}}
+        <section>
+            <div class="relative w-full h-screen overflow-hidden group" x-data="{
+                active: 0,
+                images: [
+                    '{{ asset('assets/img/dokumentasi/1.webp') }}',
+                    'assets/img/dokumentasi/5.webp', // Gambar Dummy 2
+                    'assets/img/dokumentasi/3.webp' // Gambar Dummy 3
+                ],
+                next() {
+                    this.active = (this.active + 1) % this.images.length;
+                },
+                prev() {
+                    this.active = (this.active - 1 + this.images.length) % this.images.length;
+                },
+                init() {
+                    // Auto slide setiap 5 detik (Opsional, hapus jika tidak mau)
+                    setInterval(() => { this.next() }, 7000);
+                }
+            }">
+
+                <div class="absolute inset-0 flex transition-transform duration-700 ease-in-out will-change-transform"
+                    :style="'transform: translateX(-' + (active * 100) + '%)'">
+
+                    <template x-for="img in images">
+                        <div class="min-w-full h-full bg-cover bg-center" :style="`background-image: url('${img}')`">
+                        </div>
+                    </template>
+
+                </div>
+
+                <div class="absolute inset-0 bg-black/40 z-10"></div>
+
+                <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
+
+                    <img src="{{ asset('assets/img/Logo-white v3.png') }}" alt="Logo Indoteknik"
+                        class="h-auto w-4/5 md:w-1/2 max-w-3xl mb-6 mx-auto drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)] brightness-110">
+
+                    <div class="w-16 h-1 bg-brand-blue mb-6"></div>
+
+                    <p class="text-gray-200 max-w-2xl text-base md:text-lg mb-8 leading-relaxed">
+                        Kami hadir sebagai perusahaan kontraktor umum dan penyedia tenaga kerja profesional yang
+                        berkomitmen
+                        memberikan layanan terbaik bagi klien kami.
+                    </p>
+
+                    <a href="{{ route('login') }}"
+                        class="border border-brand-blue text-white px-8 py-3 rounded-full font-semibold hover:bg-brand-blue hover:text-black transition duration-300 uppercase tracking-widest text-sm">
+                        Gabung Bersama Kami
+                    </a>
+                </div>
+
+                <button @click="prev()"
+                    class="absolute left-4 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full text-white/50 hover:text-white hover:bg-white/20 transition duration-300 focus:outline-none group">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" class="w-8 h-8 group-hover:-translate-x-1 transition-transform">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                    </svg>
+                </button>
+
+                <button @click="next()"
+                    class="absolute right-4 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full text-white/50 hover:text-white hover:bg-white/20 transition duration-300 focus:outline-none group">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" class="w-8 h-8 group-hover:translate-x-1 transition-transform">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                    </svg>
+                </button>
+
+                {{-- <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex space-x-2">
+                <template x-for="(img, index) in images">
+                    <button @click="active = index" class="w-3 h-3 rounded-full transition-all duration-300"
+                        :class="active === index ? 'bg-brand-orange w-8' : 'bg-white/50 hover:bg-white'">
+                    </button>
+                </template>
+            </div> --}}
+
+            </div>
+        </section>
         <section class="py-12 bg-white transition-all duration-2000 ease-out" x-data="{ shown: false }"
             x-intersect.threshold.0.3="shown = true"
             :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'">
@@ -231,7 +308,7 @@
                 </div>
             </div>
         </section>
-        <section class="py-24 bg-white transition-all duration-1000 ease-out" x-data="{ activeTab: 'visi', shown: false }"
+        <section class="py-24 bg-brand-navy transition-all duration-1000 ease-out" x-data="{ activeTab: 'visi', shown: false }"
             x-intersect.threshold.0.2="shown = true"
             :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'">
             <div class="max-w-7xl mx-auto px-6 lg:px-8">
@@ -239,16 +316,16 @@
                 <div class="flex justify-center mb-12 border-b border-gray-200">
                     <div class="flex space-x-12">
                         <button @click="activeTab = 'visi'"
-                            :class="activeTab === 'visi' ? 'border-brand-orange text-brand-navy' :
-                                'border-transparent text-gray-400 hover:text-gray-600'"
-                            class="pb-4 text-xl font-bold border-b-4 transition-all duration-300 focus:outline-none">
+                            :class="activeTab === 'visi' ? 'border-brand-orange text-gray-100' :
+                                'border-transparent text-gray-400 hover:text-gray-200'"
+                            class="pb-4 text-[30px] font-bold border-b-4 transition-all duration-300 focus:outline-none">
                             Visi
                         </button>
 
                         <button @click="activeTab = 'misi'"
-                            :class="activeTab === 'misi' ? 'border-brand-orange text-brand-navy' :
-                                'border-transparent text-gray-400 hover:text-gray-600'"
-                            class="pb-4 text-xl font-bold border-b-4 transition-all duration-300 focus:outline-none">
+                            :class="activeTab === 'misi' ? 'border-brand-orange text-gray-100' :
+                                'border-transparent text-gray-400 hover:text-gray-200'"
+                            class="pb-4 text-[30px] font-bold border-b-4 transition-all duration-300 focus:outline-none">
                             Misi
                         </button>
                     </div>
@@ -260,12 +337,13 @@
                     class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
                     <div>
-                        <h3 class="text-3xl font-bold text-brand-navy mb-6">Visi Perusahaan</h3>
+                        <h3 class="text-3xl font-bold text-brand-gray mb-6">Visi Perusahaan</h3>
                         <div class="w-16 h-1 bg-brand-orange mb-6"></div>
-                        <p class="text-lg text-gray-600 leading-relaxed">
-                            Menjadi perusahaan kontraktor umum dan penyedia tenaga kerja terpercaya yang berdaya saing
-                            tinggi, berorientasi pada kualitas, keselamatan kerja, dan keberlanjutan di era globalisasi.
-                        </p>
+                        <p class="text-lg text-white leading-relaxed">
+                            PT. Indoteknik Prima Mekongga menjadi perusahaan barang dan jasa yang terpercaya,
+                            professional dan unggul dalam kualitas, inovasi, serta mewujudkan Zero Accident di setiap
+                            kegiatan. Dan memiliki kekuatan pada pelayanan terhadap mitra kerja dan memberikan kepuasan
+                            dan kerja sama yang baik yang terus-menerus meningkat pada mitra kerja.
                     </div>
 
                     <div class="relative h-80 lg:h-96 rounded-2xl overflow-hidden shadow-xl">
@@ -280,8 +358,13 @@
                     x-transition:enter-end="opacity-100 translate-y-0"
                     class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
+                    <div class="relative h-80 lg:h-96 rounded-2xl overflow-hidden shadow-xl">
+                        <img src="{{ asset('assets/img/pexels-yury-kim-181374-585419.jpg') }}" alt="Foto Meeting"
+                            class="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition duration-500">
+                    </div>
+
                     <div>
-                        <h3 class="text-3xl font-bold text-brand-navy mb-6">Misi Perusahaan</h3>
+                        <h3 class="text-3xl font-bold text-brand-gray mb-6">Misi Perusahaan</h3>
                         <div class="w-16 h-1 bg-brand-orange mb-6"></div>
 
                         <ul class="space-y-4">
@@ -291,8 +374,8 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M5 13l4 4L19 7" />
                                 </svg>
-                                <span class="text-gray-600">Memperkuat posisi sebagai perusahaan jasa yang mengutamakan
-                                    kualitas dan kuantitas.</span>
+                                <span class="text-white">Memberikan solusi yang efisien, tepat waktu, dan berkualitas
+                                    tinggi.</span>
                             </li>
                             <li class="flex items-start">
                                 <svg class="w-6 h-6 text-brand-orange mt-1 mr-3 flex-shrink-0" fill="none"
@@ -300,8 +383,8 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M5 13l4 4L19 7" />
                                 </svg>
-                                <span class="text-gray-600">Menjaga integritas dan profesionalisme dalam setiap
-                                    pekerjaan dan kemitraan.</span>
+                                <span class="text-white">Menerapkan standar keselamatan kerja tertinggi di setiap
+                                    kegiatan.</span>
                             </li>
                             <li class="flex items-start">
                                 <svg class="w-6 h-6 text-brand-orange mt-1 mr-3 flex-shrink-0" fill="none"
@@ -309,8 +392,8 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M5 13l4 4L19 7" />
                                 </svg>
-                                <span class="text-gray-600">Membangun budaya K3 untuk mencapai target <span
-                                        class="font-bold text-brand-navy">zero accident</span>.</span>
+                                <span class="text-white">Membangun kemitraan jangka panjang dengan klien dan mitra
+                                    kerja.</span>
                             </li>
                             <li class="flex items-start">
                                 <svg class="w-6 h-6 text-brand-orange mt-1 mr-3 flex-shrink-0" fill="none"
@@ -318,15 +401,19 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M5 13l4 4L19 7" />
                                 </svg>
-                                <span class="text-gray-600">Menumbuhkan kompetensi dan kesejahteraan karyawan sebagai
-                                    aset utama.</span>
+                                <span class="text-white">Mengembangkan sumber daya manusia yang kompeten dan
+                                    profesional.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-brand-orange mt-1 mr-3 flex-shrink-0" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span class="text-white">Mendorong penggunaan teknologi modern untuk meningkatkan
+                                    produktivitas dan akurasi kerja.</span>
                             </li>
                         </ul>
-                    </div>
-
-                    <div class="relative h-80 lg:h-96 rounded-2xl overflow-hidden shadow-xl">
-                        <img src="{{ asset('assets/img/pexels-yury-kim-181374-585419.jpg') }}" alt="Foto Meeting"
-                            class="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition duration-500">
                     </div>
                 </div>
 
