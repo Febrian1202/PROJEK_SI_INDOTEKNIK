@@ -260,11 +260,11 @@
                             class="group inline-flex items-center gap-2 px-8 py-3 bg-white border-2 border-brand-blue text-brand-blue font-bold rounded-xl transition-all duration-300 hover:bg-brand-blue hover:text-white hover:shadow-lg hover:shadow-blue-500/30 hover:-translate-y-1">
                             Lihat Selengkapnya
 
-                            <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300"
+                            {{-- <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300"
                                 fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                            </svg>
+                            </svg> --}}
                         </a>
                     </div>
                 </div>
