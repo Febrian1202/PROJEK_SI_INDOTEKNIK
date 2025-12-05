@@ -3,51 +3,6 @@
 
     <body class="font-sans antialiased">
         <x-nav-bar></x-nav-bar>
-        {{-- <div class="relative w-full h-screen">
-
-            <div class="absolute inset-0 bg-cover bg-center"
-                style="background-image: url('assets/img/pexels-yury-kim-181374-585419.jpg')">
-            </div>
-
-            <div class="absolute inset-0 bg-black/60"></div>
-
-
-
-            <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
-
-                <img src="{{ asset('assets/img/Logo-white v3.png') }}" 
-                    alt="Logo Indoteknik" 
-                    class="h-auto w-4/5 md:w-1/2 max-w-3xl mb-6 mx-auto drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)] brightness-110">
-
-                <div class="w-16 h-1 bg-brand-blue mb-6"></div>
-
-                <p class="text-gray-200 max-w-2xl text-base md:text-lg mb-8 leading-relaxed">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates et aperiam dignissimos dolorem
-                    ipsum nam excepturi veniam esse provident quasi. Quas autem odit vitae, iusto rem reprehenderit
-                    pariatur suscipit labore.
-                </p>
-
-                <a href="#"
-                    class="border border-brand-blue text-white px-8 py-3 rounded-full font-semibold hover:bg-brand-blue hover:text-black transition duration-300 uppercase tracking-widest text-sm">
-                    Get Started
-                </a>
-            </div>
-
-            <button
-                class="absolute left-4 top-1/2 -translate-y-1/2 z-20 text-white/50 hover:text-white hover:bg-white/10 p-2 rounded-full transition">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="w-10 h-10">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-                </svg>
-            </button>
-            <button
-                class="absolute right-4 top-1/2 -translate-y-1/2 z-20 text-white/50 hover:text-white hover:bg-white/10 p-2 rounded-full transition">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="w-10 h-10">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                </svg>
-            </button>
-        </div> --}}
         <section>
             <div class="relative w-full h-screen overflow-hidden group" x-data="{
                 active: 0,
@@ -346,7 +301,7 @@
                     <div>
                         <h3 class="text-3xl font-bold text-brand-gray mb-6">Visi Perusahaan</h3>
                         <div class="w-16 h-1 bg-brand-orange mb-6"></div>
-                        <p class="text-lg text-white leading-relaxed">
+                        <p class="text-lg text-white leading-relaxed text-justify">
                             PT. Indoteknik Prima Mekongga menjadi perusahaan barang dan jasa yang terpercaya,
                             professional dan unggul dalam kualitas, inovasi, serta mewujudkan Zero Accident di setiap
                             kegiatan. Dan memiliki kekuatan pada pelayanan terhadap mitra kerja dan memberikan kepuasan
@@ -447,7 +402,7 @@
 
                     <div
                         class="w-full max-w-sm bg-white rounded-xl border border-gray-100 shadow-lg overflow-hidden group hover:-translate-y-2 hover:rounded-2xl transition-all duration-300">
-                        <div class="h-[480px] overflow-hidden relative">
+                        <div class="h-[440px] overflow-hidden relative">
                             <img class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                                 src="{{ asset('assets/img/team/ilham-nafruddin.png') }}" alt="Foto Profil">
                             <div
@@ -457,10 +412,11 @@
                             <div
                                 class="absolute bottom-4 right-4 flex space-x-3 translate-y-10 group-hover:translate-y-0 transition-transform duration-300">
                                 <a href="#"
-                                    class="bg-white/20 p-2 rounded-full text-white hover:bg-brand-orange transition-colors backdrop-blur-sm">
-                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    class="bg-white/20 w-2 h-2 p-2 rounded-full text-white hover:bg-brand-orange transition-colors backdrop-blur-sm">
+                                    {{-- <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="..." />
-                                    </svg> </a>
+                                    </svg>  --}}
+                                </a>
                             </div>
                         </div>
 
@@ -480,7 +436,7 @@
                     </div>
                     <div
                         class="w-full max-w-sm bg-white rounded-xl border border-gray-100 shadow-lg overflow-hidden group hover:-translate-y-2 hover:rounded-2xl transition-all duration-300">
-                        <div class="h-[480px] overflow-hidden relative">
+                        <div class="h-[440px] overflow-hidden relative">
                             <img class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                                 src="{{ asset('assets/img/team/wisnu-tri-sardi.png') }}" alt="Foto Profil">
                             <div
@@ -490,10 +446,11 @@
                             <div
                                 class="absolute bottom-4 right-4 flex space-x-3 translate-y-10 group-hover:translate-y-0 transition-transform duration-300">
                                 <a href="#"
-                                    class="bg-white/20 p-2 rounded-full text-white hover:bg-brand-orange transition-colors backdrop-blur-sm">
-                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    class="bg-white/20 w-2 h-2 p-2 rounded-full text-white hover:bg-brand-orange transition-colors backdrop-blur-sm">
+                                    {{-- <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="..." />
-                                    </svg> </a>
+                                    </svg>  --}}
+                                </a>
                             </div>
                         </div>
 
@@ -506,14 +463,14 @@
                                 Bertanggung jawab mengelola
                                 keuangan dan SDM, menyusun
                                 anggaran, serta memastikan
-                                efisiensi opersional dan
+                                efisiensi operasional dan
                                 kesejahteraan karyawan
                             </p>
                         </div>
                     </div>
                     <div
                         class="w-full max-w-sm bg-white rounded-xl border border-gray-100 shadow-lg overflow-hidden group hover:-translate-y-2 hover:rounded-2xl transition-all duration-300">
-                        <div class="h-[480px] overflow-hidden relative">
+                        <div class="h-[440px] overflow-hidden relative">
                             <img class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                                 src="{{ asset('assets/img/team/alif-ramadhan.png') }}" alt="Foto Profil">
                             <div
@@ -523,10 +480,11 @@
                             <div
                                 class="absolute bottom-4 right-4 flex space-x-3 translate-y-10 group-hover:translate-y-0 transition-transform duration-300">
                                 <a href="#"
-                                    class="bg-white/20 p-2 rounded-full text-white hover:bg-brand-orange transition-colors backdrop-blur-sm">
-                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    class="bg-white/20 w-2 h-2 p-2 rounded-full text-white hover:bg-brand-orange transition-colors backdrop-blur-sm">
+                                    {{-- <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="..." />
-                                    </svg> </a>
+                                    </svg>  --}}
+                                </a>
                             </div>
                         </div>
 
@@ -545,7 +503,7 @@
                     </div>
                     <div
                         class="w-full max-w-sm bg-white rounded-xl border border-gray-100 shadow-lg overflow-hidden group hover:-translate-y-2 hover:rounded-2xl transition-all duration-300">
-                        <div class="h-[480px] overflow-hidden relative">
+                        <div class="h-[440px] overflow-hidden relative">
                             <img class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                                 src="{{ asset('assets/img/team/abd-rahman.png') }}" alt="Foto Profil">
                             <div
@@ -555,10 +513,11 @@
                             <div
                                 class="absolute bottom-4 right-4 flex space-x-3 translate-y-10 group-hover:translate-y-0 transition-transform duration-300">
                                 <a href="#"
-                                    class="bg-white/20 p-2 rounded-full text-white hover:bg-brand-orange transition-colors backdrop-blur-sm">
-                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    class="bg-white/20 w-2 h-2 p-2 rounded-full text-white hover:bg-brand-orange transition-colors backdrop-blur-sm">
+                                    {{-- <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="..." />
-                                    </svg> </a>
+                                    </svg>  --}}
+                                </a>
                             </div>
                         </div>
 
@@ -577,7 +536,7 @@
                     </div>
                     <div
                         class="w-full max-w-sm bg-white rounded-xl border border-gray-100 shadow-lg overflow-hidden group hover:-translate-y-2 hover:rounded-2xl transition-all duration-300">
-                        <div class="h-[480px] overflow-hidden relative">
+                        <div class="h-[440px] overflow-hidden relative">
                             <img class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                                 src="{{ asset('assets/img/team/andri-arianto.png') }}" alt="Foto Profil">
                             <div
@@ -587,10 +546,10 @@
                             <div
                                 class="absolute bottom-4 right-4 flex space-x-3 translate-y-10 group-hover:translate-y-0 transition-transform duration-300">
                                 <a href="#"
-                                    class="bg-white/20 p-2 rounded-full text-white hover:bg-brand-orange transition-colors backdrop-blur-sm">
-                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    class="bg-white/20 w-2 h-2 p-2 rounded-full text-white hover:bg-brand-orange transition-colors backdrop-blur-sm">
+                                    {{-- <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="..." />
-                                    </svg> </a>
+                                    </svg> --}}  </a>
                             </div>
                         </div>
 
@@ -609,9 +568,9 @@
                     </div>
                     <div
                         class="w-full max-w-sm bg-white rounded-xl border border-gray-100 shadow-lg overflow-hidden group hover:-translate-y-2 hover:rounded-2xl transition-all duration-300">
-                        <div class="h-[480px] overflow-hidden relative">
+                        <div class="h-[440px] overflow-hidden relative">
                             <img class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                                src="{{ asset('assets/img/team/ilham-nafruddin.png') }}" alt="Foto Profil">
+                                src="{{ asset('assets/img/team/herman.png') }}" alt="Foto Profil">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-transparent to-transparent">
                             </div>
@@ -619,10 +578,11 @@
                             <div
                                 class="absolute bottom-4 right-4 flex space-x-3 translate-y-10 group-hover:translate-y-0 transition-transform duration-300">
                                 <a href="#"
-                                    class="bg-white/20 p-2 rounded-full text-white hover:bg-brand-orange transition-colors backdrop-blur-sm">
-                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    class="bg-white/20 w-2 h-2 p-2 rounded-full text-white hover:bg-brand-orange transition-colors backdrop-blur-sm">
+                                    {{-- <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="..." />
-                                    </svg> </a>
+                                    </svg>  --}} 
+                                </a>
                             </div>
                         </div>
 

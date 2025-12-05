@@ -1,4 +1,4 @@
-<x-layout title="Dashboard Kandidat">
+<x-layout>
     <x-slot:title>Dashboard</x-slot:title>
 
     <div class="pt-24 pb-12 min-h-screen bg-gray-50">

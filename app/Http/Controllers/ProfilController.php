@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 use App\Models\KandidatProfil;
+use Illuminate\Support\Facades\Storage;
 
 class ProfilController extends Controller
 {
@@ -39,6 +40,7 @@ class ProfilController extends Controller
             'no_telp' => 'required|numeric|digits_between:10,15',
             'tgl_lahir' => 'required|date',
             'alamat_domisili' => 'required|string|max:500',
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg|max:2048', // Max 2MB
         ], [
             'no_ktp.unique' => 'NIK ini sudah terdaftar di akun lain.',
             'no_ktp.digits' => 'NIK harus 16 digit.',
@@ -49,18 +51,32 @@ class ProfilController extends Controller
             'name' => $request->name
         ]);
 
-        // Update atau Buat Baru di Tabel KandidatProfil
-        // updateOrCreate: Cek apakah user_id ini sudah punya profil?
-        // Kalau ada -> Update. Kalau belum -> Create.
+        // Siapkan Data Profil
+        $dataProfil = [
+            'nama_lengkap' => $request->name,
+            'no_ktp' => $request->no_ktp,
+            'no_telp' => $request->no_telp,
+            'tgl_lahir' => $request->tgl_lahir,
+            'alamat_domisili' => $request->alamat_domisili,
+        ];
+
+        // LOGIKA UPLOAD FOTO
+        if ($request->hasFile('foto')) {
+            // Hapus foto lama jika ada
+            if ($profil && $profil->foto) {
+                Storage::disk('public')->delete($profil->foto);
+            }
+
+            // Simpan foto baru
+            // Akan disimpan di: storage/app/public/uploads/profil
+            $path = $request->file('foto')->store('uploads/profil', 'public');
+            $dataProfil['foto'] = $path;
+        }
+
+        // Simpan ke Database
         KandidatProfil::updateOrCreate(
-            ['user_id' => $user->id], // Kunci pencarian
-            [
-                'nama_lengkap' => $request->name, // Sinkronkan nama lengkap
-                'no_ktp' => $request->no_ktp,
-                'no_telp' => $request->no_telp,
-                'tgl_lahir' => $request->tgl_lahir,
-                'alamat_domisili' => $request->alamat_domisili,
-            ]
+            ['user_id' => $user->id],
+            $dataProfil
         );
 
         return redirect()->route('profil.index')->with('success', 'Profil berhasil diperbarui!');

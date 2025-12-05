@@ -13,7 +13,7 @@ class KandidatProfil extends Model
     protected $table = 'kandidat_profil';
 
     protected $fillable = [
-        'user_id', 'nama_lengkap', 'no_ktp', 'no_telp', 'alamat_domisili', 'tgl_lahir'
+        'user_id', 'nama_lengkap', 'no_ktp', 'no_telp', 'alamat_domisili', 'tgl_lahir', 'foto'
     ];
 
     // Relasi ke User Login

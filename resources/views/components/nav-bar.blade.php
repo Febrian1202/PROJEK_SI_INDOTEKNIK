@@ -17,15 +17,16 @@
                     <a href="{{ route('home') }}"
                         class="relative group font-medium text-base px-1 py-2 transition-colors duration-300 {{ request()->routeIs('home') ? 'text-white hover:text-brand-orange' : 'text-gray-300 hover:text-white' }}">
                         Beranda
-                        <span class="absolute bottom-0 left-0 {{ request()->routeIs('home') ? 'w-full' : 'w-0 group-hover:w-full transition-all duration-300 ease-out' }} h-0.5 bg-brand-orange rounded-full"></span>
+                        <span
+                            class="absolute bottom-0 left-0 {{ request()->routeIs('home') ? 'w-full' : 'w-0 group-hover:w-full transition-all duration-300 ease-out' }} h-0.5 bg-brand-orange rounded-full"></span>
                     </a>
-                    <a href="{{ route("about") }}"
+                    <a href="{{ route('about') }}"
                         class="relative group font-medium text-base px-1 py-2 transition-colors duration-300 {{ request()->routeIs('about') ? 'text-white hover:text-brand-orange' : 'text-gray-300 hover:text-white' }}">
                         Tentang Kami
                         <span
                             class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-orange {{ request()->routeIs('about') ? 'w-full' : 'w-0 group-hover:w-full transition-all duration-300 ease-out' }} rounded-full"></span>
                     </a>
-                    <a href="{{ route("service") }}"
+                    <a href="{{ route('service') }}"
                         class="relative group font-medium text-base px-1 py-2 transition-colors duration-300 {{ request()->routeIs('service') ? 'text-white hover:text-brand-orange' : 'text-gray-300 hover:text-white' }}">
                         Layanan
                         <span
@@ -63,8 +64,14 @@
                             class="flex items-center gap-2 text-white hover:text-brand-orange transition-colors focus:outline-none">
 
                             <div
-                                class="h-9 w-9 rounded-full bg-brand-orange flex items-center justify-center text-white font-bold text-sm border-2 border-white/20">
-                                {{ substr(Auth::user()->name, 0, 1) }}
+                                class="h-9 w-9 rounded-full bg-brand-orange border-2 border-white/20 overflow-hidden flex items-center justify-center">
+                                @if (Auth::user()->kandidatProfil && Auth::user()->kandidatProfil->foto)
+                                    <img src="{{ asset('storage/' . Auth::user()->kandidatProfil->foto) }}" alt="Foto"
+                                        class="w-full h-full object-cover">
+                                @else
+                                    <span
+                                        class="text-white font-bold text-sm">{{ substr(Auth::user()->name, 0, 1) }}</span>
+                                @endif
                             </div>
 
                             <span class="font-medium text-base max-w-[150px] truncate">{{ Auth::user()->name }}</span>
@@ -87,7 +94,8 @@
                             <div class="px-4 py-3 border-b border-gray-100 bg-gray-50">
                                 <p class="text-sm text-gray-500">Halo,</p>
                                 <p class="text-sm font-bold text-brand-navy truncate">{{ Auth::user()->name }}</p>
-                                <p class="text-xs text-brand-orange mt-0.5 uppercase">{{ Auth::user()->role ?? 'User' }}</p>
+                                <p class="text-xs text-brand-orange mt-0.5 uppercase">{{ Auth::user()->role ?? 'User' }}
+                                </p>
                             </div>
 
                             <a href="{{ route(Auth::user()->role . '.dashboard') }}"
@@ -159,18 +167,21 @@
             @auth
                 <div class="border-t border-white/10 my-2 pt-2">
                     <div class="px-3 py-2 text-white font-bold">Halo, {{ Auth::user()->name }}</div>
-                    
-                    <a href="{{ route(Auth::user()->role . '.dashboard') }}" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-brand-orange hover:text-white">
+
+                    <a href="{{ route(Auth::user()->role . '.dashboard') }}"
+                        class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-brand-orange hover:text-white">
                         Dashboard
                     </a>
-                    
-                    <a href="{{ route('profil.index') }}" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-brand-orange hover:text-white">
+
+                    <a href="{{ route('profil.index') }}"
+                        class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-brand-orange hover:text-white">
                         Profil Saya
                     </a>
 
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-                        <button type="submit" class="block w-full text-left rounded-md px-3 py-2 text-base font-medium text-red-400 hover:bg-red-500/20">Keluar</button>
+                        <button type="submit"
+                            class="block w-full text-left rounded-md px-3 py-2 text-base font-medium text-red-400 hover:bg-red-500/20">Keluar</button>
                     </form>
                 </div>
             @endauth
