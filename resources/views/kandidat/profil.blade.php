@@ -51,10 +51,6 @@
 
     <div class="pt-24 pb-12 min-h-screen bg-gray-50">
         <div class="max-w-4xl mx-auto px-6 lg:px-8">
-            <div class="mb-8">
-                <h1 class="text-3xl font-bold text-brand-navy">Profil Saya</h1>
-                <p class="text-gray-500">Lengkapi data diri Anda sebelum melamar pekerjaan.</p>
-            </div>
 
             @if (session('success'))
                 <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-6 rounded-r">

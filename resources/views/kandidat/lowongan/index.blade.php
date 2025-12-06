@@ -52,63 +52,65 @@
 
 
     {{-- Fix Later --}}
-    {{-- <div class="relative bg-brand-navy rounded-3xl p-8 md:p-12 mb-12 overflow-hidden shadow-2xl shadow-brand-navy/20">
 
-        <div
-            class="absolute top-0 right-0 -mt-10 -mr-10 w-64 h-64 bg-brand-blue/20 rounded-full blur-3xl pointer-events-none">
-        </div>
-        <div
-            class="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-brand-orange/20 rounded-full blur-3xl pointer-events-none">
-        </div>
-        <div
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5">
-        </div>
-
-        <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
-
-            <div class="max-w-2xl text-center md:text-left">
-                <span
-                    class="inline-block py-1 px-3 rounded-full bg-brand-orange/20 text-brand-orange text-xs font-bold tracking-wider mb-4 border border-brand-orange/30">
-                    KARIR & PENGEMBANGAN
-                </span>
-                <h1 class="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                    Wujudkan Potensi Terbaikmu <br>
-                    Bersama <span class="text-brand-orange">Indoteknik</span>
-                </h1>
-                <p class="text-gray-300 text-lg mb-8 leading-relaxed">
-                    Bergabunglah dengan tim profesional kami dalam membangun infrastruktur masa depan.
-                    Temukan posisi yang sesuai dengan keahlian Anda.
-                </p>
-
-                <div class="flex flex-wrap justify-center md:justify-start gap-8 border-t border-white/10 pt-6">
-                    <div>
-                        <span class="block text-3xl font-bold text-white">{{ $lowongan->total() }}</span>
-                        <span class="text-xs text-gray-400 uppercase tracking-widest">Posisi Terbuka</span>
-                    </div>
-                    <div class="w-px h-10 bg-white/10 hidden md:block"></div>
-                    <div>
-                        <span class="block text-3xl font-bold text-white">Full Time</span>
-                        <span class="text-xs text-gray-400 uppercase tracking-widest">Tipe Pekerjaan</span>
-                    </div>
-                    <div class="w-px h-10 bg-white/10 hidden md:block"></div>
-                    <div>
-                        <span class="block text-3xl font-bold text-white">On Site</span>
-                        <span class="text-xs text-gray-400 uppercase tracking-widest">Penempatan</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="hidden md:block opacity-10 transform scale-150 translate-x-10">
-                <svg class="w-64 h-64 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path
-                        d="M19.045 7.401c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.378-.378-.88-.586-1.414-.586s-1.036.208-1.413.585L4 13.585V18h4.413L19.045 7.401zm-3-3l1.587 1.585-1.59 1.584-1.586-1.585 1.589-1.584zM6 16v-1.585l7.04-7.018 1.586 1.586L7.587 16H6zm-2 4h16v2H4z" />
-                </svg>
-            </div>
-        </div>
-    </div> --}}
 
     <div class="pt-24 pb-12 min-h-screen bg-gray-50">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div
+                class="relative bg-brand-navy rounded-3xl p-8 md:p-12 mb-12 overflow-hidden shadow-2xl shadow-brand-navy/20">
+
+                <div
+                    class="absolute top-0 right-0 -mt-10 -mr-10 w-64 h-64 bg-brand-blue/20 rounded-full blur-3xl pointer-events-none">
+                </div>
+                <div
+                    class="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-brand-orange/20 rounded-full blur-3xl pointer-events-none">
+                </div>
+                <div
+                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5">
+                </div>
+
+                <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+
+                    <div class="max-w-2xl text-center md:text-left">
+                        <span
+                            class="inline-block py-1 px-3 rounded-full bg-brand-orange/20 text-brand-orange text-xs font-bold tracking-wider mb-4 border border-brand-orange/30">
+                            KARIR & PENGEMBANGAN
+                        </span>
+                        <h1 class="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                            Wujudkan Potensi Terbaikmu <br>
+                            Bersama <span class="text-brand-orange">Indoteknik</span>
+                        </h1>
+                        <p class="text-gray-300 text-lg mb-8 leading-relaxed">
+                            Bergabunglah dengan tim profesional kami dalam membangun infrastruktur masa depan.
+                            Temukan posisi yang sesuai dengan keahlian Anda.
+                        </p>
+
+                        <div class="flex flex-wrap justify-center md:justify-start gap-8 border-t border-white/10 pt-6">
+                            <div>
+                                <span class="block text-3xl font-bold text-white">{{ $lowongan->total() }}</span>
+                                <span class="text-xs text-gray-400 uppercase tracking-widest">Posisi Terbuka</span>
+                            </div>
+                            <div class="w-px h-10 bg-white/10 hidden md:block"></div>
+                            <div>
+                                <span class="block text-3xl font-bold text-white">Full Time</span>
+                                <span class="text-xs text-gray-400 uppercase tracking-widest">Tipe Pekerjaan</span>
+                            </div>
+                            <div class="w-px h-10 bg-white/10 hidden md:block"></div>
+                            <div>
+                                <span class="block text-3xl font-bold text-white">On Site</span>
+                                <span class="text-xs text-gray-400 uppercase tracking-widest">Penempatan</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hidden md:block opacity-10 transform scale-150 translate-x-10">
+                        <svg class="w-64 h-64 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M19.045 7.401c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.378-.378-.88-.586-1.414-.586s-1.036.208-1.413.585L4 13.585V18h4.413L19.045 7.401zm-3-3l1.587 1.585-1.59 1.584-1.586-1.585 1.589-1.584zM6 16v-1.585l7.04-7.018 1.586 1.586L7.587 16H6zm-2 4h16v2H4z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
 
             <div class="flex flex-col md:flex-row justify-between items-end mb-8 gap-4">
 
@@ -197,5 +199,4 @@
             </div>
         </div>
     </div>
-    <x-footer></x-footer>
 </x-layout>
