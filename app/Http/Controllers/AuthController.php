@@ -6,6 +6,9 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\OtpRegisterMail;
+use Carbon\Carbon;
 
 class AuthController extends Controller
 {
@@ -93,21 +96,72 @@ class AuthController extends Controller
             'terms.required' => 'Anda harus menyetujui Syarat & Ketentuan.',
         ]);
 
+        // Generate OTP 6 Digit
+        $otp = rand(100000, 999999);
+
         // Simpan User ke Database
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password), // Enkripsi password
             'role' => 'kandidat', // Default Role untuk pendaftar umum
+            'otp_code' => $otp,
+            'otp_expires_at' => Carbon::now()->addMinutes(10), // Berlaku 10 menit
         ]);
 
-        // Otomatis Login setelah daftar
-        Auth::login($user);
+        // Kirim Email (Pastikan kondigurasi SMTP)
+        try {
+            Mail::to($user->email)->send(new OtpRegisterMail($otp));
+        } catch (\Exception $e) {
+            // Jika gagal kirim email, hapus user biar bisa daftar ulang (opsional)
+            $user->delete();
+            return back()->with('error', 'Gagal mengirim email. Cek koneksi internet atau konfigurasi mail.');
+        }
 
-        // Regenerasi session (standar keamanan)
+        // Redirecct ke Halaman Verifikasi (Bawa email biar user gak perlu ngetik lagi)
+        return redirect()->route('verification.notice', ['
+        email' => $user->email
+        ]);
+    }
+
+    public function verifyOtp(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'otp' => 'required|numeric',
+        ]);
+
+        // cari user
+        $user = User::where('email', $request->email)->first();
+
+        // cek, user ada?
+        if (! $user) {
+            return back()->withErrors(['otp' => 'User tidak ditemukan.']);
+        }
+
+        // cek, otp cocok?
+        if ($user->otp_code != $request->otp) {
+            return back()->withErrors(['otp' => 'Kode OTP salah']);
+        }
+
+        // cek, otp kadaluarsa?
+        if (Carbon::now()->greatherThan($user->otp_expires_at)) {
+            return back()->withErrors(['otp' => 'Kode OTP sudah kadaluarsa. Silahkan daftar ulang.']);
+        }
+
+        // Jika sukses:
+        // Hapus OTP
+        $user->update([
+            'otp_code' => null,
+            'otp_expires_at' => null,
+            'email_verified_at' => now()
+        ]);
+
+        // login
+        Auth::login($user);
         $request->session()->regenerate();
 
-        // Redirect ke Home
-        return redirect()->route('home')->with('success', 'Registrasi berhasil! Selamat datang.');
+        // masuk dashboard
+        return redirect()->route('kandidat.dashboard')->with('success', 'Verifikasi berhasil! Selamat datang.');
     }
 }

@@ -38,6 +38,10 @@ Route::controller(AuthController::class)->group(function () {
 
     // Logout (Tambahkan ini)
     Route::post('/logout', 'logout')->name('logout');
+
+    // ROUTE BARU: OTP
+    Route::get('/verify-otp', 'showVerification')->name('verification.notice');
+    Route::post('/verify-otp', 'verifyOtp')->name('verification.verify');
     
 });
 
