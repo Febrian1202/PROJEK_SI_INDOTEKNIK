@@ -110,46 +110,60 @@ class AuthController extends Controller
     // LOGIKA REGISTER
     public function processRegister(Request $request)
     {
-        // Validasi Input
-        $validated = $request->validate([
+        // 1. Validasi Input (Hapus 'unique:users' dari sini dulu)
+        $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'], // Email tidak boleh kembar
-            'password' => ['required', 'string', 'min:8', 'confirmed'], // 'confirmed' akan mengecek input 'password_confirmation'
-            'terms' => ['required'], // Checkbox syarat wajib dicentang
-        ], [
-            // Pesan Error
-            'email.unique' => 'Email ini sudah terdaftar, silakan login.',
-            'password.confirmed' => 'Konfirmasi password tidak cocok.',
-            'password.min' => 'Password minimal 8 karakter.',
-            'terms.required' => 'Anda harus menyetujui Syarat & Ketentuan.',
+            'email' => ['required', 'string', 'email', 'max:255'], // Hapus unique di sini
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'terms' => ['required'],
         ]);
 
-        // Generate OTP 6 Digit
-        $otp = rand(100000, 999999);
+        // 2. Cek apakah Email sudah ada?
+        $existingUser = User::where('email', $request->email)->first();
 
-        // Simpan User ke Database
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password), // Enkripsi password
-            'role' => 'kandidat', // Default Role untuk pendaftar umum
-            'otp_code' => $otp,
-            'otp_expires_at' => Carbon::now()->addMinutes(10), // Berlaku 10 menit
-        ]);
-
-        // Kirim Email (Pastikan kondigurasi SMTP)
-        try {
-            Mail::to($user->email)->send(new OtpRegisterMail($otp));
-        } catch (\Exception $e) {
-            // Jika gagal kirim email, hapus user biar bisa daftar ulang (opsional)
-            $user->delete();
-            return back()->with('error', 'Gagal mengirim email. Cek koneksi internet atau konfigurasi mail.');
+        // Jika email sudah ada DAN sudah terverifikasi -> Tolak
+        if ($existingUser && $existingUser->email_verified_at != null) {
+            return back()->withErrors(['email' => 'Email ini sudah terdaftar dan aktif. Silakan login.'])->withInput();
         }
 
-        // Redirecct ke Halaman Verifikasi (Bawa email biar user gak perlu ngetik lagi)
-        return redirect()->route('verification.notice', [
-            'email' => $user->email
-        ]);
+        // Generate Data Baru
+        $otp = rand(100000, 999999);
+        $passwordHash = Hash::make($request->password);
+
+        // 3. LOGIKA SMART: Update atau Create
+        if ($existingUser && $existingUser->email_verified_at == null) {
+            // A. KONDISI: User lama tapi belum verifikasi (SAMPAH)
+            // Kita TIMPA data lamanya dengan data baru (Update)
+            $user = $existingUser;
+            $user->update([
+                'name' => $request->name,
+                'password' => $passwordHash, // Update password baru
+                'role' => 'kandidat',
+                'otp_code' => $otp,
+                'otp_expires_at' => \Carbon\Carbon::now()->addMinutes(10),
+            ]);
+        } else {
+            // B. KONDISI: User benar-benar baru (Create)
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => $passwordHash,
+                'role' => 'kandidat',
+                'otp_code' => $otp,
+                'otp_expires_at' => \Carbon\Carbon::now()->addMinutes(10),
+            ]);
+        }
+
+        // 4. Kirim Email & Redirect (Sama seperti sebelumnya)
+        try {
+            \Illuminate\Support\Facades\Mail::to($user->email)->send(new \App\Mail\OtpRegisterMail($otp));
+        } catch (\Exception $e) {
+            // Jika gagal kirim email dan ini user baru, hapus aja biar bersih
+            if (!$existingUser) $user->delete();
+            return back()->with('error', 'Gagal mengirim email. Cek koneksi internet.');
+        }
+
+        return redirect()->route('verification.notice', ['email' => $user->email]);
     }
 
     // tampilkan halaman input otp
