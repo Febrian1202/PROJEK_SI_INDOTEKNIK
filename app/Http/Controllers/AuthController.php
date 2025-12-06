@@ -39,21 +39,49 @@ class AuthController extends Controller
         // Cek Kredensial (Email & Password) ke Database
         if (Auth::attempt($credentials)) {
 
-            // Jika Berhasil, Regenerasi Session (Untuk Keamanan)
-            $request->session()->regenerate();
-
-            // Cek Role User & Redirect
+            // Ambil data user yang baru saja login
             $user = Auth::user();
 
+            // --- [LOGIKA BARU] CEK STATUS VERIFIKASI ---
+            if ($user->email_verified_at === null) {
+                // Jika belum verifikasi:
+
+                // 1. Generate OTP Baru & Update Database
+                $newOtp = rand(100000, 999999);
+                $user->update([
+                    'otp_code' => $newOtp,
+                    'otp_expires_at' => \Carbon\Carbon::now()->addMinutes(10),
+                ]);
+
+                // 2. Kirim Email OTP
+                try {
+                    Mail::to($user->email)->send(new OtpRegisterMail($newOtp));
+                } catch (\Exception $e) {
+                    // Log error jika perlu, tapi biarkan flow lanjut agar user bisa minta resend manual
+                }
+                
+                // 1. Logout paksa (batalkan login)
+                Auth::logout();
+                $request->session()->invalidate();
+                $request->session()->regenerateToken();
+
+                // 2. Lempar ke halaman Verifikasi OTP
+                return redirect()->route('verification.notice', ['email' => $user->email])
+                    ->with('error', 'Akun Anda belum diverifikasi. Silakan masukkan kode OTP yang telah dikirim ke email.');
+            }
+            //-----------------------------
+
+            // Jika Sudah Verifikasi, Lanjut regenerate session
+            $request->session()->regenerate();
+
+            // Cek role user & redirect
             if ($user->role === 'admin') {
                 return redirect()->route('admin.dashboard');
             }
-
             if ($user->role === 'direktur') {
                 return redirect()->route('direktur.dashboard');
             }
-
-            // Default: Kandidat (Kembali ke Home)
+            // Default
             return redirect()->route('kandidat.dashboard');
         }
 
