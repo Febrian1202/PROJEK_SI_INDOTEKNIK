@@ -17,6 +17,19 @@
 </head>
 <body class="font-sans antialiased bg-gray-50">
     <div class="min-h-screen flex flex-col items-center justify-center p-6 relative overflow-hidden">
+        @if (session('success'))
+                <div class="mb-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg relative" role="alert">
+                    <strong class="font-bold">Berhasil!</strong>
+                    <span class="block sm:inline">{{ session('success') }}</span>
+                </div>
+            @endif
+
+            @if (session('error'))
+                <div class="mb-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg relative" role="alert">
+                    <strong class="font-bold">Gagal!</strong>
+                    <span class="block sm:inline">{{ session('error') }}</span>
+                </div>
+            @endif
         <div class="absolute top-0 left-0 w-full h-64 bg-brand-navy transform -skew-y-6 origin-top-left -translate-y-20 z-0"></div>
         
         <div class="w-full max-w-md bg-white rounded-2xl shadow-lg p-8 relative z-10 border border-gray-100">
@@ -28,9 +41,11 @@
                 </p>
             </div>
 
+            
+
             <form action="{{ route('verification.verify') }}" method="POST" class="space-y-6">
                 @csrf
-                <input type="hidden" name="email" value="{{ request('email') }}">
+                <input type="hidden" name="email" value="{{ old('email', $email ?? request('email')) }}">
 
                 <div>
                     <label class="block text-sm font-semibold text-brand-navy mb-2 text-center">Masukkan Kode OTP</label>
@@ -44,6 +59,20 @@
                     Verifikasi Akun
                 </button>
             </form>
+            <div class="mt-6 text-center">
+                <p class="text-sm text-gray-600">
+                    Belum menerima kode?
+                </p>
+                
+                <form action="{{ route('verification.resend') }}" method="POST" class="inline-block mt-2">
+                    @csrf
+                    <input type="hidden" name="email" value="{{ request('email') ?? $email }}">
+                    
+                    <button type="submit" class="text-sm font-bold text-brand-orange hover:text-orange-700 hover:underline transition-colors bg-transparent border-none cursor-pointer">
+                        Kirim Ulang Kode
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
 </body>

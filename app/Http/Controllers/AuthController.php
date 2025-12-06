@@ -119,8 +119,15 @@ class AuthController extends Controller
         }
 
         // Redirecct ke Halaman Verifikasi (Bawa email biar user gak perlu ngetik lagi)
-        return redirect()->route('verification.notice', ['
-        email' => $user->email
+        return redirect()->route('verification.notice', [
+            'email' => $user->email
+        ]);
+    }
+
+    // tampilkan halaman input otp
+    public function showVerification(Request $request) {
+        return view('auth.verify-otp', [
+            'email' => $request->email,
         ]);
     }
 
@@ -145,7 +152,7 @@ class AuthController extends Controller
         }
 
         // cek, otp kadaluarsa?
-        if (Carbon::now()->greatherThan($user->otp_expires_at)) {
+        if (Carbon::now()->greaterThan($user->otp_expires_at)) {
             return back()->withErrors(['otp' => 'Kode OTP sudah kadaluarsa. Silahkan daftar ulang.']);
         }
 
@@ -163,5 +170,37 @@ class AuthController extends Controller
 
         // masuk dashboard
         return redirect()->route('kandidat.dashboard')->with('success', 'Verifikasi berhasil! Selamat datang.');
+    }
+
+    // kirim ulang otp (resend)
+    public function resendOtp(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+        ]);
+
+        $user = User::where('email', $request->email)->first();
+
+        if(! $user) {
+            return back()->withErrors(['email' => 'Email']);
+        }
+
+        // generate OTP baru
+        $newOtp = rand(100000,999999);
+
+        // update databasse
+        $user->update([
+            'otp_code' =>$newOtp,
+            'otp_expires_at' => Carbon::now()->addMinutes(10)
+        ]);
+
+        // kirim email lagi
+        try {
+            Mail::to($user->email)->send(new OtpRegisterMail($newOtp));
+        } catch (\Exception $e) {
+            return back()->with('error', 'Gagal mengirim email ualng. Cek koneksi.');
+        }
+
+        return back()->with('success','Kode OTP baru telah dikirim ke email Anda.');
     }
 }

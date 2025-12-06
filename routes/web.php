@@ -42,6 +42,7 @@ Route::controller(AuthController::class)->group(function () {
     // ROUTE BARU: OTP
     Route::get('/verify-otp', 'showVerification')->name('verification.notice');
     Route::post('/verify-otp', 'verifyOtp')->name('verification.verify');
+    Route::post('/resend-otp', 'resendOtp')->name('verification.resend');
     
 });
 
