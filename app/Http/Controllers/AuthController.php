@@ -24,68 +24,61 @@ class AuthController extends Controller
     public function showRegister()
     {
         return view('auth.register', [
-            'title'=> 'Register'
+            'title' => 'Register'
         ]);
     }
 
     public function processLogin(Request $request)
     {
-        // Validasi Input
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
 
-        // Cek Kredensial (Email & Password) ke Database
         if (Auth::attempt($credentials)) {
-
-            // Ambil data user yang baru saja login
             $user = Auth::user();
 
-            // --- [LOGIKA BARU] CEK STATUS VERIFIKASI ---
-            if ($user->email_verified_at === null) {
-                // Jika belum verifikasi:
+            // --- [MODIFIKASI] CEK STATUS VERIFIKASI ---
+            // Tambahkan kondisi: Hanya jika role-nya 'kandidat'
+            if ($user->role === 'kandidat' && $user->email_verified_at === null) {
 
-                // 1. Generate OTP Baru & Update Database
+                // 1. Generate OTP Baru & Kirim Email (Sama seperti sebelumnya)
                 $newOtp = rand(100000, 999999);
                 $user->update([
                     'otp_code' => $newOtp,
                     'otp_expires_at' => \Carbon\Carbon::now()->addMinutes(10),
                 ]);
 
-                // 2. Kirim Email OTP
                 try {
-                    Mail::to($user->email)->send(new OtpRegisterMail($newOtp));
+                    \Illuminate\Support\Facades\Mail::to($user->email)->send(new \App\Mail\OtpRegisterMail($newOtp));
                 } catch (\Exception $e) {
-                    // Log error jika perlu, tapi biarkan flow lanjut agar user bisa minta resend manual
+                    // Silent fail
                 }
-                
-                // 1. Logout paksa (batalkan login)
+
+                // 2. Logout & Redirect
                 Auth::logout();
                 $request->session()->invalidate();
                 $request->session()->regenerateToken();
 
-                // 2. Lempar ke halaman Verifikasi OTP
                 return redirect()->route('verification.notice', ['email' => $user->email])
-                    ->with('error', 'Akun Anda belum diverifikasi. Silakan masukkan kode OTP yang telah dikirim ke email.');
+                    ->with('error', 'Akun belum diverifikasi. Kode OTP baru telah dikirim ke email Anda.');
             }
-            //-----------------------------
+            // -------------------------------------------
 
-            // Jika Sudah Verifikasi, Lanjut regenerate session
+            // Jika lolos (Admin, Direktur, atau Kandidat yang sudah verify)
             $request->session()->regenerate();
 
-            // Cek role user & redirect
             if ($user->role === 'admin') {
                 return redirect()->route('admin.dashboard');
             }
+
             if ($user->role === 'direktur') {
                 return redirect()->route('direktur.dashboard');
             }
-            // Default
+
             return redirect()->route('kandidat.dashboard');
         }
 
-        // Jika Gagal Login
         return back()->withErrors([
             'email' => 'Email atau password salah.',
         ])->onlyInput('email');
@@ -167,7 +160,8 @@ class AuthController extends Controller
     }
 
     // tampilkan halaman input otp
-    public function showVerification(Request $request) {
+    public function showVerification(Request $request)
+    {
         return view('auth.verify-otp', [
             'email' => $request->email,
         ]);
@@ -223,16 +217,16 @@ class AuthController extends Controller
 
         $user = User::where('email', $request->email)->first();
 
-        if(! $user) {
+        if (! $user) {
             return back()->withErrors(['email' => 'Email']);
         }
 
         // generate OTP baru
-        $newOtp = rand(100000,999999);
+        $newOtp = rand(100000, 999999);
 
         // update databasse
         $user->update([
-            'otp_code' =>$newOtp,
+            'otp_code' => $newOtp,
             'otp_expires_at' => Carbon::now()->addMinutes(10)
         ]);
 
@@ -243,6 +237,6 @@ class AuthController extends Controller
             return back()->with('error', 'Gagal mengirim email ualng. Cek koneksi.');
         }
 
-        return back()->with('success','Kode OTP baru telah dikirim ke email Anda.');
+        return back()->with('success', 'Kode OTP baru telah dikirim ke email Anda.');
     }
 }

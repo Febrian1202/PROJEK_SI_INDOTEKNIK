@@ -39,6 +39,21 @@ class KandidatController extends Controller
     // DAFTAR LOWONGAN (Untuk Menu 'Lowongan Pekerjaan')
     public function lowongan()
     {
+        $user = Auth::user();
+        // Cek Profil Dulu
+        // Jika relasi kandidatProfil kosong (belum pernah isi), tendang ke profil
+        if (!$user->kandidatProfil) {
+            return redirect()->route('profil.index')
+            ->with('error','Mohon lengkapi Biodata Diri Anda terlebih dahulu sebelum melihat lowongan.');
+        }
+
+        // Cek kelengkapan spesifik
+        if (empty($user->kandidatProfil->no_ktp) || empty($user->kandidatProfil->alamat_domisili)) 
+        {
+            return redirect()->route('profil.index')
+            ->with('error','Biodata belum lengkap. Silakan lengkapi NIK dan Alamat terlebih dahulu.');
+        }
+        
         // Ambil lowongan yang aktif saja
         $lowongan = Posisi::where('is_active', true)->latest()->paginate(9);
         return view('kandidat.lowongan.index', compact('lowongan'));

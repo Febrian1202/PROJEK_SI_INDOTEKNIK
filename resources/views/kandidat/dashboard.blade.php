@@ -157,6 +157,4 @@
             </div>
         </div>
     </div>
-
-    <x-footer></x-footer>
 </x-layout>

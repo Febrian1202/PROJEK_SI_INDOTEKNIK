@@ -99,5 +99,98 @@
             </table>
         </div>
     </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
+        
+        <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+            <div class="px-6 py-4 border-b border-gray-100 flex justify-between items-center bg-green-50">
+                <h3 class="font-bold text-green-800 text-sm uppercase tracking-wide">Lowongan Dibuka</h3>
+                <a href="{{ route('admin.posisi.index') }}" class="text-xs text-green-600 hover:text-green-800 hover:underline">Kelola</a>
+            </div>
+            <table class="w-full text-sm text-left">
+                <thead class="bg-gray-50 text-gray-500 uppercase text-xs">
+                    <tr>
+                        <th class="px-6 py-3">Posisi</th>
+                        <th class="px-6 py-3 text-center">Pelamar</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100">
+                    @forelse($posisiTerbaru as $item)
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-6 py-3 font-medium text-gray-800">{{ $item->nama_posisi }}</td>
+                            <td class="px-6 py-3 text-center">
+                                <span class="bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full text-xs font-bold">
+                                    {{ $item->lamaran_count }}
+                                </span>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr><td colspan="2" class="px-6 py-4 text-center text-gray-400 text-xs">Tidak ada lowongan aktif.</td></tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+            <div class="px-6 py-4 border-b border-gray-100 flex justify-between items-center bg-blue-50">
+                <h3 class="font-bold text-blue-800 text-sm uppercase tracking-wide">Karyawan Baru</h3>
+                <a href="{{ route('admin.karyawan.index') }}" class="text-xs text-blue-600 hover:text-blue-800 hover:underline">Kelola</a>
+            </div>
+            <table class="w-full text-sm text-left">
+                <thead class="bg-gray-50 text-gray-500 uppercase text-xs">
+                    <tr>
+                        <th class="px-6 py-3">Nama</th>
+                        <th class="px-6 py-3">Penempatan</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100">
+                    @forelse($karyawanBaru as $item)
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-6 py-3">
+                                <div class="font-medium text-gray-800">{{ $item->kandidat->nama_lengkap }}</div>
+                                <div class="text-xs text-gray-500">{{ $item->tgl_bergabung }}</div>
+                            </td>
+                            <td class="px-6 py-3 text-gray-600 text-xs">
+                                {{ $item->site->nama_site }}
+                            </td>
+                        </tr>
+                    @empty
+                        <tr><td colspan="2" class="px-6 py-4 text-center text-gray-400 text-xs">Belum ada karyawan baru.</td></tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
+
+        <div class="lg:col-span-2 bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+            <div class="px-6 py-4 border-b border-gray-100 flex justify-between items-center bg-brand-navy/5">
+                <h3 class="font-bold text-brand-navy text-sm uppercase tracking-wide">Lokasi Proyek (Site)</h3>
+                <a href="{{ route('admin.sites.index') }}" class="text-xs text-brand-blue hover:underline">Lihat Semua</a>
+            </div>
+            <table class="w-full text-sm text-left">
+                <thead class="bg-gray-50 text-gray-500 uppercase text-xs">
+                    <tr>
+                        <th class="px-6 py-3">Nama Site</th>
+                        <th class="px-6 py-3">Lokasi</th>
+                        <th class="px-6 py-3 text-center">Total Karyawan</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100">
+                    @forelse($siteTerbaru as $item)
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-6 py-3 font-medium text-gray-800">{{ $item->nama_site }}</td>
+                            <td class="px-6 py-3 text-gray-500">{{ $item->lokasi_fisik }}</td>
+                            <td class="px-6 py-3 text-center">
+                                <span class="bg-gray-100 text-gray-600 px-2 py-0.5 rounded text-xs font-mono">
+                                    {{ $item->karyawan_count }} Org
+                                </span>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr><td colspan="3" class="px-6 py-4 text-center text-gray-400 text-xs">Belum ada data site.</td></tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
+
+    </div>
 
 </x-admin-layout>

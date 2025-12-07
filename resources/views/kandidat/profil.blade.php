@@ -5,6 +5,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
 
+                
+
                 <div class="flex items-center gap-4">
                     <a href="{{ route('kandidat.dashboard') }}"
                         class="p-2 rounded-lg text-white hover:bg-gray-100 hover:text-brand-orange transition-colors"
@@ -19,7 +21,8 @@
 
                     <div class="flex flex-col">
                         <span class="text-xl font-bold text-white">Profil</span>
-                        <span class="text-xs text-brand-gray hidden md:block">Lengkapi biodata untuk melamar kerja</span>
+                        <span class="text-xs text-brand-gray hidden md:block">Lengkapi biodata untuk melamar
+                            kerja</span>
                     </div>
                 </div>
 
@@ -57,6 +60,23 @@
                     {{ session('success') }}
                 </div>
             @endif
+
+            @if (session('success'))
+                @endif
+
+                @if (session('error'))
+                    <div
+                        class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-6 rounded-r shadow-sm flex items-start gap-3">
+                        <svg class="w-6 h-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
+                        <div>
+                            <p class="font-bold">Perhatian</p>
+                            <p>{{ session('error') }}</p>
+                        </div>
+                    </div>
+                @endif
 
             <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
 
@@ -100,7 +120,8 @@
                     </div>
                 </div>
 
-                <form action="{{ route('profil.update') }}" method="POST" enctype="multipart/form-data" class="p-8">
+                <form action="{{ route('profil.update') }}" method="POST" enctype="multipart/form-data"
+                    class="p-8">
                     @csrf
                     @method('PUT')
 
