@@ -1,66 +1,193 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Sistem Informasi Rekrutmen - PT. Indoteknik Prima Mekongga
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Aplikasi berbasis web untuk mengelola proses rekrutmen karyawan secara digital, mulai dari pendaftaran kandidat, seleksi berkas, persetujuan direksi, hingga penempatan karyawan di lokasi proyek (site).
 
-## About Laravel
+Sistem ini dirancang untuk mempermudah HRD dalam mengelola data pelamar dan memberikan transparansi proses kepada Direktur dan Kandidat.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🚀 Fitur Utama
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 1. Role & Hak Akses (Multi-Auth)
+Sistem membedakan akses untuk 3 jenis pengguna:
+- **Admin (HRD):** Pengelola utama sistem.
+- **Direktur:** Pengambil keputusan akhir (Approval) dan pemantau kinerja.
+- **Kandidat (Pelamar):** Pengguna publik yang melamar pekerjaan.
 
-## Learning Laravel
+### 2. Fitur Admin (Back Office)
+- **Dashboard Statistik:** Ringkasan jumlah pelamar, lowongan aktif, dan status rekrutmen.
+- **Manajemen Master Data:**
+  - **Master Site:** Mengelola lokasi proyek (Site Pomalaa, Morosi, dll).
+  - **Master Posisi:** Membuka lowongan pekerjaan baru.
+  - **Master Dokumen:** Mengatur jenis dokumen persyaratan secara dinamis.
+  - **Kelola User:** Manajemen akun pengguna.
+- **Konfigurasi Lowongan:** Mengatur syarat dokumen wajib/opsional untuk setiap posisi.
+- **Manajemen Pelamar:** Melihat detail pelamar, preview/download berkas PDF, ubah status (Terima/Tolak).
+- **Manajemen Karyawan:** Mengelola database karyawan yang sudah diterima (Status kontrak, NIK, Penempatan).
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 3. Fitur Direktur (Executive)
+- **Executive Dashboard:** Ringkasan data strategis.
+- **Approval Workflow:** Menyetujui atau menolak kandidat yang telah lolos seleksi HRD.
+- **Monitoring:** Melihat seluruh data pendaftar dan karyawan aktif.
+- **Laporan PDF:** Mencetak laporan penerimaan karyawan berdasarkan periode bulan/tahun.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### 4. Fitur Kandidat (Frontend)
+- **Autentikasi Aman:** Registrasi dengan verifikasi email (OTP via Mailtrap/SMTP).
+- **Manajemen Profil:** Melengkapi biodata diri (NIK, Alamat, Foto).
+- **Portal Lowongan:** Melihat daftar lowongan tersedia.
+- **Sistem Melamar:** Upload berkas persyaratan dinamis sesuai posisi.
+- **Tracking Status:** Melihat progres lamaran (Baru, Diproses, Diterima/Ditolak), bisa membatalkan lamaran.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## 🛠️ Teknologi yang Digunakan
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- **Backend:** Laravel 11
+- **Frontend:** Blade + Tailwind CSS
+- **Interactivity:** Alpine.js
+- **Database:** MySQL / MariaDB
+- **PDF:** barryvdh/laravel-dompdf
+- **Icons:** Heroicons
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## 💻 Persyaratan Sistem (Prerequisites)
 
-## Contributing
+Pastikan komputer memiliki:
+- PHP >= 8.2
+- Composer
+- Node.js & NPM
+- MySQL/MariaDB
+- Git
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## ⚙️ Cara Instalasi (Local Development)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Ikuti langkah-langkah berikut:
 
-## Security Vulnerabilities
+### 1. Clone Repository
+```Bash
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+git clone https://github.com/username-anda/projek_si_indoteknik.git
+cd projek_si_indoteknik
+```
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 2. Install Dependencies
+
+Install paket PHP dan JavaScript yang dibutuhkan.
+
+```Bash
+
+composer install
+npm install
+```
+
+### 3. Konfigurasi Environment
+
+Duplikat file `.env.example` menjadi `.env` dan atur konfigurasi database.
+
+```Bash
+
+cp .env.example .env
+php artisan key:generate
+```
+
+Ubah pengaturan database pada file `.env`:
+
+```Cuplikan Code
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=nama_database_anda
+DB_USERNAME=root
+DB_PASSWORD=
+
+# Konfigurasi Mail (Wajib untuk fitur OTP)
+# Gunakan Mailtrap.io untuk testing lokal
+MAIL_MAILER=smtp
+MAIL_HOST=sandbox.smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=username_mailtrap_anda
+MAIL_PASSWORD=password_mailtrap_anda
+```
+
+### 4. Setup Database & Seeding
+
+Jalankan migrasi untuk membuat tabel dan masukkan data dummy (Admin, Site, Lowondan, dll).
+
+```Bash
+php artisan migrate:fresh --seed
+```
+
+### 5. Setup Storage Link
+
+Penting agar file foto profil dan dokumen lamaran bisa diakses browser.
+
+
+```Bash
+php artisan storage:link
+
+```
+
+### 6. Jalankan Aplikasi
+
+Buka dua terminal berbeda untuk menjalankan server PHP dan Build aset Frontend.
+
+#### Terminal 1:
+
+```Bash
+php artisan serve
+```
+
+#### Terminal 2:
+
+```Bash
+npm run dev
+```
+
+Akses aplikasi di: `http://127.0.0.1:8000`
+
+---
+
+## 🔑 Akun Demo (Seeder)
+
+Gunakan akun berikut untuk mencoba fitur setelah menjalankan seeder:
+
+|      Role      |          Email                |  Password  |
+| :-------------:|-------------------------------|------------|
+| __Admin HRD__  | `hrd@indoteknik.com`          | `password` |
+| __Direktur__   | `direktur@indoteknik.com`     | `password` |
+| __Kandidat__   | _(Silahkan Register Sendiri)_ | -          |
+
+---
+
+## 📝 Alur Kerja (Workflow)
+
+1. **Admin:** Login -> Isi Master Data (Site, Dokumen) -> Buat Lowongan (Posisi).
+
+2. **Kandidat:** Register -> Verifikasi OTP -> Lengkapi Profil -> Pilih Lowongan -> Upload Berkas.
+
+3. **Admin:** Cek Pelamar -> Verifikasi Berkas -> Ubah status jadi 'Diproses'.
+
+4. **Direktur:** Cek menu Approval -> Klik 'Setujui' pada kandidat terpilih.
+
+5. **Admin:** Finalisasi -> Ubah status jadi 'Diterima' -> Pilih Penempatan Site.
+
+6. **Selesai:** Data masuk ke tabel Karyawan & Laporan PDF siap dicetak.
+
+---
+
+
+## 👨‍💻 Tim Pengembang (Developer)
+
+Sistem ini dikembangkan dan dikelola oleh:
+* **M. Febrian Syah** - *Lead Developer / Mahasiswa*
+* **Universitas SembilanBelasNovember Kolaka** - *Tugas Akhir / Kerja Praktik*
+
+---
+
+## 📄 Lisensi
+
+Hak Cipta © 2025 PT. Indoteknik Prima Mekongga.
