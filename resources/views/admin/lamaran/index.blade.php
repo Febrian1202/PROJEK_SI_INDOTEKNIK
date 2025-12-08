@@ -1,4 +1,6 @@
 <x-admin-layout title="Manajemen Pelamar">
+    <x-slot:title>Manajemen Pelamar</x-slot:title>
+
     <div class="flex justify-between items-center mb-6">
         <h1 class="text-2xl font-bold text-brand-navy">Daftar Pelamar Masuk</h1>
 

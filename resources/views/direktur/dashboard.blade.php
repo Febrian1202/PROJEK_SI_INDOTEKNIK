@@ -1,11 +1,12 @@
 <x-admin-layout>
+    <x-slot:title>Direktur</x-slot:title>
     
     <div class="mb-8 flex justify-between items-center">
         <div>
             <h1 class="text-2xl font-bold text-brand-navy">Executive Overview</h1>
             <p class="text-gray-500 text-sm">Laporan kinerja rekrutmen bulan {{ date('F Y') }}.</p>
         </div>
-        <a href="#" class="bg-brand-navy text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-brand-blue transition flex items-center gap-2">
+        <a href="{{ route('direktur.laporan.cetak') }}" target="_blank" class="bg-brand-navy text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-brand-blue transition flex items-center gap-2">
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
             Unduh Laporan PDF
         </a>

@@ -1,4 +1,6 @@
 <x-admin-layout title="Laporan Kinerja">
+    <x-slot:title>Laporan Kinerja</x-slot:title>
+
     <div class="flex justify-between items-center mb-6">
         <div>
             <h1 class="text-2xl font-bold text-brand-navy">Laporan Rekrutmen</h1>
@@ -7,16 +9,19 @@
 
         <form method="GET" action="{{ route('direktur.laporan.index') }}" class="flex gap-2">
             <select name="bulan" class="rounded-lg border-gray-300 text-sm focus:ring-brand-blue">
-                @for($i=1; $i<=12; $i++)
-                    <option value="{{ $i }}" {{ $bulan == $i ? 'selected' : '' }}>{{ date('F', mktime(0, 0, 0, $i, 10)) }}</option>
+                @for ($i = 1; $i <= 12; $i++)
+                    <option value="{{ $i }}" {{ $bulan == $i ? 'selected' : '' }}>
+                        {{ date('F', mktime(0, 0, 0, $i, 10)) }}</option>
                 @endfor
             </select>
             <select name="tahun" class="rounded-lg border-gray-300 text-sm focus:ring-brand-blue">
-                @for($i=date('Y'); $i>=date('Y')-2; $i--)
-                    <option value="{{ $i }}" {{ $tahun == $i ? 'selected' : '' }}>{{ $i }}</option>
+                @for ($i = date('Y'); $i >= date('Y') - 2; $i--)
+                    <option value="{{ $i }}" {{ $tahun == $i ? 'selected' : '' }}>{{ $i }}
+                    </option>
                 @endfor
             </select>
-            <button type="submit" class="bg-brand-blue text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700">Filter</button>
+            <button type="submit"
+                class="bg-brand-blue text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700">Filter</button>
         </form>
     </div>
 
@@ -37,7 +42,8 @@
 
     <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
         <div class="px-6 py-4 bg-gray-50 border-b border-gray-200">
-            <h3 class="font-bold text-gray-700">Detail Karyawan Baru ({{ \Carbon\Carbon::createFromDate($tahun, $bulan)->format('F Y') }})</h3>
+            <h3 class="font-bold text-gray-700">Detail Karyawan Baru
+                ({{ \Carbon\Carbon::createFromDate($tahun, $bulan)->format('F Y') }})</h3>
         </div>
         <table class="w-full text-sm text-left">
             <thead class="bg-gray-50 text-gray-500 uppercase text-xs">
@@ -54,20 +60,29 @@
                         <td class="px-6 py-4 font-medium">{{ $karyawan->kandidat->nama_lengkap }}</td>
                         <td class="px-6 py-4">{{ $karyawan->lamaran->posisi->nama_posisi }}</td>
                         <td class="px-6 py-4">{{ $karyawan->site->nama_site }}</td>
-                        <td class="px-6 py-4">{{ \Carbon\Carbon::parse($karyawan->tgl_bergabung)->format('d M Y') }}</td>
+                        <td class="px-6 py-4">{{ \Carbon\Carbon::parse($karyawan->tgl_bergabung)->format('d M Y') }}
+                        </td>
                     </tr>
                 @empty
-                    <tr><td colspan="4" class="text-center py-8 text-gray-400">Tidak ada rekrutmen di periode ini.</td></tr>
+                    <tr>
+                        <td colspan="4" class="text-center py-8 text-gray-400">Tidak ada rekrutmen di periode ini.
+                        </td>
+                    </tr>
                 @endforelse
             </tbody>
         </table>
     </div>
 
     <div class="mt-8 text-right">
-        <button onclick="window.print()" class="bg-gray-800 text-white px-6 py-2 rounded-lg hover:bg-black transition flex items-center gap-2 inline-flex">
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
-            Cetak Laporan
-        </button>
+        <a href="{{ route('direktur.laporan.cetak', ['bulan' => $bulan, 'tahun' => $tahun]) }}" target="_blank"
+            class="bg-brand-navy text-white px-6 py-2.5 rounded-lg hover:bg-brand-blue transition  items-center gap-2 inline-flex font-bold shadow-lg shadow-blue-900/20">
+
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+            </svg>
+            Download PDF
+        </a>
     </div>
 
 </x-admin-layout>

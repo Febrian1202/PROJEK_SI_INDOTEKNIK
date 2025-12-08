@@ -113,4 +113,7 @@ Route::middleware(['auth'])->prefix('direktur')->name('direktur.')->group(functi
 
     // Halaman Laporan
     Route::get('/laporan', [DirekturController::class, 'laporan'])->name('laporan.index');
+    
+    // [BARU] Route Cetak PDF
+    Route::get('/laporan/cetak', [DirekturController::class, 'cetakPdf'])->name('laporan.cetak');
 });

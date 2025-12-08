@@ -1,4 +1,6 @@
 <x-admin-layout title="Persetujuan Kandidat">
+    <x-slot:title>Halaman Persetujuan</x-slot:title>
+
     <div class="mb-6">
         <h1 class="text-2xl font-bold text-brand-navy">Persetujuan Kandidat</h1>
         <p class="text-gray-500 text-sm">Daftar kandidat yang telah lolos seleksi HR dan menunggu persetujuan Anda.</p>

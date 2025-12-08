@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Posisi;
 use App\Models\Lamaran;
 use App\Models\Karyawan;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
 
 class DirekturController extends Controller
@@ -14,45 +15,48 @@ class DirekturController extends Controller
     //
     public function index()
     {
-        // 1. STATISTIK KARYAWAN BARU (Bulan Ini)
+        // STATISTIK KARYAWAN BARU (Bulan Ini)
         $karyawanBaru = Karyawan::whereMonth('tgl_bergabung', Carbon::now()->month)
-                        ->whereYear('tgl_bergabung', Carbon::now()->year)
-                        ->count();
+            ->whereYear('tgl_bergabung', Carbon::now()->year)
+            ->count();
 
         // Bandingkan dengan bulan lalu untuk teks "+2 dari bulan lalu"
         $karyawanBulanLalu = Karyawan::whereMonth('tgl_bergabung', Carbon::now()->subMonth()->month)->count();
         $diff = $karyawanBaru - $karyawanBulanLalu;
         $trendText = $diff >= 0 ? "+$diff dari bulan lalu" : "$diff dari bulan lalu";
 
-        // 2. MENUNGGU PERSETUJUAN (Status = 'Diproses')
+        // MENUNGGU PERSETUJUAN (Status = 'Diproses')
         // Asumsi: Admin mengubah status jadi 'Diproses' (Interview/Review),
         // lalu Direktur yang mengubah jadi 'Diterima' atau 'Ditolak'.
         $menungguApproval = Lamaran::where('status', 'Diproses')->count();
 
-        // 3. TOTAL PELAMAR
+        // TOTAL PELAMAR
         $totalPelamar = User::where('role', 'kandidat')->count();
 
-        // 4. POSISI TERBUKA
+        // POSISI TERBUKA
         $posisiTerbuka = Posisi::where('is_active', true)->count();
 
-        // 5. TABEL APPROVAL (Ambil data yang statusnya 'Diproses')
+        // TABEL APPROVAL (Ambil data yang statusnya 'Diproses')
         $listApproval = Lamaran::with(['kandidat', 'posisi'])
-                        ->where('status', 'Diproses')
-                        ->latest()
-                        ->get();
+            ->where('status', 'Diproses')
+            ->latest()
+            ->get();
 
         return view('direktur.dashboard', compact(
-            'karyawanBaru', 'trendText', 
-            'menungguApproval', 'totalPelamar', 'posisiTerbuka',
+            'karyawanBaru',
+            'trendText',
+            'menungguApproval',
+            'totalPelamar',
+            'posisiTerbuka',
             'listApproval'
         ));
     }
 
-    // METHOD BARU: PROSES APPROVAL OLEH DIREKTUR
+    // PROSES APPROVAL OLEH DIREKTUR
     public function approve(Request $request, $id)
     {
         $lamaran = Lamaran::findOrFail($id);
-        
+
         $request->validate([
             'action' => 'required|in:terima,tolak'
         ]);
@@ -76,9 +80,9 @@ class DirekturController extends Controller
     public function approval()
     {
         $lamaran = Lamaran::with(['kandidat', 'posisi'])
-                    ->where('status', 'Diproses')
-                    ->latest()
-                    ->paginate(10);
+            ->where('status', 'Diproses')
+            ->latest()
+            ->paginate(10);
 
         return view('direktur.approval', compact('lamaran'));
     }
@@ -92,28 +96,67 @@ class DirekturController extends Controller
 
         // Data 1: Karyawan diterima bulan ini
         $karyawanBaru = Karyawan::whereMonth('tgl_bergabung', $bulan)
-                        ->whereYear('tgl_bergabung', $tahun)
-                        ->count();
+            ->whereYear('tgl_bergabung', $tahun)
+            ->count();
 
         // data 2: total pelamar masuk
         $pelamarMasuk = Lamaran::whereMonth('created_at', $bulan)
-                        ->whereYear('created_at', $tahun)
-                        ->count();
+            ->whereYear('created_at', $tahun)
+            ->count();
 
         // data 3: pelamar ditolah
         $pelamarDitolak = Lamaran::whereMonth('updated_at', $bulan)
-                        ->whereYear('updated_at', $tahun)
-                        ->where('status', 'Ditolak')
-                        ->count();
+            ->whereYear('updated_at', $tahun)
+            ->where('status', 'Ditolak')
+            ->count();
 
         // data 4: list karyawan baru (untuk tabel detail)
-        $listKaryawan = Karyawan::with(['kandidat','site', 'lamaran.posisi'])
-                        ->whereMonth('tgl_bergabung', $bulan)
-                        ->whereYear('tgl_bergabung', $tahun)
-                        ->get();
+        $listKaryawan = Karyawan::with(['kandidat', 'site', 'lamaran.posisi'])
+            ->whereMonth('tgl_bergabung', $bulan)
+            ->whereYear('tgl_bergabung', $tahun)
+            ->get();
 
         return view('direktur.laporan', compact(
-            'karyawanBaru', 'pelamarMasuk', 'pelamarDitolak','listKaryawan','bulan','tahun'
+            'karyawanBaru',
+            'pelamarMasuk',
+            'pelamarDitolak',
+            'listKaryawan',
+            'bulan',
+            'tahun'
         ));
+    }
+
+    // CETAK LAPORAN PDF
+    public function cetakPdf(Request $request)
+    {
+        // Ambil Filter (Sama seperti di method laporan)
+        $bulan = $request->input('bulan', date('m'));
+        $tahun = $request->input('tahun', date('Y'));
+
+        // Ambil Data Karyawan Sesuai Periode
+        $karyawan = Karyawan::with(['kandidat', 'site', 'lamaran.posisi'])
+            ->whereMonth('tgl_bergabung', $bulan)
+            ->whereYear('tgl_bergabung', $tahun)
+            ->latest('tgl_bergabung')
+            ->get();
+
+        // Siapkan Data untuk View PDF
+        $data = [
+            'title' => 'Laporan Karyawan Baru',
+            'bulan' => $bulan,
+            'tahun' => $tahun,
+            'karyawan' => $karyawan,
+            'tanggal_cetak' => Carbon::now()->isoFormat('D MMMM Y'),
+            'admin_name' => auth()->user()->name
+        ];
+
+        // Load View PDF
+        $pdf = Pdf::loadView('direktur.laporan_pdf', $data);
+
+        // Atur Kertas A4 Landscape (agar tabel muat)
+        $pdf->setPaper('a4', 'landscape');
+
+        // Download / Stream file
+        return $pdf->stream('Laporan-Rekrutmen-' . date('Y-m-d-His') . '.pdf');
     }
 }

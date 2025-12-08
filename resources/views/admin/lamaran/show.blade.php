@@ -1,20 +1,24 @@
 <x-admin-layout title="Detail Pelamar">
+    <x-slot:title>Detail Pelamar</x-slot:title>
     <div class="mb-6">
-        <a href="{{ route('admin.lamaran.index') }}" class="text-gray-500 hover:text-brand-blue flex items-center gap-1 text-sm mb-2">
-            &larr; Kembali ke Daftar
-        </a>
+        
+        @if(Auth::user()->role == 'direktur')
+            <a href="{{ route('direktur.dashboard') }}" class="text-gray-500 hover:text-brand-blue flex items-center gap-1 text-sm mb-2 group">
+                <svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                Kembali ke Dashboard
+            </a>
+        @else
+            <a href="{{ route('admin.lamaran.index') }}" class="text-gray-500 hover:text-brand-blue flex items-center gap-1 text-sm mb-2 group">
+                <svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                Kembali ke Daftar
+            </a>
+        @endif
+
         <div class="flex justify-between items-start">
-            <div>
-                <h1 class="text-2xl font-bold text-brand-navy">{{ $lamaran->kandidat->nama_lengkap }}</h1>
-                <p class="text-gray-600">Melamar posisi: <span class="font-semibold">{{ $lamaran->posisi->nama_posisi }}</span></p>
-            </div>
-            <div>
-                <span class="px-4 py-2 rounded-lg text-sm font-bold {{ $lamaran->status == 'Diterima' ? 'bg-green-100 text-green-700' : ($lamaran->status == 'Ditolak' ? 'bg-red-100 text-red-700' : 'bg-blue-100 text-blue-700') }}">
-                    Status: {{ $lamaran->status }}
-                </span>
-            </div>
-        </div>
-    </div>
 
     @if(session('success'))
         <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-6">{{ session('success') }}</div>
