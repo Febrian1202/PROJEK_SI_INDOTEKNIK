@@ -1,4 +1,5 @@
 <x-admin-layout title="Admin">
+    <x-slot:title>Dashboard Admin</x-slot:title>
     
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         

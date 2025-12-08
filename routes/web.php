@@ -116,4 +116,8 @@ Route::middleware(['auth'])->prefix('direktur')->name('direktur.')->group(functi
     
     // [BARU] Route Cetak PDF
     Route::get('/laporan/cetak', [DirekturController::class, 'cetakPdf'])->name('laporan.cetak');
+
+    // Monitoring
+    Route::get('/data-pelamar', [DirekturController::class, 'dataPelamar'])->name('pelamar.index');
+    Route::get('/data-karyawan', [DirekturController::class, 'dataKaryawan'])->name('karyawan.index');
 });

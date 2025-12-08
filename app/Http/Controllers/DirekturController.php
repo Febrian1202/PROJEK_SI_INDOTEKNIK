@@ -15,40 +15,51 @@ class DirekturController extends Controller
     //
     public function index()
     {
-        // STATISTIK KARYAWAN BARU (Bulan Ini)
+        // 1. STATISTIK KARYAWAN BARU (Bulan Ini)
         $karyawanBaru = Karyawan::whereMonth('tgl_bergabung', Carbon::now()->month)
-            ->whereYear('tgl_bergabung', Carbon::now()->year)
-            ->count();
+                        ->whereYear('tgl_bergabung', Carbon::now()->year)
+                        ->count();
 
-        // Bandingkan dengan bulan lalu untuk teks "+2 dari bulan lalu"
+        // Hitung Karyawan Bulan Lalu untuk Tren
         $karyawanBulanLalu = Karyawan::whereMonth('tgl_bergabung', Carbon::now()->subMonth()->month)->count();
         $diff = $karyawanBaru - $karyawanBulanLalu;
+        
+        // Buat teks trend (Misal: "+2 dari bulan lalu" atau "-1 dari bulan lalu")
         $trendText = $diff >= 0 ? "+$diff dari bulan lalu" : "$diff dari bulan lalu";
 
-        // MENUNGGU PERSETUJUAN (Status = 'Diproses')
-        // Asumsi: Admin mengubah status jadi 'Diproses' (Interview/Review),
-        // lalu Direktur yang mengubah jadi 'Diterima' atau 'Ditolak'.
+        // 2. DATA LAINNYA
         $menungguApproval = Lamaran::where('status', 'Diproses')->count();
-
-        // TOTAL PELAMAR
         $totalPelamar = User::where('role', 'kandidat')->count();
-
-        // POSISI TERBUKA
         $posisiTerbuka = Posisi::where('is_active', true)->count();
 
-        // TABEL APPROVAL (Ambil data yang statusnya 'Diproses')
         $listApproval = Lamaran::with(['kandidat', 'posisi'])
-            ->where('status', 'Diproses')
-            ->latest()
-            ->get();
+                        ->where('status', 'Diproses')
+                        ->latest()
+                        ->take(5)
+                        ->get();
 
+        // DATA TABEL 2: PENDAFTAR BARU (Status: Baru)
+        $listPendaftarBaru = Lamaran::with(['kandidat', 'posisi'])
+                        ->where('status', 'Baru')
+                        ->latest()
+                        ->take(5)
+                        ->get();
+
+        $listKaryawanBaru = Karyawan::with(['kandidat', 'site', 'lamaran.posisi'])
+                        ->latest('tgl_bergabung')
+                        ->take(5)
+                        ->get();
+
+        // 3. KIRIM KE VIEW (Pastikan 'trendText' ada di sini)
         return view('direktur.dashboard', compact(
-            'karyawanBaru',
-            'trendText',
-            'menungguApproval',
-            'totalPelamar',
+            'karyawanBaru', 
+            'trendText', // <--- JANGAN LUPA INI
+            'menungguApproval', 
+            'totalPelamar', 
             'posisiTerbuka',
-            'listApproval'
+            'listApproval', 
+            'listPendaftarBaru',
+            'listKaryawanBaru'
         ));
     }
 
@@ -158,5 +169,36 @@ class DirekturController extends Controller
 
         // Download / Stream file
         return $pdf->stream('Laporan-Rekrutmen-' . date('Y-m-d-His') . '.pdf');
+    }
+
+    // MONITORING DATA PELAMAR (SEMUA)
+    public function dataPelamar(Request $request)
+    {
+        $query = Lamaran::with(['kandidat', 'posisi']);
+
+        // Filter Status (Opsional, biar direktur enak carinya)
+        if ($request->has('status') && $request->status != '') {
+            $query->where('status', $request->status);
+        }
+
+        $lamaran = $query->latest()->paginate(10);
+
+        return view('direktur.pelamar', compact('lamaran'));
+    }
+
+    // MONITORING DATA KARYAWAN (SEMUA)
+    public function dataKaryawan(Request $request)
+    {
+        $query = Karyawan::with(['kandidat', 'site', 'lamaran.posisi']);
+        
+        // Filter Site
+        if ($request->has('site_id') && $request->site_id != '') {
+            $query->where('site_id', $request->site_id);
+        }
+
+        $karyawan = $query->latest('tgl_bergabung')->paginate(10);
+        $sites = \App\Models\Site::all(); // Untuk dropdown filter
+
+        return view('direktur.karyawan', compact('karyawan', 'sites'));
     }
 }

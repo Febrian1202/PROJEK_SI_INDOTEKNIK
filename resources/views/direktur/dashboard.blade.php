@@ -136,4 +136,114 @@
         </div>
     </div>
 
+    <div class="mt-8 bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+        <div class="px-6 py-4 border-b border-gray-100 flex justify-between items-center bg-gray-50">
+            <h3 class="font-bold text-gray-800 text-lg">Pendaftar Terbaru Masuk</h3>
+            <a href="{{ route('direktur.pelamar.index', ['status' => 'Baru']) }}" class="text-sm text-gray-500 hover:text-brand-blue hover:underline">Lihat Semua</a>
+        </div>
+
+        <div class="overflow-x-auto">
+            <table class="w-full text-sm text-left">
+                <thead class="text-gray-500 border-b border-gray-100 bg-white">
+                    <tr>
+                        <th class="px-6 py-4 font-medium">Nama Pelamar</th>
+                        <th class="px-6 py-4 font-medium">Posisi Dilamar</th>
+                        <th class="px-6 py-4 font-medium">Tanggal Masuk</th>
+                        <th class="px-6 py-4 font-medium text-center">Status</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-50">
+                    @forelse($listPendaftarBaru as $pelamar)
+                        <tr class="hover:bg-gray-50 transition">
+                            <td class="px-6 py-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center font-bold text-gray-500 text-xs overflow-hidden">
+                                        @if($pelamar->kandidat->foto)
+                                            <img src="{{ asset('storage/' . $pelamar->kandidat->foto) }}" class="w-full h-full object-cover">
+                                        @else
+                                            {{ substr($pelamar->kandidat->nama_lengkap, 0, 1) }}
+                                        @endif
+                                    </div>
+                                    <span class="font-semibold text-gray-900">{{ $pelamar->kandidat->nama_lengkap }}</span>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 text-gray-700">
+                                {{ $pelamar->posisi->nama_posisi }}
+                            </td>
+                            <td class="px-6 py-4 text-gray-500">
+                                {{ $pelamar->created_at->format('d M Y, H:i') }}
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs font-bold">Baru</span>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="4" class="px-6 py-8 text-center text-gray-400">
+                                Belum ada pendaftar baru.
+                            </td>
+                        </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="mt-8 bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+        <div class="px-6 py-4 border-b border-gray-100 flex justify-between items-center bg-blue-50">
+            <h3 class="font-bold text-blue-900 text-lg">Karyawan Baru Bergabung</h3>
+            <a href="{{ route('direktur.karyawan.index') }}" class="text-sm text-blue-600 hover:underline">Lihat Semua</a>
+        </div>
+
+        <div class="overflow-x-auto">
+            <table class="w-full text-sm text-left">
+                <thead class="text-gray-500 border-b border-gray-100 bg-white">
+                    <tr>
+                        <th class="px-6 py-4 font-medium">Nama Karyawan</th>
+                        <th class="px-6 py-4 font-medium">Posisi / Jabatan</th>
+                        <th class="px-6 py-4 font-medium">Penempatan</th>
+                        <th class="px-6 py-4 font-medium">Tanggal Masuk</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-50">
+                    @forelse($listKaryawanBaru as $karyawan)
+                        <tr class="hover:bg-gray-50 transition">
+                            <td class="px-6 py-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue font-bold text-xs">
+                                        {{ substr($karyawan->kandidat->nama_lengkap, 0, 1) }}
+                                    </div>
+                                    <div>
+                                        <span class="block font-semibold text-gray-900">{{ $karyawan->kandidat->nama_lengkap }}</span>
+                                        <span class="text-xs text-gray-500 font-mono">{{ $karyawan->nik_karyawan }}</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 text-gray-700">
+                                {{ $karyawan->lamaran->posisi->nama_posisi }}
+                            </td>
+                            <td class="px-6 py-4">
+                                <span class="flex items-center gap-1 text-gray-600">
+                                    <svg class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                                    {{ $karyawan->site->nama_site }}
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-gray-500">
+                                {{ \Carbon\Carbon::parse($karyawan->tgl_bergabung)->format('d M Y') }}
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="4" class="px-6 py-8 text-center text-gray-400">
+                                Belum ada karyawan baru.
+                            </td>
+                        </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    
+
 </x-admin-layout>

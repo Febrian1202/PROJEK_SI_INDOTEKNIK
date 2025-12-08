@@ -23,9 +23,7 @@
 
 <body class="font-sans antialiased bg-gray-50">
 
-    <div x-data="{ sidebarOpen: false, isLoaded: false }" 
-     x-init="setTimeout(() => isLoaded = true, 100)" 
-     class="flex h-screen overflow-hidden">
+    <div x-data="{ sidebarOpen: false, isLoaded: false }" x-init="setTimeout(() => isLoaded = true, 100)" class="flex h-screen overflow-hidden">
 
         <div x-show="sidebarOpen" @click="sidebarOpen = false"
             x-transition:enter="transition-opacity ease-linear duration-300" x-transition:enter-start="opacity-0"
@@ -34,14 +32,15 @@
             class="fixed inset-0 z-20 bg-black/50">
         </div>
 
-        <aside :class="[
+        <aside
+            :class="[
                 sidebarOpen ? 'translate-x-0' : '-translate-x-full',
                 isLoaded ? 'transition-transform duration-300 ease-in-out' : ''
-           ]"
-           class="fixed inset-y-0 left-0 z-30 w-64 bg-white border-r border-gray-200 flex flex-col">
+            ]"
+            class="fixed inset-y-0 left-0 z-30 w-64 bg-white border-r border-gray-200 flex flex-col">
 
             <div class="h-16 flex items-center justify-between px-6 border-b border-gray-100 min-w-[256px]">
-                
+
                 <div class="flex items-center gap-3">
                     <img src="{{ asset('assets/img/Logo-09.png') }}" alt="Logo" class="h-8 w-auto">
                     <h1 class="text-lg font-bold text-brand-navy tracking-wide truncate">INTERNAL</h1>
@@ -49,7 +48,8 @@
 
                 <button @click="sidebarOpen = false" class="text-gray-400 hover:text-red-500 focus:outline-none ">
                     <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
 
@@ -146,6 +146,27 @@
                         </svg>
                         Laporan Kinerja
                     </a>
+
+                    <div class="pt-4 pb-2 px-4 text-xs font-bold text-gray-400 uppercase tracking-wider">Monitoring
+                        Data</div>
+
+                    <a href="{{ route('direktur.pelamar.index') }}"
+                        class="flex items-center gap-3 px-4 py-3 {{ request()->routeIs('direktur.pelamar.*') ? 'bg-brand-blue/10 text-brand-blue' : 'text-gray-600 hover:bg-gray-50' }} rounded-lg transition-colors">
+                        <svg class="w-5 h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        Data Pelamar
+                    </a>
+
+                    <a href="{{ route('direktur.karyawan.index') }}"
+                        class="flex items-center gap-3 px-4 py-3 {{ request()->routeIs('direktur.karyawan.*') ? 'bg-brand-blue/10 text-brand-blue' : 'text-gray-600 hover:bg-gray-50' }} rounded-lg transition-colors">
+                        <svg class="w-5 h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2" />
+                        </svg>
+                        Data Karyawan
+                    </a>
                 @endif
             </nav>
 
@@ -166,37 +187,43 @@
 
         <div class="flex-1 flex flex-col overflow-hidden">
             <header class="h-16 bg-brand-navy border-b border-gray-200 flex items-center justify-between px-4 lg:px-8">
-                
+
                 <div class="flex items-center gap-3">
-                    
-                    <button @click="sidebarOpen = !sidebarOpen" class="text-brand-gray hover:text-brand-blue focus:outline-none p-2 rounded-md hover:bg-gray-100 transition-colors">
+
+                    <button @click="sidebarOpen = !sidebarOpen"
+                        class="text-brand-gray hover:text-brand-blue focus:outline-none p-2 rounded-md hover:bg-gray-100 transition-colors">
                         <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
                     </button>
 
                     @php
                         // Tentukan route dashboard berdasarkan role
                         $dashboardRouteName = Auth::user()->role == 'admin' ? 'admin.dashboard' : 'direktur.dashboard';
-                        
+
                         // Cek: Apakah user sedang berada di dashboard?
                         $isDashboard = request()->routeIs($dashboardRouteName);
                     @endphp
 
-                    @if(!$isDashboard)
-                        <a href="{{ route($dashboardRouteName) }}" 
-                           class="text-brand-gray hover:text-brand-blue focus:outline-none p-2 rounded-md hover:bg-gray-100 transition-colors group" 
-                           title="Kembali ke Dashboard">
-                            <svg class="w-6 h-6 group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                    @if (!$isDashboard)
+                        <a href="{{ route($dashboardRouteName) }}"
+                            class="text-brand-gray hover:text-brand-blue focus:outline-none p-2 rounded-md hover:bg-gray-100 transition-colors group"
+                            title="Kembali ke Dashboard">
+                            <svg class="w-6 h-6 group-hover:-translate-x-1 transition-transform" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                             </svg>
                         </a>
                     @else
-                        <a href="{{ route('home') }}" 
-                           class="text-brand-gray hover:text-brand-blue focus:outline-none p-2 rounded-md hover:bg-gray-100 transition-colors group" 
-                           title="Lihat Halaman Depan">
-                            <svg class="w-6 h-6 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                        <a href="{{ route('home') }}"
+                            class="text-brand-gray hover:text-brand-blue focus:outline-none p-2 rounded-md hover:bg-gray-100 transition-colors group"
+                            title="Lihat Halaman Depan">
+                            <svg class="w-6 h-6 group-hover:scale-110 transition-transform" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                             </svg>
                         </a>
                     @endif
@@ -209,9 +236,11 @@
                             <p class="text-sm font-bold text-white">{{ Auth::user()->name }}</p>
                             <p class="text-xs text-brand-gray uppercase">{{ Auth::user()->role }}</p>
                         </div>
-                        <div class="h-10 w-10 rounded-full bg-brand-blue text-white flex items-center justify-center font-bold text-lg overflow-hidden">
-                            @if(Auth::user()->kandidatProfil && Auth::user()->kandidatProfil->foto)
-                                <img src="{{ asset('storage/' . Auth::user()->kandidatProfil->foto) }}" class="w-full h-full object-cover">
+                        <div
+                            class="h-10 w-10 rounded-full bg-brand-blue text-white flex items-center justify-center font-bold text-lg overflow-hidden">
+                            @if (Auth::user()->kandidatProfil && Auth::user()->kandidatProfil->foto)
+                                <img src="{{ asset('storage/' . Auth::user()->kandidatProfil->foto) }}"
+                                    class="w-full h-full object-cover">
                             @else
                                 {{ substr(Auth::user()->name, 0, 1) }}
                             @endif
