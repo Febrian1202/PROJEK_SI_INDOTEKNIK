@@ -102,5 +102,15 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 
 // --- GROUP ROUTE DIREKTUR ---
 Route::middleware(['auth'])->prefix('direktur')->name('direktur.')->group(function () {
+    // Dashboard Utama
     Route::get('/dashboard', [DirekturController::class, 'index'])->name('dashboard');
+    
+    // Route untuk Action (Terima/Tolak)
+    Route::post('/approval/{id}', [DirekturController::class, 'approve'])->name('approval.action');
+
+    // Halaman list approval
+    Route::get('/approval', [DirekturController::class, 'approval'])->name('approval.index');
+
+    // Halaman Laporan
+    Route::get('/laporan', [DirekturController::class, 'laporan'])->name('laporan.index');
 });

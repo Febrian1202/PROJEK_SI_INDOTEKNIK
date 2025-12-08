@@ -4,13 +4,14 @@
 
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 items-center justify-between">
-
+            <a href="{{ route('home') }}">
             <div class="flex items-center gap-3">
                 <img class="h-10 w-auto" src="{{ asset('assets/img/Logo-09.png') }}" alt="Logo Indoteknik">
                 <span class="text-white font-bold text-xl tracking-wide hidden sm:block font-sans">
                     INDOTEKNIK
                 </span>
             </div>
+            </a>
 
             <div class="hidden md:block">
                 <div class="ml-10 flex items-baseline space-x-8">
