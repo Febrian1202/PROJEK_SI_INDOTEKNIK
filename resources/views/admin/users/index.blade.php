@@ -1,4 +1,6 @@
 <x-admin-layout title="Kelola User">
+    <x-slot:title>CRUD User</x-slot:title>
+
     <div class="flex justify-between items-center mb-6">
         <h1 class="text-2xl font-bold text-brand-navy">Kelola Pengguna</h1>
         <a href="{{ route('admin.users.create') }}" class="bg-brand-blue text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition flex items-center gap-2">

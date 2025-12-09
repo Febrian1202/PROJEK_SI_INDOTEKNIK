@@ -1,4 +1,5 @@
 <x-admin-layout title="Master Data Site">
+    <x-slot:title>CRUD Site</x-slot:title>
     <div class="flex justify-between items-center mb-6">
         <h1 class="text-2xl font-bold text-brand-navy">Daftar Lokasi Site</h1>
         <a href="{{ route('admin.sites.create') }}" class="bg-brand-blue text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition flex items-center gap-2">

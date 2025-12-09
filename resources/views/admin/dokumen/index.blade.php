@@ -1,4 +1,5 @@
 <x-admin-layout title="Master Dokumen Persyaratan">
+    <x-slot:title>CRUD Dokumen</x-slot:title>
     <div class="flex justify-between items-center mb-6">
         <h1 class="text-2xl font-bold text-brand-navy">Master Dokumen</h1>
         <a href="{{ route('admin.dokumen.create') }}" class="bg-brand-blue text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition flex items-center gap-2">
