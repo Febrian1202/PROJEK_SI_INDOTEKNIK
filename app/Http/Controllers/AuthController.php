@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\OtpRegisterMail;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Str;
+use Illuminate\Auth\Events\PasswordReset;
 
 class AuthController extends Controller
 {
@@ -46,11 +49,11 @@ class AuthController extends Controller
                 $newOtp = rand(100000, 999999);
                 $user->update([
                     'otp_code' => $newOtp,
-                    'otp_expires_at' => \Carbon\Carbon::now()->addMinutes(10),
+                    'otp_expires_at' => Carbon::now()->addMinutes(10),
                 ]);
 
                 try {
-                    \Illuminate\Support\Facades\Mail::to($user->email)->send(new \App\Mail\OtpRegisterMail($newOtp));
+                    Mail::to($user->email)->send(new OtpRegisterMail($newOtp));
                 } catch (\Exception $e) {
                     // Silent fail
                 }
@@ -133,7 +136,7 @@ class AuthController extends Controller
                 'password' => $passwordHash, // Update password baru
                 'role' => 'kandidat',
                 'otp_code' => $otp,
-                'otp_expires_at' => \Carbon\Carbon::now()->addMinutes(10),
+                'otp_expires_at' => Carbon::now()->addMinutes(10),
             ]);
         } else {
             // B. KONDISI: User benar-benar baru (Create)
@@ -143,13 +146,13 @@ class AuthController extends Controller
                 'password' => $passwordHash,
                 'role' => 'kandidat',
                 'otp_code' => $otp,
-                'otp_expires_at' => \Carbon\Carbon::now()->addMinutes(10),
+                'otp_expires_at' => Carbon::now()->addMinutes(10),
             ]);
         }
 
         // 4. Kirim Email & Redirect (Sama seperti sebelumnya)
         try {
-            \Illuminate\Support\Facades\Mail::to($user->email)->send(new \App\Mail\OtpRegisterMail($otp));
+            Mail::to($user->email)->send(new OtpRegisterMail($otp));
         } catch (\Exception $e) {
             // Jika gagal kirim email dan ini user baru, hapus aja biar bersih
             if (!$existingUser) $user->delete();
@@ -238,5 +241,65 @@ class AuthController extends Controller
         }
 
         return back()->with('success', 'Kode OTP baru telah dikirim ke email Anda.');
+    }
+
+    // Tampilkan Form Input Email
+    public function showForgotPassword()
+    {
+        return view('auth.forgot-password', [
+            'title' => 'Lupa Password'
+        ]);
+    }
+
+    // Kirim Link Reset ke Email
+    public function sendResetLink(Request $request)
+    {
+        $request->validate(['email' => 'required|email']);
+
+        // Kirim link reset password
+        // Pastikan User model punya trait "CanResetPassword"
+        $status = Password::sendResetLink($request->only('email'));
+
+        if ($status === Password::RESET_LINK_SENT) {
+            return back()->with('success', 'Link reset password telah dikirim ke email Anda.');
+        }
+        return back()->withErrors(['email' => __($status)]);
+    }
+
+    // Tampilkan Form Reset Password (User klik link dari email)
+    public function showResetPassword(Request $request) 
+    {
+        return view('auth.reset-password', ['token' => $request->token, 'email' => $request->email]);
+    }
+
+    // Proses update password baru
+    public function updatePassword(Request $request)
+    {
+        $request->validate([
+            'token' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|min:8|confirmed',
+        ]);
+
+        // Proses reset password
+        $status = Password::reset(
+            $request->only('email', 'password', 'password_confirmation', 'token'),
+            function ($user, $password) {
+                $user->forceFill([
+                    'password' => Hash::make($password)
+                ])->setRememberToken(Str::random(60));
+
+                $user->save();
+
+                event(new PasswordReset($user));
+            }
+        );
+
+        if ($status === Password::PASSWORD_RESET)
+        {
+            return redirect()->route('login')->with('success', 'Password berhasil diubah! Silakan login dengan password baru.');
+        }
+
+        return back()->withErrors(['email' => [__($status)]]);
     }
 }

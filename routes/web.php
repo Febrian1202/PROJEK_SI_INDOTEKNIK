@@ -44,6 +44,13 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('/verify-otp', 'verifyOtp')->name('verification.verify');
     Route::post('/resend-otp', 'resendOtp')->name('verification.resend');
     
+    // LUPA PASSWORD
+    Route::get('/forgot-password', 'showForgotPassword')->name('password.request');
+    Route::post('/forgot-password', 'sendResetLink')->name('password.email');
+
+    // RESET PASSWORD
+    Route::get('/reset-password/{token}', 'showResetPassword')->name('password.reset');
+    Route::post('/reset-password', 'updatePassword')->name('password.update');
 });
 
 // Route untuk Kandidat / User Umum

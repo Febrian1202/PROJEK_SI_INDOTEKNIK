@@ -70,7 +70,7 @@
                             </svg>
                         </button>
 
-                        <a href="#" class="text-sm text-gray-500 hover:text-brand-navy transition-colors">
+                        <a href="{{ route('password.request') }}" class="text-sm text-gray-500 hover:text-brand-navy transition-colors">
                             Lupa Password?
                         </a>
                     </div>
