@@ -67,12 +67,12 @@
             border: 1px solid #ddd;
             padding: 5px;
             background: #f9f9f9;
+            overflow: hidden;
         }
 
         .photo-img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto;
         }
 
         /* Tabel Data Diri (Perbaikan agar tidak offside) */
