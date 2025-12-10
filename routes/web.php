@@ -69,8 +69,8 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/profil', [ProfilController::class, 'update'])->name('profil.update');
 
     // Route Profil (Yang sudah dibuat sebelumnya)
-    Route::get('/profil', [App\Http\Controllers\ProfilController::class, 'index'])->name('profil.index');
-    Route::put('/profil', [App\Http\Controllers\ProfilController::class, 'update'])->name('profil.update');
+    Route::get('/profil', [ProfilController::class, 'index'])->name('profil.index');
+    Route::put('/profil', [ProfilController::class, 'update'])->name('profil.update');
 
     // INI YANG KURANG: Route Dashboard Kandidat
     Route::get('/kandidat/dashboard', [KandidatController::class, 'dashboard'])->name('kandidat.dashboard');
@@ -84,12 +84,15 @@ Route::middleware(['auth'])->group(function () {
     // ... route kandidat lainnya ...
     Route::get('/lowongan-kerja', [KandidatController::class, 'lowongan'])->name('kandidat.lowongan');
     
-    // Tambahkan 2 Route ini:
+    // 
     Route::get('/lowongan-kerja/{id}', [KandidatController::class, 'showLowongan'])->name('kandidat.lowongan.show');
     Route::post('/lowongan-kerja/{id}/apply', [KandidatController::class, 'storeLamaran'])->name('kandidat.lowongan.store');
 
     // Route Batalkan Lamaran
     Route::delete('/riwayat-lamaran/{id}', [KandidatController::class, 'destroyLamaran'])->name('kandidat.lamaran.destroy');
+
+    // ROUTE CETAK KARTU
+    Route::get('/profil/cetak-kartu', [ProfilController::class, 'cetakKartu'])->name('profil.cetak');
 });
 
 // --- GROUP ROUTE ADMIN ---

@@ -5,7 +5,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
 
-                
+
 
                 <div class="flex items-center gap-4">
                     <a href="{{ route('kandidat.dashboard') }}"
@@ -62,21 +62,21 @@
             @endif
 
             @if (session('success'))
-                @endif
+            @endif
 
-                @if (session('error'))
-                    <div
-                        class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-6 rounded-r shadow-sm flex items-start gap-3">
-                        <svg class="w-6 h-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                        </svg>
-                        <div>
-                            <p class="font-bold">Perhatian</p>
-                            <p>{{ session('error') }}</p>
-                        </div>
+            @if (session('error'))
+                <div
+                    class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-6 rounded-r shadow-sm flex items-start gap-3">
+                    <svg class="w-6 h-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    </svg>
+                    <div>
+                        <p class="font-bold">Perhatian</p>
+                        <p>{{ session('error') }}</p>
                     </div>
-                @endif
+                </div>
+            @endif
 
             <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
 
@@ -119,6 +119,20 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mt-6 ml-8 gap-4">
+
+                            @if (Auth::user()->kandidatProfil)
+                                <a href="{{ route('profil.cetak') }}" target="_blank"
+                                    class="inline-flex items-center gap-2 bg-brand-navy text-white px-4 py-2 rounded-lg hover:bg-brand-blue transition-colors shadow-sm text-sm font-medium">
+                                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                                    </svg>
+                                    Cetak Kartu Peserta
+                                </a>
+                            @endif
+                        </div>
 
                 <form action="{{ route('profil.update') }}" method="POST" enctype="multipart/form-data"
                     class="p-8">
@@ -199,6 +213,7 @@
                     </div>
 
                     <div class="mt-8 flex justify-end">
+                        
                         <button type="submit"
                             class="bg-brand-orange text-white px-6 py-3 rounded-lg font-bold hover:bg-orange-600 transition shadow-lg shadow-orange-500/30">
                             Simpan Perubahan

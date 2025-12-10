@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 use App\Models\KandidatProfil;
 use Illuminate\Support\Facades\Storage;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ProfilController extends Controller
 {
@@ -14,9 +15,9 @@ class ProfilController extends Controller
     public function index()
     {
         $user = Auth::user();
-        
+
         // Ambil data profil jika sudah ada, jika belum null
-        $profil = $user->kandidatProfil; 
+        $profil = $user->kandidatProfil;
 
         return view('kandidat.profil', compact('user', 'profil'));
     }
@@ -31,9 +32,9 @@ class ProfilController extends Controller
         $request->validate([
             'name' => 'required|string|max:255', // Update nama di tabel users
             'no_ktp' => [
-                'required', 
-                'numeric', 
-                'digits:16', 
+                'required',
+                'numeric',
+                'digits:16',
                 // Cek unik di tabel kandidat_profil, kecuali punya sendiri
                 Rule::unique('kandidat_profil', 'no_ktp')->ignore($profil ? $profil->id : null)
             ],
@@ -80,5 +81,23 @@ class ProfilController extends Controller
         );
 
         return redirect()->route('profil.index')->with('success', 'Profil berhasil diperbarui!');
+    }
+
+    public function cetakKartu()
+    {
+        $user = auth()->user();
+        $profil = $user->kandidatProfil;
+
+        // Cek dulu, kalau belum isi profil, tendang balik
+        if (!$profil) {
+            return redirect()->route('profil.index')->with('error', 'Silakan lengkapi biodata terlebih dahulu.');
+        }
+
+        // Generate PDF
+        // Kita set ukuran kertasnya A5 (setengah A4) atau custom biar kayak kartu
+        $pdf = Pdf::loadView('kandidat.cetak-kartu', compact('user', 'profil'))
+            ->setPaper('a5', 'portrait');
+
+        return $pdf->stream('Kartu-Peserta-' . $user->name . '.pdf');
     }
 }
