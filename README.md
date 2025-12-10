@@ -69,7 +69,7 @@ Ikuti langkah-langkah berikut:
 ### 1. Clone Repository
 ```Bash
 
-git clone https://github.com/username-anda/projek_si_indoteknik.git
+git clone https://github.com/Febrian1202/projek_si_indoteknik.git
 cd projek_si_indoteknik
 ```
 
