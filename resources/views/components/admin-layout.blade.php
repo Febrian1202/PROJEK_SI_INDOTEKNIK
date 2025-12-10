@@ -231,6 +231,89 @@
                 </div>
 
                 <div class="flex items-center gap-4">
+                    <div class="relative" x-data="{
+                    open: false,
+                    count: 0,
+                    notifications: [],
+                    checkNotifications() {
+                        fetch('{{ route('admin.notifications.get') }}')
+                            .then(res => res.json())
+                            .then(data => {
+                                this.count = data.count;
+                                this.notifications = data.notifications;
+                            });
+                    },
+                    markRead() {
+                        this.open = !this.open;
+                        if (this.open && this.count > 0) {
+                            // Saat dibuka, tandai sudah dibaca (opsional, atau biarkan user klik manual)
+                            fetch('{{ route('admin.notifications.read') }}', {
+                                method: 'POST',
+                                headers: { 'X-CSRF-TOKEN': '{{ csrf_token() }}' }
+                            }).then(() => {
+                                this.count = 0; // Reset counter visual
+                            });
+                        }
+                    },
+                    init() {
+                        this.checkNotifications(); // Cek pas load
+                        setInterval(() => this.checkNotifications(), 5000); // Cek ulang tiap 5 detik
+                    }
+                }">
+
+                    <button @click="markRead()"
+                        class="relative p-2 text-brand-gray hover:text-brand-blue transition-colors">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                        </svg>
+
+                        <span x-show="count > 0" x-transition.scale
+                            class="absolute top-1 right-1 w-5 h-5 bg-red-500 text-white text-[10px] font-bold flex items-center justify-center rounded-full border-2 border-white"
+                            x-text="count">
+                        </span>
+                    </button>
+
+                    <div x-show="open" @click.outside="open = false" x-transition
+                        class="absolute right-0 mt-2 w-80 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50"
+                        style="display: none;">
+
+                        <div class="px-4 py-3 border-b border-gray-100 bg-gray-50 flex justify-between items-center">
+                            <h3 class="font-bold text-gray-700 text-sm">Notifikasi</h3>
+                            <span class="text-xs text-gray-400">Terbaru</span>
+                        </div>
+
+                        <div class="max-h-64 overflow-y-auto">
+                            <template x-if="notifications.length === 0">
+                                <div class="p-4 text-center text-gray-400 text-sm">
+                                    Tidak ada notifikasi baru.
+                                </div>
+                            </template>
+
+                            <template x-for="notif in notifications" :key="notif.id">
+                                <a :href="'/admin/lamaran/' + notif.data.lamaran_id"
+                                    class="block p-4 border-b border-gray-50 hover:bg-blue-50 transition-colors">
+                                    <div class="flex items-start gap-3">
+                                        <div class="bg-blue-100 text-blue-600 p-2 rounded-full shrink-0">
+                                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24"
+                                                stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <p class="text-sm font-bold text-gray-800"
+                                                x-text="notif.data.nama_pelamar"></p>
+                                            <p class="text-xs text-gray-500">Melamar posisi <span
+                                                    class="text-brand-blue" x-text="notif.data.posisi"></span></p>
+                                            <p class="text-[10px] text-gray-400 mt-1">Baru saja</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </template>
+                        </div>
+                    </div>
+                </div>
                     <div class="flex items-center gap-3 pl-4 border-l border-gray-200">
                         <div class="text-right hidden sm:block">
                             <p class="text-sm font-bold text-white">{{ Auth::user()->name }}</p>

@@ -45,4 +45,25 @@ class AdminController extends Controller
             'siteTerbaru', 'posisiTerbaru', 'karyawanBaru' // <-- Kirim variabel baru
         ));
     }
+
+    // Method Cek Notifikasi (via alphine)
+    public function getNotifications()
+    {
+            $user = auth()->user();
+
+            // Ambil notifikasi yang belum dibaca
+            $unreadNotifications = $user->unreadNotifications();
+
+            return response()->json([
+                'count'=> $unreadNotifications->count(),
+                'notifications'=> $unreadNotifications->take(5) // Ambil 5 terbaru saja
+            ]);
+    }
+
+    // Method untuk tandai sudah dibaca
+    public function markAsRead()
+    {
+        auth()->user()->unreadNotifications->markAsRead();
+        return response()->json(['success' => true ]);
+    }
 }

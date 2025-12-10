@@ -105,6 +105,10 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 
     // Route Manajemen Karyawan
     Route::resource('karyawan', KaryawanController::class)->except(['create', 'store']);
+
+    // Route API Notifikasi
+    Route::get('/notifications/get', [AdminController::class, 'getNotifications'])->name('notifications.get');
+    Route::post('/notifications/read', [AdminController::class, 'markAsRead'])->name('notifications.read');
 });
 
 // --- GROUP ROUTE DIREKTUR ---
