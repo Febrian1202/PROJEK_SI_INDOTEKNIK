@@ -15,7 +15,9 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\PosisiController;
 use App\Http\Controllers\Admin\DokumenController;
 use App\Http\Controllers\Admin\KaryawanController;
+use App\Http\Controllers\PesanController;
 use App\Http\Controllers\Admin\LamaranController; // <--- Tambahkan \Admin
+use App\Http\Controllers\ContactController;
 
 // Route Halaman Utama (Landing Page)
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -23,6 +25,12 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('about', [AboutController::class,'about'])->name('about');
 
 Route::get('service', [ServiceController::class,'service'])->name('service');
+
+Route::get('contact', [ContactController::class,'contact'])->name('contact');
+
+// Route untuk kirim pesan kontak
+Route::post('/kirim-pesan', [PesanController::class, 'store'])->name('pesan.store');
+
 // Route Autentikasi (Guest Only)
 Route::controller(AuthController::class)->group(function () {
     
@@ -109,6 +117,10 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     // Route API Notifikasi
     Route::get('/notifications/get', [AdminController::class, 'getNotifications'])->name('notifications.get');
     Route::post('/notifications/read', [AdminController::class, 'markAsRead'])->name('notifications.read');
+
+    // [BARU] ROUTE PESAN MASUK
+    Route::get('/pesan-masuk', [PesanController::class, 'index'])->name('pesan.index');
+    Route::delete('/pesan-masuk/{id}', [PesanController::class, 'destroy'])->name('pesan.destroy');
 });
 
 // --- GROUP ROUTE DIREKTUR ---

@@ -66,6 +66,20 @@
                 </a>
 
                 @if (Auth::user()->role == 'admin')
+                    <a href="{{ route('admin.pesan.index') }}"
+                        class="flex items-center gap-3 px-4 py-3 {{ request()->routeIs('admin.pesan.*') ? 'bg-brand-blue/10 text-brand-blue' : 'text-gray-600 hover:bg-gray-50' }} rounded-lg transition-colors">
+
+                        <svg class="w-5 h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+
+                        <span class="flex-1">Pesan Masuk</span>
+
+                        <span class="bg-red-100 text-red-600 py-0.5 px-2 rounded-full text-xs font-bold">
+                            {{ \App\Models\Pesan::count() }}
+                        </span>
+                    </a>
                     <div class="pt-4 pb-2 px-4 text-xs font-bold text-gray-400 uppercase tracking-wider">Master Data
                     </div>
 
