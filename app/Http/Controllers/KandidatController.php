@@ -150,7 +150,7 @@ class KandidatController extends Controller
 
                 // Bersihkan Nama File
                 // Str::slug mengubah 'CV / Ijazah' jadi 'cv-ijazah' (huruf kecil semua, tanpa spasi)
-                $cleanDocName = \Illuminate\Support\Str::slug($syarat->nama_dokumen);
+                $cleanDocName = Str::slug($syarat->nama_dokumen);
 
                 // Ambil ekstensi & ubah ke huruf kecil (misal .CV jadi .cv)
                 $ext = strtolower($file->getClientOriginalExtension());
