@@ -54,8 +54,8 @@ class LamaranMasukNotification extends Notification
         return [
             //
             'lamaran_id'=> $this->lamaran->id,
-            'nama_pelamar'=> $this->lamaran->kandidat->nama_lengkap,
-            'posisi' => $this->lamaran->posisi->nama_posisi,
+            'nama_pelamar'=> $this->lamaran->kandidat->nama_lengkap ?? 'Pelamar', // Fallback jika null
+            'posisi' => $this->lamaran->posisi->nama_posisi ?? 'Posisi Umum', // Fallback jika null
             'waktu' => now(),
             'pesan'=> 'Lamaran baru masuk dari ' . $this->lamaran->kandidat->nama_lengkap
         ];

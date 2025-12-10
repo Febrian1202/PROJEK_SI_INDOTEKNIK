@@ -49,15 +49,37 @@ class AdminController extends Controller
     // Method Cek Notifikasi (via alphine)
     public function getNotifications()
     {
+            try {
             $user = auth()->user();
-
+            
             // Ambil notifikasi yang belum dibaca
-            $unreadNotifications = $user->unreadNotifications();
+            $unreadNotifications = $user->unreadNotifications;
+
+            // Format ulang data agar aman dikirim ke JSON
+            $formattedNotifications = $unreadNotifications->take(5)->map(function ($notif) {
+                return [
+                    'id' => $notif->id,
+                    // Akses data array di dalam kolom 'data'
+                    'data' => [
+                        'lamaran_id' => $notif->data['lamaran_id'] ?? 0,
+                        'nama_pelamar' => $notif->data['nama_pelamar'] ?? 'Tanpa Nama',
+                        'posisi' => $notif->data['posisi'] ?? '-',
+                    ],
+                    'read_at' => $notif->read_at,
+                    'created_at' => $notif->created_at->diffForHumans(), // Format waktu "2 menit lalu"
+                ];
+            })->values(); // Reset array keys
 
             return response()->json([
-                'count'=> $unreadNotifications->count(),
-                'notifications'=> $unreadNotifications->take(5) // Ambil 5 terbaru saja
+                'count' => $unreadNotifications->count(),
+                'notifications' => $formattedNotifications
             ]);
+
+        } catch (\Exception $e) {
+            // Log error biar ketahuan kalau ada masalah
+            \Log::error('Notification Error: ' . $e->getMessage());
+            return response()->json(['error' => 'Gagal memuat notifikasi'], 500);
+        }
     }
 
     // Method untuk tandai sudah dibaca
