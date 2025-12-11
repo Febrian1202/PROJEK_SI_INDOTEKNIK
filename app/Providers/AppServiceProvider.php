@@ -22,8 +22,8 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         // Paksa HTTPS jika sedang production atau lewat Ngrok
-        // if ($this->app->environment('production') || str_contains(config('app.url'), 'ngrok')) {
-        //     URL::forceScheme('https');
-        // }
+        if ($this->app->environment('production') || str_contains(config('app.url'), 'ngrok')) {
+            URL::forceScheme('https');
+        }
     }
 }

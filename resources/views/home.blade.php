@@ -381,6 +381,7 @@
 
             </div>
         </section>
+
         <section class="py-16 bg-white transition-all duration-1000 ease-out" x-data="{ shown: false }"
             x-intersect.threshold.0.1="shown = true"
             :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'">
@@ -548,75 +549,202 @@
                 </div>
                 <div
                     class="w-full max-w-sm bg-white rounded-xl border border-gray-100 shadow-lg overflow-hidden group hover:-translate-y-2 transition-all duration-300">
-                    <a href="{{ route("team.detail-prod") }}">
-                    <div class="h-[440px] overflow-hidden relative">
-                        <img class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                            src="{{ asset('assets/img/team/andri-arianto.png') }}" alt="Foto Profil">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-transparent to-transparent">
-                        </div>
+                    <a href="{{ route('team.detail-prod') }}">
+                        <div class="h-[440px] overflow-hidden relative">
+                            <img class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                                src="{{ asset('assets/img/team/andri-arianto.png') }}" alt="Foto Profil">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-transparent to-transparent">
+                            </div>
 
-                        <div
-                            class="absolute bottom-4 right-4 flex space-x-3 translate-y-10 group-hover:translate-y-0 transition-transform duration-300">
-                            <a href="#"
-                                class="bg-white/20 w-2 h-2 p-2 rounded-full text-white hover:bg-brand-orange transition-colors backdrop-blur-sm">
-                                {{-- <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <div
+                                class="absolute bottom-4 right-4 flex space-x-3 translate-y-10 group-hover:translate-y-0 transition-transform duration-300">
+                                <a href="#"
+                                    class="bg-white/20 w-2 h-2 p-2 rounded-full text-white hover:bg-brand-orange transition-colors backdrop-blur-sm">
+                                    {{-- <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="..." />
                                     </svg> --}} </a>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="p-6 text-center relative">
-                        <h3 class="text-xl font-bold text-brand-navy mb-1">Andri Arianto</h3>
-                        <p class="text-brand-orange font-semibold text-sm uppercase tracking-wider mb-4">Manajer Produksi</p>
-                        <p class="text-gray-600 text-sm leading-relaxed">
-                            Bertugas mengatur
-                            pelaksanaan proyek di
-                            lapangan, memastikan
-                            pekerjaan tepat waktu dan
-                            sesuai secara teknis
-                        </p>
-                    </div>
+                        <div class="p-6 text-center relative">
+                            <h3 class="text-xl font-bold text-brand-navy mb-1">Andri Arianto</h3>
+                            <p class="text-brand-orange font-semibold text-sm uppercase tracking-wider mb-4">Manajer
+                                Produksi</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                Bertugas mengatur
+                                pelaksanaan proyek di
+                                lapangan, memastikan
+                                pekerjaan tepat waktu dan
+                                sesuai secara teknis
+                            </p>
+                        </div>
                     </a>
                 </div>
                 <div
                     class="w-full max-w-sm bg-white rounded-xl border border-gray-100 shadow-lg overflow-hidden group hover:-translate-y-2 transition-all duration-300">
                     <a href="{{ route('team.detail-civ') }}">
-                    <div class="h-[440px] overflow-hidden relative">
-                        <img class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                            src="{{ asset('assets/img/team/herman.png') }}" alt="Foto Profil">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-transparent to-transparent">
-                        </div>
+                        <div class="h-[440px] overflow-hidden relative">
+                            <img class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                                src="{{ asset('assets/img/team/herman.png') }}" alt="Foto Profil">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-transparent to-transparent">
+                            </div>
 
-                        <div
-                            class="absolute bottom-4 right-4 flex space-x-3 translate-y-10 group-hover:translate-y-0 transition-transform duration-300">
-                            <a href="#"
-                                class="bg-white/20 w-2 h-2 p-2 rounded-full text-white hover:bg-brand-orange transition-colors backdrop-blur-sm">
-                                {{-- <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <div
+                                class="absolute bottom-4 right-4 flex space-x-3 translate-y-10 group-hover:translate-y-0 transition-transform duration-300">
+                                <a href="#"
+                                    class="bg-white/20 w-2 h-2 p-2 rounded-full text-white hover:bg-brand-orange transition-colors backdrop-blur-sm">
+                                    {{-- <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="..." />
                                     </svg>  --}}
-                            </a>
+                                </a>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="p-6 text-center relative">
-                        <h3 class="text-xl font-bold text-brand-navy mb-1">Herman S.T</h3>
-                        <p class="text-brand-orange font-semibold text-sm uppercase tracking-wider mb-4">Manajer
-                            Civil & Engineering</p>
-                        <p class="text-gray-600 text-sm leading-relaxed">
-                            Bertugas menyusun desain
-                            teknis, menghitung
-                            kebutuhan material, dan
-                            memastikan struktur proyek
-                            aman serta efisien
-                        </p>
-                    </div>
+                        <div class="p-6 text-center relative">
+                            <h3 class="text-xl font-bold text-brand-navy mb-1">Herman S.T</h3>
+                            <p class="text-brand-orange font-semibold text-sm uppercase tracking-wider mb-4">Manajer
+                                Civil & Engineering</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                Bertugas menyusun desain
+                                teknis, menghitung
+                                kebutuhan material, dan
+                                memastikan struktur proyek
+                                aman serta efisien
+                            </p>
+                        </div>
                     </a>
                 </div>
 
             </div>
             </div>
         </section>
+
+        <section class="py-20 bg-brand-navy overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8 mb-10 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">Galeri Aktivitas</h2>
+                <div class="h-1 w-24 bg-brand-orange mx-auto mt-4 rounded-full"></div>
+                <p class="mt-4 text-brand-gray">Dokumentasi kegiatan dan proyek PT. Indoteknik Prima Mekongga.</p>
+            </div>
+
+            <div class="relative w-full px-4">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide px-3">
+                            <div class="relative group rounded-xl overflow-hidden shadow-md aspect-[4/3]">
+                                <img src="{{ asset('assets/img/dokumentasi/3.webp') }}"
+                                    alt="Proyek 1"
+                                    class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                                    <span class="text-white font-bold text-sm">Pengerjaan Konstruksi</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide px-3">
+                            <div class="relative group rounded-xl overflow-hidden shadow-md aspect-[4/3]">
+                                <img src="{{ asset('assets/img/dokumentasi/4.webp') }}"
+                                    alt="Proyek 2"
+                                    class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                                    <span class="text-white font-bold text-sm">Safety Briefing</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide px-3">
+                            <div class="relative group rounded-xl overflow-hidden shadow-md aspect-[4/3]">
+                                <img src="{{ asset('assets/img/dokumentasi/5.webp') }}"
+                                    alt="Proyek 3"
+                                    class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                                    <span class="text-white font-bold text-sm">Maintenance Alat</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide px-3">
+                            <div class="relative group rounded-xl overflow-hidden shadow-md aspect-[4/3]">
+                                <img src="{{ asset('assets/img/dokumentasi/8.webp') }}"
+                                    alt="Proyek 4"
+                                    class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                                    <span class="text-white font-bold text-sm">Site Visit Direksi</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide px-3">
+                            <div class="relative group rounded-xl overflow-hidden shadow-md aspect-[4/3]">
+                                <img src="{{ asset('assets/img/dokumentasi/1.webp') }}"
+                                    alt="Proyek 5"
+                                    class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                                    <span class="text-white font-bold text-sm">Meeting Koordinasi</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide px-3">
+                            <div class="relative group rounded-xl overflow-hidden shadow-md aspect-[4/3]">
+                                <img src="{{ asset('assets/img/dokumentasi/9.webp') }}"
+                                    alt="Proyek 6"
+                                    class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                                    <span class="text-white font-bold text-sm">Inspeksi Lapangan</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <script>
+            var swiper = new Swiper(".mySwiper", {
+                // HAPUS 'slidesPerView: auto' KARENA KITA PAKAI BREAKPOINTS DI BAWAH
+                spaceBetween: 0,
+                loop: true,
+                speed: 4000,
+                autoplay: {
+                    delay: 0,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true,
+                },
+                grabCursor: true,
+
+                // INI KUNCINYA BANG: PENGATURAN RESPONSIF
+                breakpoints: {
+                    // Saat layar >= 0px (HP Kecil) -> Tampilkan 1.5 Foto (Biar kelihatan bisa digeser)
+                    0: {
+                        slidesPerView: 1.5,
+                    },
+                    // Saat layar >= 640px (Tablet/HP Besar) -> Tampilkan 2.5 Foto
+                    640: {
+                        slidesPerView: 2.5,
+                    },
+                    // Saat layar >= 1024px (Laptop/Desktop) -> Tampilkan 4.5 Foto
+                    1024: {
+                        slidesPerView: 4.5, // Angka desimal (.5) biar foto terakhir kepotong dikit, ngasih tau user "masih ada lagi loh"
+                    },
+                },
+            });
+        </script>
+
+        <style>
+            .swiper-wrapper {
+                transition-timing-function: linear;
+            }
+        </style>
         <x-footer></x-footer>
 </x-layout>
