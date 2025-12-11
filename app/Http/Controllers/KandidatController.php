@@ -40,24 +40,29 @@ class KandidatController extends Controller
     }
 
     // DAFTAR LOWONGAN (Untuk Menu 'Lowongan Pekerjaan')
-    public function lowongan()
+    public function lowongan(Request $request)
     {
-        $user = Auth::user();
-        // Cek Profil Dulu
-        // Jika relasi kandidatProfil kosong (belum pernah isi), tendang ke profil
-        if (!$user->kandidatProfil) {
-            return redirect()->route('profil.index')
-                ->with('error', 'Mohon lengkapi Biodata Diri Anda terlebih dahulu sebelum melihat lowongan.');
+        // Mulai Query dasar (Hanya tampilkan yang aktif)
+        $query = Posisi::where('is_active', true);
+
+        // Cek apakah ada input 'keyword' dari pencarian
+        if ($request->has('keyword') && $request->keyword != '') {
+            $keyword = $request->keyword;
+            
+            // Lakukan filter (WHERE nama_posisi LIKE %keyword%)
+            $query->where(function($q) use ($keyword) {
+                $q->where('nama_posisi', 'LIKE', '%' . $keyword . '%')
+                  ->orWhere('deskripsi', 'LIKE', '%' . $keyword . '%'); // Opsional: cari di deskripsi juga
+            });
         }
 
-        // Cek kelengkapan spesifik
-        if (empty($user->kandidatProfil->no_ktp) || empty($user->kandidatProfil->alamat_domisili)) {
-            return redirect()->route('profil.index')
-                ->with('error', 'Biodata belum lengkap. Silakan lengkapi NIK dan Alamat terlebih dahulu.');
-        }
+        // Ambil data dengan Pagination
+        // 'with' digunakan agar query dokumen syaratnya lebih ringan (Eager Loading)
+        $lowongan = $query->latest()->paginate(9);
 
-        // Ambil lowongan yang aktif saja
-        $lowongan = Posisi::where('is_active', true)->latest()->paginate(9);
+        // PENTING: Tambahkan ini agar saat pindah halaman (Page 2), kata kuncinya tidak hilang
+        $lowongan->appends(['keyword' => $request->keyword]);
+
         return view('kandidat.lowongan.index', compact('lowongan'));
     }
 

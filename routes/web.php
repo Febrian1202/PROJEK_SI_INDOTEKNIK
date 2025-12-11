@@ -28,8 +28,29 @@ Route::get('service', [ServiceController::class,'service'])->name('service');
 
 Route::get('contact', [ContactController::class,'contact'])->name('contact');
 
+// Route Halaman Detail Tim (Hardcode)
+Route::get('/team/detail-dir', function () {
+    return view('/team/detail-dir');
+})->name('team.detail-dir');
+Route::get('/team/detail-hr', function () {
+    return view('/team/detail-hr');
+})->name('team.detail-hr');
+Route::get('/team/detail-hse', function () {
+    return view('/team/detail-hse');
+})->name('team.detail-hse');
+Route::get('/team/detail-qc', function () {
+    return view('/team/detail-qc');
+})->name('team.detail-qc');
+Route::get('/team/detail-prod', function () {
+    return view('/team/detail-prod');
+})->name('team.detail-prod');
+Route::get('/team/detail-civ', function () {
+    return view('/team/detail-civ');
+})->name('team.detail-civ');
+
 // Route untuk kirim pesan kontak
 Route::post('/kirim-pesan', [PesanController::class, 'store'])->name('pesan.store');
+
 
 // Route Autentikasi (Guest Only)
 Route::controller(AuthController::class)->group(function () {

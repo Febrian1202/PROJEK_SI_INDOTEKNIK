@@ -309,7 +309,7 @@
                     </div>
 
                     <div class="relative h-80 lg:h-96 rounded-2xl overflow-hidden shadow-xl">
-                        <img src="{{ asset('assets/img/pexels-yury-kim-181374-585419.jpg') }}" alt="Foto Tim Lapangan"
+                        <img src="{{ asset('assets/img/dokumentasi/8.webp') }}" alt="Foto Tim Lapangan"
                             class="absolute inset-0 w-full h-full object-cover">
                     </div>
                 </div>
@@ -321,7 +321,7 @@
                     class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
                     <div class="relative h-80 lg:h-96 rounded-2xl overflow-hidden shadow-xl">
-                        <img src="{{ asset('assets/img/pexels-yury-kim-181374-585419.jpg') }}" alt="Foto Meeting"
+                        <img src="{{ asset('assets/img/dokumentasi/5.webp') }}" alt="Foto Meeting"
                             class="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition duration-500">
                     </div>
 
@@ -401,41 +401,44 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
 
                     <div
-                        class="w-full max-w-sm bg-white rounded-xl border border-gray-100 shadow-lg overflow-hidden group hover:-translate-y-2 hover:rounded-2xl transition-all duration-300">
-                        <div class="h-[440px] overflow-hidden relative">
-                            <img class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                                src="{{ asset('assets/img/team/ilham-nafruddin.png') }}" alt="Foto Profil">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-transparent to-transparent">
-                            </div>
+                        class="w-full max-w-sm bg-white rounded-xl border border-gray-100 shadow-lg overflow-hidden group hover:-translate-y-2 transition-all duration-300">
+                        <a href="{{ route('team.detail-dir') }}">
+                            <div class="h-[440px] overflow-hidden relative">
+                                <img class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                                    src="{{ asset('assets/img/team/ilham-nafruddin.png') }}" alt="Foto Profil">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-transparent to-transparent">
+                                </div>
 
-                            <div
-                                class="absolute bottom-4 right-4 flex space-x-3 translate-y-10 group-hover:translate-y-0 transition-transform duration-300">
-                                <a href="#"
-                                    class="bg-white/20 w-2 h-2 p-2 rounded-full text-white hover:bg-brand-orange transition-colors backdrop-blur-sm">
-                                    {{-- <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <div
+                                    class="absolute bottom-4 right-4 flex space-x-3 translate-y-10 group-hover:translate-y-0 transition-transform duration-300">
+                                    <a href="{{ route('team.detail-dir') }}"
+                                        class="bg-white/20 w-2 h-2 p-2 rounded-full text-white hover:bg-brand-orange transition-colors backdrop-blur-sm">
+                                        {{-- <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="..." />
                                     </svg>  --}}
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="p-6 text-center relative">
-                            <h3 class="text-xl font-bold text-brand-navy mb-1">Muh. Ilham Nafruddin</h3>
-                            <p class="text-brand-orange font-semibold text-sm uppercase tracking-wider mb-4">Direktur
-                                Utama</p>
-                            <p class="text-gray-600 text-sm leading-relaxed">
-                                Sebagai Direktur Utama Indoteknik
-                                Prima Mekongga ,bertugas untuk
-                                mengawasi seluruh kegiatan
-                                perusahaan, mengambil keputusan
-                                strategis, dan memastikan proyek
-                                berjalan sesuai visi dan misi.
-                            </p>
-                        </div>
+                                    </a>
+                                </div>
+                        </a>
                     </div>
-                    <div
-                        class="w-full max-w-sm bg-white rounded-xl border border-gray-100 shadow-lg overflow-hidden group hover:-translate-y-2 hover:rounded-2xl transition-all duration-300">
+
+                    <div class="p-6 text-center relative">
+                        <h3 class="text-xl font-bold text-brand-navy mb-1">Muh. Ilham Nafruddin</h3>
+                        <p class="text-brand-orange font-semibold text-sm uppercase tracking-wider mb-4">Direktur
+                            Utama</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Sebagai Direktur Utama Indoteknik
+                            Prima Mekongga ,bertugas untuk
+                            mengawasi seluruh kegiatan
+                            perusahaan, mengambil keputusan
+                            strategis, dan memastikan proyek
+                            berjalan sesuai visi dan misi.
+                        </p>
+                    </div>
+                </div>
+                <div
+                    class="w-full max-w-sm bg-white rounded-xl border border-gray-100 shadow-lg overflow-hidden group hover:-translate-y-2 transition-all duration-300">
+                    <a href="{{ route('team.detail-hr') }}">
                         <div class="h-[440px] overflow-hidden relative">
                             <img class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                                 src="{{ asset('assets/img/team/wisnu-tri-sardi.png') }}" alt="Foto Profil">
@@ -445,8 +448,8 @@
 
                             <div
                                 class="absolute bottom-4 right-4 flex space-x-3 translate-y-10 group-hover:translate-y-0 transition-transform duration-300">
-                                <a href="#"
-                                    class="bg-white/20 w-2 h-2 p-2 rounded-full text-white hover:bg-brand-orange transition-colors backdrop-blur-sm">
+                                <a href="{{ route('team.detail-hr') }}"
+                                    class="bg-white/20 w-2 h- p-2 rounded-full text-white hover:bg-brand-orange transition-colors backdrop-blur-sm">
                                     {{-- <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="..." />
                                     </svg>  --}}
@@ -457,7 +460,8 @@
                         <div class="p-6 text-center relative">
                             <h3 class="text-xl font-bold text-brand-navy mb-1">Wisnu Tri Sardi, S. Kom., M.
                                 M., CHCS</h3>
-                            <p class="text-brand-orange font-semibold text-sm uppercase tracking-wider mb-4">Manajer HR
+                            <p class="text-brand-orange font-semibold text-sm uppercase tracking-wider mb-4">
+                                Manajer HR
                                 & Finance</p>
                             <p class="text-gray-600 text-sm leading-relaxed">
                                 Bertanggung jawab mengelola
@@ -467,9 +471,11 @@
                                 kesejahteraan karyawan
                             </p>
                         </div>
-                    </div>
-                    <div
-                        class="w-full max-w-sm bg-white rounded-xl border border-gray-100 shadow-lg overflow-hidden group hover:-translate-y-2 hover:rounded-2xl transition-all duration-300">
+                    </a>
+                </div>
+                <div
+                    class="w-full max-w-sm bg-white rounded-xl border border-gray-100 shadow-lg overflow-hidden group hover:-translate-y-2 transition-all duration-300">
+                    <a href="{{ route('team.detail-hse') }}">
                         <div class="h-[440px] overflow-hidden relative">
                             <img class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                                 src="{{ asset('assets/img/team/alif-ramadhan.png') }}" alt="Foto Profil">
@@ -479,18 +485,20 @@
 
                             <div
                                 class="absolute bottom-4 right-4 flex space-x-3 translate-y-10 group-hover:translate-y-0 transition-transform duration-300">
-                                <a href="#"
+                                <a href="{{ route('team.detail-hse') }}"
                                     class="bg-white/20 w-2 h-2 p-2 rounded-full text-white hover:bg-brand-orange transition-colors backdrop-blur-sm">
                                     {{-- <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="..." />
                                     </svg>  --}}
                                 </a>
                             </div>
+
                         </div>
 
                         <div class="p-6 text-center relative">
                             <h3 class="text-xl font-bold text-brand-navy mb-1">Alif Ramadhan</h3>
-                            <p class="text-brand-orange font-semibold text-sm uppercase tracking-wider mb-4">Manajer
+                            <p class="text-brand-orange font-semibold text-sm uppercase tracking-wider mb-4">
+                                Manajer
                                 HSE</p>
                             <p class="text-gray-600 text-sm leading-relaxed">
                                 Menjamin keselamatan
@@ -500,9 +508,11 @@
                                 rutin di lapangan
                             </p>
                         </div>
-                    </div>
-                    <div
-                        class="w-full max-w-sm bg-white rounded-xl border border-gray-100 shadow-lg overflow-hidden group hover:-translate-y-2 hover:rounded-2xl transition-all duration-300">
+                    </a>
+                </div>
+                <div
+                    class="w-full max-w-sm bg-white rounded-xl border border-gray-100 shadow-lg overflow-hidden group hover:-translate-y-2 transition-all duration-300">
+                    <a href="{{ route('team.detail-qc') }}">
                         <div class="h-[440px] overflow-hidden relative">
                             <img class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                                 src="{{ asset('assets/img/team/abd-rahman.png') }}" alt="Foto Profil">
@@ -515,15 +525,16 @@
                                 <a href="#"
                                     class="bg-white/20 w-2 h-2 p-2 rounded-full text-white hover:bg-brand-orange transition-colors backdrop-blur-sm">
                                     {{-- <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="..." />
-                                    </svg>  --}}
+                            <path d="..." />
+                        </svg>  --}}
                                 </a>
                             </div>
                         </div>
 
                         <div class="p-6 text-center relative">
                             <h3 class="text-xl font-bold text-brand-navy mb-1">Abd. Rahman, S.T</h3>
-                            <p class="text-brand-orange font-semibold text-sm uppercase tracking-wider mb-4">Manager QC
+                            <p class="text-brand-orange font-semibold text-sm uppercase tracking-wider mb-4">
+                                Manager QC
                             </p>
                             <p class="text-gray-600 text-sm leading-relaxed">
                                 Bertugas untuk mengontrol
@@ -533,74 +544,78 @@
                                 standar kualitas proyek
                             </p>
                         </div>
-                    </div>
-                    <div
-                        class="w-full max-w-sm bg-white rounded-xl border border-gray-100 shadow-lg overflow-hidden group hover:-translate-y-2 hover:rounded-2xl transition-all duration-300">
-                        <div class="h-[440px] overflow-hidden relative">
-                            <img class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                                src="{{ asset('assets/img/team/andri-arianto.png') }}" alt="Foto Profil">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-transparent to-transparent">
-                            </div>
-
-                            <div
-                                class="absolute bottom-4 right-4 flex space-x-3 translate-y-10 group-hover:translate-y-0 transition-transform duration-300">
-                                <a href="#"
-                                    class="bg-white/20 w-2 h-2 p-2 rounded-full text-white hover:bg-brand-orange transition-colors backdrop-blur-sm">
-                                    {{-- <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="..." />
-                                    </svg> --}}  </a>
-                            </div>
-                        </div>
-
-                        <div class="p-6 text-center relative">
-                            <h3 class="text-xl font-bold text-brand-navy mb-1">Andri Arianto</h3>
-                            <p class="text-brand-orange font-semibold text-sm uppercase tracking-wider mb-4">Manajer
-                                Produksi</p>
-                            <p class="text-gray-600 text-sm leading-relaxed">
-                                Bertugas mengatur
-                                pelaksanaan proyek di
-                                lapangan, memastikan
-                                pekerjaan tepat waktu dan
-                                sesuai secara teknis
-                            </p>
-                        </div>
-                    </div>
-                    <div
-                        class="w-full max-w-sm bg-white rounded-xl border border-gray-100 shadow-lg overflow-hidden group hover:-translate-y-2 hover:rounded-2xl transition-all duration-300">
-                        <div class="h-[440px] overflow-hidden relative">
-                            <img class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                                src="{{ asset('assets/img/team/herman.png') }}" alt="Foto Profil">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-transparent to-transparent">
-                            </div>
-
-                            <div
-                                class="absolute bottom-4 right-4 flex space-x-3 translate-y-10 group-hover:translate-y-0 transition-transform duration-300">
-                                <a href="#"
-                                    class="bg-white/20 w-2 h-2 p-2 rounded-full text-white hover:bg-brand-orange transition-colors backdrop-blur-sm">
-                                    {{-- <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="..." />
-                                    </svg>  --}} 
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="p-6 text-center relative">
-                            <h3 class="text-xl font-bold text-brand-navy mb-1">Herman S.T</h3>
-                            <p class="text-brand-orange font-semibold text-sm uppercase tracking-wider mb-4">Manajer
-                                Civil & Engineering</p>
-                            <p class="text-gray-600 text-sm leading-relaxed">
-                                Bertugas menyusun desain
-                                teknis, menghitung
-                                kebutuhan material, dan
-                                memastikan struktur proyek
-                                aman serta efisien
-                            </p>
-                        </div>
-                    </div>
-
+                    </a>
                 </div>
+                <div
+                    class="w-full max-w-sm bg-white rounded-xl border border-gray-100 shadow-lg overflow-hidden group hover:-translate-y-2 transition-all duration-300">
+                    <a href="{{ route("team.detail-prod") }}">
+                    <div class="h-[440px] overflow-hidden relative">
+                        <img class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                            src="{{ asset('assets/img/team/andri-arianto.png') }}" alt="Foto Profil">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-transparent to-transparent">
+                        </div>
+
+                        <div
+                            class="absolute bottom-4 right-4 flex space-x-3 translate-y-10 group-hover:translate-y-0 transition-transform duration-300">
+                            <a href="#"
+                                class="bg-white/20 w-2 h-2 p-2 rounded-full text-white hover:bg-brand-orange transition-colors backdrop-blur-sm">
+                                {{-- <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="..." />
+                                    </svg> --}} </a>
+                        </div>
+                    </div>
+
+                    <div class="p-6 text-center relative">
+                        <h3 class="text-xl font-bold text-brand-navy mb-1">Andri Arianto</h3>
+                        <p class="text-brand-orange font-semibold text-sm uppercase tracking-wider mb-4">Manajer Produksi</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Bertugas mengatur
+                            pelaksanaan proyek di
+                            lapangan, memastikan
+                            pekerjaan tepat waktu dan
+                            sesuai secara teknis
+                        </p>
+                    </div>
+                    </a>
+                </div>
+                <div
+                    class="w-full max-w-sm bg-white rounded-xl border border-gray-100 shadow-lg overflow-hidden group hover:-translate-y-2 transition-all duration-300">
+                    <a href="{{ route('team.detail-civ') }}">
+                    <div class="h-[440px] overflow-hidden relative">
+                        <img class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                            src="{{ asset('assets/img/team/herman.png') }}" alt="Foto Profil">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-transparent to-transparent">
+                        </div>
+
+                        <div
+                            class="absolute bottom-4 right-4 flex space-x-3 translate-y-10 group-hover:translate-y-0 transition-transform duration-300">
+                            <a href="#"
+                                class="bg-white/20 w-2 h-2 p-2 rounded-full text-white hover:bg-brand-orange transition-colors backdrop-blur-sm">
+                                {{-- <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="..." />
+                                    </svg>  --}}
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="p-6 text-center relative">
+                        <h3 class="text-xl font-bold text-brand-navy mb-1">Herman S.T</h3>
+                        <p class="text-brand-orange font-semibold text-sm uppercase tracking-wider mb-4">Manajer
+                            Civil & Engineering</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Bertugas menyusun desain
+                            teknis, menghitung
+                            kebutuhan material, dan
+                            memastikan struktur proyek
+                            aman serta efisien
+                        </p>
+                    </div>
+                    </a>
+                </div>
+
+            </div>
             </div>
         </section>
         <x-footer></x-footer>
