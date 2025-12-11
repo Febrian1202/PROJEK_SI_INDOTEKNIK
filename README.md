@@ -6,48 +6,56 @@ Sistem ini dirancang untuk mempermudah HRD dalam mengelola data pelamar dan memb
 
 ---
 
-## 🚀 Fitur Utama
+## 🚀 Fitur Unggulan
 
-### 1. Role & Hak Akses (Multi-Auth)
-Sistem membedakan akses untuk 3 jenis pengguna:
-- **Admin (HRD):** Pengelola utama sistem.
-- **Direktur:** Pengambil keputusan akhir (Approval) dan pemantau kinerja.
-- **Kandidat (Pelamar):** Pengguna publik yang melamar pekerjaan.
+### 1. Multi-Role Authentication & Security
+* **Tiga Hak Akses:** Admin (HRD), Direktur (Eksekutif), dan Kandidat (Pelamar).
+* **Verifikasi Email (OTP):** Sistem keamanan pendaftaran menggunakan kode OTP 6-digit yang dikirim via email.
+* **Fitur Lupa Password:** Reset password aman menggunakan token email.
+* **Proteksi Route:** Middleware untuk membatasi akses antar role.
 
-### 2. Fitur Admin (Back Office)
-- **Dashboard Statistik:** Ringkasan jumlah pelamar, lowongan aktif, dan status rekrutmen.
-- **Manajemen Master Data:**
-  - **Master Site:** Mengelola lokasi proyek (Site Pomalaa, Morosi, dll).
-  - **Master Posisi:** Membuka lowongan pekerjaan baru.
-  - **Master Dokumen:** Mengatur jenis dokumen persyaratan secara dinamis.
-  - **Kelola User:** Manajemen akun pengguna.
-- **Konfigurasi Lowongan:** Mengatur syarat dokumen wajib/opsional untuk setiap posisi.
-- **Manajemen Pelamar:** Melihat detail pelamar, preview/download berkas PDF, ubah status (Terima/Tolak).
-- **Manajemen Karyawan:** Mengelola database karyawan yang sudah diterima (Status kontrak, NIK, Penempatan).
+### 2. Fitur Admin (HRD)
+* **Live Notification:** Notifikasi real-time (lonceng) saat ada pelamar baru tanpa refresh halaman.
+* **Dashboard Statistik:** Memantau jumlah pelamar, lowongan aktif, dan status rekrutmen secara visual.
+* **Manajemen Master Data:**
+    * **Master Site:** Mengelola lokasi penempatan proyek (Site Pomalaa, Morosi, dll).
+    * **Master Posisi:** Membuka lowongan pekerjaan baru dengan deskripsi dinamis.
+    * **Master Dokumen:** Menambah jenis dokumen persyaratan.
+* **Konfigurasi Lowongan:** Mengatur syarat dokumen (Wajib/Opsional) untuk setiap posisi secara spesifik.
+* **Manajemen Pelamar:** Verifikasi berkas, ubah status lamaran, dan kirim pesan ke pelamar.
+* **Kotak Masuk (Pesan):** Menerima dan mengelola pesan dari formulir kontak website.
+* **Manajemen Karyawan:** Database karyawan aktif, penempatan site, dan status kontrak.
 
 ### 3. Fitur Direktur (Executive)
-- **Executive Dashboard:** Ringkasan data strategis.
-- **Approval Workflow:** Menyetujui atau menolak kandidat yang telah lolos seleksi HRD.
-- **Monitoring:** Melihat seluruh data pendaftar dan karyawan aktif.
-- **Laporan PDF:** Mencetak laporan penerimaan karyawan berdasarkan periode bulan/tahun.
+* **Executive Dashboard:** Ringkasan data strategis untuk pengambilan keputusan.
+* **Approval System:** Workflow persetujuan kandidat yang telah lolos seleksi HRD.
+* **Monitoring:** Melihat seluruh arus data pendaftar baru dan karyawan yang bergabung.
+* **Laporan PDF:** Cetak laporan penerimaan karyawan otomatis berdasarkan filter periode bulan/tahun.
 
-### 4. Fitur Kandidat (Frontend)
-- **Autentikasi Aman:** Registrasi dengan verifikasi email (OTP via Mailtrap/SMTP).
-- **Manajemen Profil:** Melengkapi biodata diri (NIK, Alamat, Foto).
-- **Portal Lowongan:** Melihat daftar lowongan tersedia.
-- **Sistem Melamar:** Upload berkas persyaratan dinamis sesuai posisi.
-- **Tracking Status:** Melihat progres lamaran (Baru, Diproses, Diterima/Ditolak), bisa membatalkan lamaran.
+### 4. Fitur Kandidat (Pelamar)
+* **Smart Register:** Pendaftaran akun mudah dengan validasi email.
+* **Manajemen Profil:** Melengkapi biodata diri (NIK, Alamat, Foto) yang terintegrasi.
+* **Pencarian Lowongan:** Fitur pencarian posisi pekerjaan berdasarkan kata kunci.
+* **Dynamic Application Form:** Form upload berkas yang menyesuaikan dengan syarat posisi yang dilamar.
+* **Cetak Kartu Peserta:** Generate otomatis Kartu Tanda Peserta (PDF) berisi foto dan barcode/nomor registrasi.
+* **Tracking Status:** Memantau riwayat lamaran (Baru, Diproses, Diterima/Ditolak).
+
+### 5. Fitur Umum (Public)
+* **Landing Page Modern:** Informasi perusahaan, layanan, dan tim dengan desain responsif.
+* **Halaman Detail Tim:** Profil lengkap jajaran direksi dan tim manajemen.
+* **Formulir Kontak:** Fitur kirim pesan langsung ke Admin HRD.
+* **Lokasi Peta:** Integrasi Google Maps pada halaman kontak.
 
 ---
 
-## 🛠️ Teknologi yang Digunakan
+## 🛠️ Teknologi
 
-- **Backend:** Laravel 11
-- **Frontend:** Blade + Tailwind CSS
-- **Interactivity:** Alpine.js
-- **Database:** MySQL / MariaDB
-- **PDF:** barryvdh/laravel-dompdf
-- **Icons:** Heroicons
+* **Backend:** [Laravel 11](https://laravel.com)
+* **Frontend:** [Blade Templates](https://laravel.com/docs/blade) + [Tailwind CSS](https://tailwindcss.com)
+* **Interactivity:** [Alpine.js](https://alpinejs.dev) (Live Notification, Mobile Menu, Modal)
+* **Database:** MySQL
+* **PDF Generator:** `barryvdh/laravel-dompdf` (Laporan & Kartu Peserta)
+* **Icons:** Heroicons (SVG)
 
 ---
 
@@ -96,7 +104,7 @@ php artisan key:generate
 
 Ubah pengaturan database pada file `.env`:
 
-```Cuplikan Code
+```Cuplikan kode
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
@@ -155,13 +163,13 @@ Akses aplikasi di: `http://127.0.0.1:8000`
 
 Gunakan akun berikut untuk mencoba fitur setelah menjalankan seeder:
 
-|      Role      |          Email                |  Password  |
-| :-------------:|-------------------------------|------------|
-| __Admin HRD__  | `hrd@indoteknik.com`          | `password` |
-| __Direktur__   | `direktur@indoteknik.com`     | `password` |
-| __Kandidat__   | _(Silahkan Register Sendiri)_ | -          |
+|      Role               |          Email                |  Password  |
+| :----------------------:|-------------------------------|------------|
+| __Admin HRD__           | `hrd@indoteknik.com`          | `password` |
+| __Direktur__            | `direktur@indoteknik.com`     | `password` |
+| __Kandidat (Contoh)__   | `budi@gmail.com`              | `password` |
 
----
+<!-- ---
 
 ## 📝 Alur Kerja (Workflow)
 
@@ -175,7 +183,7 @@ Gunakan akun berikut untuk mencoba fitur setelah menjalankan seeder:
 
 5. **Admin:** Finalisasi -> Ubah status jadi 'Diterima' -> Pilih Penempatan Site.
 
-6. **Selesai:** Data masuk ke tabel Karyawan & Laporan PDF siap dicetak.
+6. **Selesai:** Data masuk ke tabel Karyawan & Laporan PDF siap dicetak. -->
 
 ---
 
@@ -188,6 +196,7 @@ Sistem ini dikembangkan dan dikelola oleh:
 
 ---
 
-## 📄 Lisensi
+## 📄 Lisensi & Hak Cipta
+Copyright © 2025 PT. Indoteknik Prima Mekongga.
 
-Hak Cipta © 2025 PT. Indoteknik Prima Mekongga.
+Sistem ini adalah perangkat lunak properti (proprietary software) milik PT. Indoteknik Prima Mekongga. Dilarang menyalin, menyebarluaskan, atau menggunakan kode sumber ini tanpa izin tertulis dari perusahaan atau pengembang terkait.
