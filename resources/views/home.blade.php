@@ -37,10 +37,10 @@
 
                 <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
 
-                    <img src="{{ asset('assets/img/Logo-white v3.png') }}" alt="Logo Indoteknik"
+                    <img src="{{ asset('assets/img/Logo-white v2.png') }}" alt="Logo Indoteknik"
                         class="h-auto w-4/5 md:w-1/2 max-w-3xl mb-6 mx-auto drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)] brightness-110">
 
-                    <div class="w-16 h-1 bg-brand-blue mb-6"></div>
+                    <div class="w-16 h-1 bg-brand-orange mb-6"></div>
 
                     <p class="text-gray-200 max-w-2xl text-base md:text-lg mb-8 leading-relaxed">
                         Kami hadir sebagai perusahaan kontraktor umum dan penyedia tenaga kerja profesional yang
@@ -49,7 +49,7 @@
                     </p>
 
                     <a href="{{ route('login') }}"
-                        class="border border-brand-blue text-white px-8 py-3 rounded-xl font-semibold hover:bg-brand-blue hover:text-black transition duration-300 uppercase tracking-widest text-sm">
+                        class="border border-brand-orange text-white px-8 py-3 rounded-xl font-semibold hover:bg-brand-orange hover:text-white transition duration-300 uppercase tracking-widest text-sm">
                         Gabung Bersama Kami
                     </a>
                 </div>

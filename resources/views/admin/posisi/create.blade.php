@@ -1,4 +1,5 @@
 <x-admin-layout>
+    <x-slot:title>Create Lamaran</x-slot:title>
     <div class="mb-6">
         <a href="{{ route('admin.posisi.index') }}" class="text-gray-500 hover:text-brand-blue flex items-center gap-1 text-sm mb-2">
             &larr; Kembali
