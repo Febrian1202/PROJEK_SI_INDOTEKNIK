@@ -19,7 +19,7 @@
                 },
                 init() {
                     // Auto slide setiap 5 detik (Opsional, hapus jika tidak mau)
-                    setInterval(() => { this.next() }, 7000);
+                    setInterval(() => { this.next() }, 5000);
                 }
             }">
 
@@ -634,8 +634,7 @@
 
                         <div class="swiper-slide px-3">
                             <div class="relative group rounded-xl overflow-hidden shadow-md aspect-[4/3]">
-                                <img src="{{ asset('assets/img/dokumentasi/3.webp') }}"
-                                    alt="Proyek 1"
+                                <img src="{{ asset('assets/img/dokumentasi/3.webp') }}" alt="Proyek 1"
                                     class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                                 <div
                                     class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
@@ -646,8 +645,7 @@
 
                         <div class="swiper-slide px-3">
                             <div class="relative group rounded-xl overflow-hidden shadow-md aspect-[4/3]">
-                                <img src="{{ asset('assets/img/dokumentasi/4.webp') }}"
-                                    alt="Proyek 2"
+                                <img src="{{ asset('assets/img/dokumentasi/4.webp') }}" alt="Proyek 2"
                                     class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                                 <div
                                     class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
@@ -658,8 +656,7 @@
 
                         <div class="swiper-slide px-3">
                             <div class="relative group rounded-xl overflow-hidden shadow-md aspect-[4/3]">
-                                <img src="{{ asset('assets/img/dokumentasi/5.webp') }}"
-                                    alt="Proyek 3"
+                                <img src="{{ asset('assets/img/dokumentasi/5.webp') }}" alt="Proyek 3"
                                     class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                                 <div
                                     class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
@@ -670,8 +667,7 @@
 
                         <div class="swiper-slide px-3">
                             <div class="relative group rounded-xl overflow-hidden shadow-md aspect-[4/3]">
-                                <img src="{{ asset('assets/img/dokumentasi/8.webp') }}"
-                                    alt="Proyek 4"
+                                <img src="{{ asset('assets/img/dokumentasi/8.webp') }}" alt="Proyek 4"
                                     class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                                 <div
                                     class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
@@ -682,8 +678,7 @@
 
                         <div class="swiper-slide px-3">
                             <div class="relative group rounded-xl overflow-hidden shadow-md aspect-[4/3]">
-                                <img src="{{ asset('assets/img/dokumentasi/1.webp') }}"
-                                    alt="Proyek 5"
+                                <img src="{{ asset('assets/img/dokumentasi/1.webp') }}" alt="Proyek 5"
                                     class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                                 <div
                                     class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
@@ -694,8 +689,7 @@
 
                         <div class="swiper-slide px-3">
                             <div class="relative group rounded-xl overflow-hidden shadow-md aspect-[4/3]">
-                                <img src="{{ asset('assets/img/dokumentasi/9.webp') }}"
-                                    alt="Proyek 6"
+                                <img src="{{ asset('assets/img/dokumentasi/9.webp') }}" alt="Proyek 6"
                                     class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                                 <div
                                     class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">

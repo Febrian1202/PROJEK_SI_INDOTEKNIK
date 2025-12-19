@@ -14,6 +14,30 @@ use Illuminate\Support\Facades\Storage;
 
 class KandidatController extends Controller
 {
+    // =========================================================================
+    // HELPER: Cek Kelengkapan Profil (Private biar gak bisa diakses dari URL)
+    // =========================================================================
+    private function cekProfilLengkap($user)
+    {
+        // Cek 1: Apakah data profil sudah dibuat di database?
+        if (!$user->kandidatProfil) {
+            return false;
+        }
+
+        // Cek 2: Apakah field-field krusial sudah diisi?
+        // Sesuaikan 'no_ktp' dengan nama kolom NIK di tabel abang
+        if (
+            empty($user->kandidatProfil->no_ktp) || 
+            empty($user->kandidatProfil->no_telp) || 
+            empty($user->kandidatProfil->alamat) || 
+            empty($user->kandidatProfil->foto)
+        ) {
+            return false;
+        }
+
+        return true;
+    }
+
     // DASHBOARD UTAMA (Menu Grid)
     public function dashboard()
     {
@@ -42,6 +66,13 @@ class KandidatController extends Controller
     // DAFTAR LOWONGAN (Untuk Menu 'Lowongan Pekerjaan')
     public function lowongan(Request $request)
     {
+        // --- VALIDASI PROFIL ---
+        // User dipaksa melengkapi profil dulu sebelum bisa lihat lowongan
+        if (!$this->cekProfilLengkap(Auth::user())) {
+            return redirect()->route('profil.index')->with('error', 'Mohon lengkapi Biodata (NIK, No HP, Alamat, Foto) sebelum melihat lowongan!');
+        }
+        // -----------------------
+
         // Mulai Query dasar (Hanya tampilkan yang aktif)
         $query = Posisi::where('is_active', true);
 
@@ -57,16 +88,13 @@ class KandidatController extends Controller
         }
 
         // Ambil data dengan Pagination
-        // 'with' digunakan agar query dokumen syaratnya lebih ringan (Eager Loading)
         $lowongan = $query->latest()->paginate(9);
-
-        // PENTING: Tambahkan ini agar saat pindah halaman (Page 2), kata kuncinya tidak hilang
         $lowongan->appends(['keyword' => $request->keyword]);
 
         return view('kandidat.lowongan.index', compact('lowongan'));
     }
 
-    // 5. RIWAYAT LAMARAN
+    // RIWAYAT LAMARAN
     public function riwayat()
     {
         $user = Auth::user();
@@ -88,6 +116,12 @@ class KandidatController extends Controller
     // DETAIL LOWONGAN & FORM LAMAR
     public function showLowongan($id)
     {
+        // --- VALIDASI PROFIL ---
+        if (!$this->cekProfilLengkap(Auth::user())) {
+            return redirect()->route('profil.index')->with('error', 'Mohon lengkapi Biodata (NIK, No HP, Alamat, Foto) sebelum melihat detail lowongan!');
+        }
+        // -----------------------
+
         // Ambil posisi beserta syarat dokumennya
         $posisi = Posisi::with('syaratDokumen')->where('is_active', true)->findOrFail($id);
 
@@ -105,10 +139,12 @@ class KandidatController extends Controller
     {
         $user = Auth::user();
 
-        // Validasi Profil
-        if (!$user->kandidatProfil) {
-            return redirect()->route('profil.index')->with('error', 'Lengkapi profil dulu sebelum melamar!');
+        // --- VALIDASI PROFIL ---
+        // Double check saat submit, biar user gak nakal nembak URL
+        if (!$this->cekProfilLengkap($user)) {
+            return redirect()->route('profil.index')->with('error', 'Lengkapi profil (NIK & Foto) dulu sebelum melamar!');
         }
+        // -----------------------
 
         $posisi = Posisi::with('syaratDokumen')->findOrFail($id);
 
@@ -116,7 +152,6 @@ class KandidatController extends Controller
         $rules = [];
         foreach ($posisi->syaratDokumen as $syarat) {
             if ($syarat->pivot->is_mandatory) {
-                // Nama input form: berkas_IDDOKUMEN
                 $rules['berkas_' . $syarat->id] = 'required|mimes:pdf,jpg,jpeg|max:2048';
             } else {
                 $rules['berkas_' . $syarat->id] = 'nullable|mimes:pdf,jpg,jpeg|max:2048';
@@ -147,28 +182,17 @@ class KandidatController extends Controller
                 $nikFolder = trim($user->kandidatProfil->no_ktp);
                 $targetFolder = 'uploads/lamaran/' . $nikFolder;
 
-                // Buat Folder Manual (Cek dulu)
-                // Ini mencegah error "Unable to create directory"
                 if (!Storage::disk('public')->exists($targetFolder)) {
                     Storage::disk('public')->makeDirectory($targetFolder);
                 }
 
-                // Bersihkan Nama File
-                // Str::slug mengubah 'CV / Ijazah' jadi 'cv-ijazah' (huruf kecil semua, tanpa spasi)
                 $cleanDocName = Str::slug($syarat->nama_dokumen);
-
-                // Ambil ekstensi & ubah ke huruf kecil (misal .CV jadi .cv)
                 $ext = strtolower($file->getClientOriginalExtension());
-                if (empty($ext)) $ext = 'pdf'; // Default jika ekstensi tidak terdeteksi
+                if (empty($ext)) $ext = 'pdf'; 
 
-                // Gabungkan nama file
                 $fileName = time() . '_' . $cleanDocName . '.' . $ext;
-
-                // Simpan File Menggunakan Storage Facade
-                // putFileAs(Folder, File, NamaBaru)
                 $path = Storage::disk('public')->putFileAs($targetFolder, $file, $fileName);
 
-                // Simpan ke database
                 \App\Models\BerkasKandidat::create([
                     'lamaran_id' => $lamaran->id,
                     'dokumen_id' => $syarat->id,
@@ -195,20 +219,16 @@ class KandidatController extends Controller
         $lamaran = Lamaran::where('kandidat_id', $user->kandidatProfil->id)
             ->findOrFail($id);
 
-        // Validasi: Hanya boleh batal jika status masih 'Baru'
         if ($lamaran->status !== 'Baru') {
             return back()->with('error', 'Lamaran yang sudah diproses tidak bisa dibatalkan.');
         }
 
-        // Hapus File Fisik di Storage
         foreach ($lamaran->berkas as $berkas) {
             if (Storage::disk('public')->exists($berkas->path_file)) {
                 Storage::disk('public')->delete($berkas->path_file);
             }
-            // Hapus record berkas di database (otomatis terhapus via cascade on delete, tapi manual lebih aman untuk file fisik)
         }
 
-        // Hapus Data Lamaran
         $lamaran->delete();
 
         return back()->with('success', 'Lamaran berhasil dibatalkan. Silakan melamar posisi lain.');
